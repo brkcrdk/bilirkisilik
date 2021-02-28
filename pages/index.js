@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import styled from 'styled-components';
 
 export default function Home() {
   return (
@@ -63,3 +64,14 @@ export default function Home() {
     </div>
   )
 }
+
+const Container = styled.div`
+  .container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
