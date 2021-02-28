@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import styled from 'styled-components';
+/* eslint-disable max-len */
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico " />
       </Head>
 
       <main className={styles.main}>
@@ -17,7 +17,9 @@ export default function Home() {
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          <code className={styles.code}>
+            <span>pages/index.js</span>
+          </code>
         </p>
 
         <div className={styles.grid}>
@@ -62,16 +64,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
-
-const Container = styled.div`
-  .container {
-    min-height: 100vh;
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
