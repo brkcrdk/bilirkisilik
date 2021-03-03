@@ -3,7 +3,13 @@ export const color = {
   secondary: '#393e46',
   yellow: '#ffd369',
   red: '#ef4f4f',
-  text: '#696969',
+  text300: '#bdc0c2',
+  text400: '#a7abae',
+  text500: '#91979a',
+  text600: '#7c8286',
+  text700: '#666d72',
+  text800: '#50585d',
+  text900: '#3a4349',
   backgroundColor: '#eeeeee',
 };
 
