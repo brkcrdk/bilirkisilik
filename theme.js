@@ -1,4 +1,11 @@
-export const color = {};
+export const color = {
+  primary: '#222831',
+  secondary: '#393e46',
+  yellow: '#ffd369',
+  red: '#ef4f4f',
+  text: '#696969',
+  backgroundColor: '#eeeeee',
+};
 
 const size = {
   desktop: 1280,
