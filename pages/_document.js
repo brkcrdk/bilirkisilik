@@ -1,6 +1,5 @@
 import Document, { Head, Main, NextScript, Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -32,6 +31,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link href="/fonts/Nunito/nunito.css" rel="stylesheet" />
+          <link href="/styles/index.css" rel="stylesheet" />
         </Head>
 
         <body>
