@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Mail",
+    "icon": "icon-mail",
+    "type": "mail",
+    "link": "test@test.com.tr"
+  },
+  {
+    "name": "Phone",
+    "icon": "icon-phone",
+    "type": "tel",
+    "link": "+095556664433"
+  }
+]
