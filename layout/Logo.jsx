@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-const Logo = () => <StyledLogo src="/images/logo.png" />;
+const Logo = ({ lightLogo, width = 200 }) => (
+  <StyledLogo
+    src={`/images/${lightLogo ? 'light-logo' : 'logo'}.png`}
+    width={width}
+  />
+);
 export default Logo;
 
-const StyledLogo = styled.img`
-  max-width: 200px;
-`;
+const StyledLogo = styled.img``;
