@@ -14,6 +14,7 @@ const Info = () => (
             name={data.name}
             link={data.link}
             icon={data.icon}
+            label={data.label}
           />
         ))}
       </ContactButtons>
@@ -37,4 +38,6 @@ const InfoContent = styled(Container)`
   justify-content: space-between;
 `;
 
-const ContactButtons = styled.div``;
+const ContactButtons = styled.div`
+  display: flex;
+`;

@@ -2,13 +2,13 @@
   {
     "name": "Mail",
     "icon": "icon-mail",
-    "type": "mail",
-    "link": "test@test.com.tr"
+    "link": "mailto:test@test.com.tr",
+    "label": "test@test.com.tr"
   },
   {
     "name": "Phone",
     "icon": "icon-phone",
-    "type": "tel",
-    "link": "+095556664433"
+    "link": "tel:+095556664433",
+    "label": "+09555-666-44-33"
   }
 ]
