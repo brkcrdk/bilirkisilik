@@ -2,8 +2,3 @@ html {
   font-family: 'Nunito', sans-serif;
   background-color: #fcfcfc;
 }
-a {
-  cursor: pointer;
-  text-decoration: none;
-  color: unset;
-}
