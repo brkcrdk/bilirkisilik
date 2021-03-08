@@ -44,7 +44,7 @@ const StyledHeader = styled.header`
 const HeaderItems = styled.div`
   width: 100%;
   padding: 20px 0;
-  background: ${(p) => (p.scrolled ? 'rgba(255,255,255,0.9)' : 'transparent')};
+  background: ${(p) => (p.scrolled ? color.backgroundColor09 : 'transparent')};
   position: ${(p) => p.scrolled && 'fixed'};
   top: 0;
   animation-name: ${(p) => p.scrolled && 'fadeIn'};

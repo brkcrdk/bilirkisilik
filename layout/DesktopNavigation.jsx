@@ -1,2 +1,4 @@
-const DesktopNavigation = () => <nav>desktop</nav>;
+import Navigation from './Navigation';
+
+const DesktopNavigation = () => <Navigation />;
 export default DesktopNavigation;
