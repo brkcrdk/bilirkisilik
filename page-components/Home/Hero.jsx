@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import { Slider } from 'components';
 
-const Hero = () => (
-  <StyledHero>
-    <Slider>
-      <HeroImage src="/images/slider-placeholder/1.png" />
-      <HeroImage src="/images/slider-placeholder/2.jpg" />
-      <HeroImage src="/images/slider-placeholder/3.jpg" />
-    </Slider>
-    <HeroShadow />
-  </StyledHero>
-);
+const Hero = () => {
+  const settings = {
+    loop: true,
+  };
+  return (
+    <StyledHero>
+      <Slider settings={settings}>
+        <HeroImage src="/images/slider-placeholder/1.png" />
+        <HeroImage src="/images/slider-placeholder/2.jpg" />
+        <HeroImage src="/images/slider-placeholder/3.jpg" />
+      </Slider>
+      <HeroShadow />
+    </StyledHero>
+  );
+};
 export default Hero;
 
 const StyledHero = styled.section`
