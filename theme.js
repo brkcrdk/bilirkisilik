@@ -11,6 +11,7 @@ export const color = {
   text800: '#50585d',
   text900: '#3a4349',
   backgroundColor: '#eeeeee',
+  backgroundColor09: 'rgba(238, 238, 238,0.9)',
 };
 
 const size = {
