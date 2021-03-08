@@ -31,6 +31,9 @@
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
-    "react/self-closing-comp":"error"
+    "react/self-closing-comp":"error",
+    "no-unused-expressions":"warn",
+    "no-unused-labels":"warn",
+    "no-unused-vars":"warn"
   }
 }
