@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import CustomLink from './CustomLink';
 
 const ContactButton = ({ icon, name, link, label }) => (
   <StyledContactButton
@@ -16,7 +15,7 @@ const ContactButton = ({ icon, name, link, label }) => (
 
 export default ContactButton;
 
-const StyledContactButton = styled(CustomLink)`
+const StyledContactButton = styled.a`
   margin: 0 10px;
   font-size: 20px;
   display: flex;
