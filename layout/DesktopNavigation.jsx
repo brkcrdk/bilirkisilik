@@ -101,7 +101,7 @@ const DropdownContent = styled.ul`
   overflow: hidden;
   border-radius: 6px;
   padding: 10px;
-  margin-top: 25px;
+  margin-top: 24px;
   a {
     color: ${color.text600};
     white-space: nowrap;
