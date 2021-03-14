@@ -1,59 +1,43 @@
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Container } from 'components';
+import { m, motion } from 'framer-motion';
+import { color, sizes } from 'theme';
+import { useHeaderScroll, useWindowWidth } from 'hooks';
+
 import Logo from './Logo';
 import DesktopNavigation from './DesktopNavigation';
+import MobileNavigation from './MobileNavigation';
 import Info from './Info';
-import { color } from 'theme';
-import { motion } from 'framer-motion';
-import StyledHamburger from './Hamburger';
+import Hamburger from './Hamburger';
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [currentY, setCurrentY] = useState(0);
-  const [shouldHide, setShouldHide] = useState(false);
-  useEffect(() => {
-    const scrollPosition = () => {
-      if (window.pageYOffset > 70) return setScrolled(true);
-      return setScrolled(false);
-    };
-    window.addEventListener('scroll', scrollPosition);
-    return () => {
-      window.removeEventListener('scroll', scrollPosition);
-    };
-  }, [scrolled]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const { pageYOffset } = window;
-      if (pageYOffset - currentY < 0) {
-        setShouldHide(false);
-      } else {
-        setShouldHide(true);
-      }
-      return setCurrentY(pageYOffset);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [currentY, shouldHide]);
-
+  const { hideHeader, scrolled } = useHeaderScroll();
+  const { windowWidth } = useWindowWidth();
+  const isPhone = windowWidth <= sizes.phone;
+  const headerItemAnimations = scrolled ? { top: 0 } : { top: 70 };
+  const logoSizes = scrolled ? (isPhone ? 125 : 150) : isPhone ? 150 : 200;
   return (
     <StyledHeader
       scrolled={scrolled}
-      animate={shouldHide && currentY > 250 ? { y: '-100%' } : { y: 0 }}
-      transition={{ duration: 0.3, type: 'tween' }}
+      animate={hideHeader ? { top: -100, opacity: 0 } : { top: 0, opacity: 1 }}
+      transition={{ duration: 0.5, type: 'tween' }}
     >
       <Info scrolled={scrolled} />
-      <HeaderItems scrolled={scrolled}>
+      <HeaderItems
+        scrolled={scrolled}
+        animate={isPhone ? { top: 0 } : headerItemAnimations}
+        transition={{ duration: 0.3, type: 'tween' }}
+      >
         <HeaderContent scrolled={scrolled}>
-          <Logo lightLogo={!scrolled} width={scrolled ? 150 : 200} />
+          <Logo lightLogo={!scrolled} width={logoSizes} />
           <DesktopNavigation scrolled={scrolled} />
-          <StyledHamburger />
+          <Hamburger
+            size={scrolled ? 0.7 : 0.9}
+            burgerColor={scrolled && color.primary}
+          />
         </HeaderContent>
       </HeaderItems>
+      <MobileNavigation />
     </StyledHeader>
   );
 };
@@ -61,17 +45,17 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled(motion.header)`
-  position: ${(p) => (p.scrolled ? 'fixed' : 'absolute')};
+  position: fixed;
   width: 100%;
   z-index: 9999;
 `;
 
-const HeaderItems = styled.div`
+const HeaderItems = styled(motion.div)`
   width: 100%;
   background: ${(p) => (p.scrolled ? color.backgroundColor : 'transparent')};
-  position: ${(p) => p.scrolled && 'fixed'};
-  top: 0;
+  position: absolute;
   border-bottom: ${(p) => p.scrolled && `1px solid ${color.primary}`};
+  transition: background 0.3s ease-in-out;
 `;
 
 const HeaderContent = styled(Container)`
