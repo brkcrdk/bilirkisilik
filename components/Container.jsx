@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from 'theme';
+
 const Container = ({ children, className }) => {
   return <StyledContainer className={className}>{children}</StyledContainer>;
 };
@@ -11,9 +12,11 @@ const StyledContainer = styled.section`
   display: grid;
   margin: 0 auto;
   width: 100%;
-  box-sizing: border-box;
   @media ${device.desktop} {
     padding: 0 30px;
     margin: 0;
+  }
+  @media ${device.phone} {
+    padding: 0 15px;
   }
 `;
