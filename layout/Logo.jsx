@@ -8,4 +8,6 @@ const Logo = ({ lightLogo, width = 200 }) => (
 );
 export default Logo;
 
-const StyledLogo = styled.img``;
+const StyledLogo = styled.img`
+  transition: all 0.3s ease-in-out;
+`;

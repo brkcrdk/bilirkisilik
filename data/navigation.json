@@ -24,7 +24,7 @@
     "label": "Sublink Test",
     "sublinks": [
       {
-        "label": "Sublink 1",
+        "label": "Sublink 1 Lorem ipsum dolor sit amet",
         "route": "sublink-test-1"
       },
       {
