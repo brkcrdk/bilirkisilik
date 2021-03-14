@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-
-const ContactButton = ({ icon, name, link, label }) => (
-  <StyledContactButton
+import { color } from 'theme';
+const ExternalLink = ({ icon, name, link, label }) => (
+  <StyledExternalLink
     href={link}
     alt={name}
     title={name}
@@ -10,18 +10,19 @@ const ContactButton = ({ icon, name, link, label }) => (
   >
     <ContactIcon className={icon} hasLabel={label} />
     {label && <ContactLabel>{label}</ContactLabel>}
-  </StyledContactButton>
+  </StyledExternalLink>
 );
 
-export default ContactButton;
+export default ExternalLink;
 
-const StyledContactButton = styled.a`
+const StyledExternalLink = styled.a`
   margin: 0 10px;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+  color: ${color.backgroundColor};
 `;
 
 const ContactIcon = styled.i`
