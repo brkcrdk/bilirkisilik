@@ -4,8 +4,8 @@ import { color } from 'theme';
 import SocialButtons from './SocialButtons';
 import contactData from 'data/contact.json';
 
-const Info = ({ scrolled }) => (
-  <StyledInfo scrolled={scrolled}>
+const Info = () => (
+  <StyledInfo>
     <InfoContent>
       <ContactButtons>
         {contactData?.map((data) => (
@@ -27,13 +27,11 @@ export default Info;
 
 const StyledInfo = styled.div`
   display: flex;
-  border-bottom: 1px solid ${color.backgroundColor};
-  opacity: ${(p) => (p.scrolled ? 0 : 1)};
+  border-bottom: 1px solid ${color.text300};
 `;
 
 const InfoContent = styled(Container)`
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 25px 0;
   color: ${color.text300};
   font-weight: 600;
   display: flex;

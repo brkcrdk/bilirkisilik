@@ -14,10 +14,15 @@ export const color = {
   backgroundColor09: 'rgba(238, 238, 238,0.9)',
 };
 
-export const device = {
-  desktop: '(max-width: 1279px)',
-  laptop: '(max-width: 1023px)',
-  tablet: '(max-width: 767px)',
-  phone: '(max-width: 600px)',
-  mini: '(max-width: 413px)',
+const size = {
+  desktop: 1280,
+  laptop: 1024,
+  tablet: 768,
+  phone: 601,
+  mini: 414,
 };
+
+export const device = Object.keys(size).reduce((acc, cur) => {
+  acc[cur] = `(max-width: ${size[cur] - 1}px)`;
+  return acc;
+}, {});
