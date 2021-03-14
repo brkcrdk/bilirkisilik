@@ -14,10 +14,18 @@ export const color = {
   backgroundColor09: 'rgba(238, 238, 238,0.9)',
 };
 
+export const sizes = {
+  desktop: 1280,
+  laptop: 1024,
+  tablet: 768,
+  phone: 600,
+  mini: 414,
+};
+
 export const device = {
-  desktop: '(max-width: 1279px)',
-  laptop: '(max-width: 1023px)',
-  tablet: '(max-width: 767px)',
+  desktop: '(max-width: 1280px)',
+  laptop: '(max-width: 1024px)',
+  tablet: '(max-width: 768px)',
   phone: '(max-width: 600px)',
-  mini: '(max-width: 413px)',
+  mini: '(max-width: 414px)',
 };
