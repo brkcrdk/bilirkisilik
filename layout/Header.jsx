@@ -6,6 +6,7 @@ import DesktopNavigation from './DesktopNavigation';
 import Info from './Info';
 import { color } from 'theme';
 import { motion } from 'framer-motion';
+import StyledHamburger from './Hamburger';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +51,7 @@ const Header = () => {
         <HeaderContent scrolled={scrolled}>
           <Logo lightLogo={!scrolled} width={scrolled ? 150 : 200} />
           <DesktopNavigation scrolled={scrolled} />
+          <StyledHamburger />
         </HeaderContent>
       </HeaderItems>
     </StyledHeader>
