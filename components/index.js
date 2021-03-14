@@ -1,3 +1,5 @@
 export { default as Slider } from './Slider';
 export { default as Container } from './Container';
-export { default as ContactButton } from './ContactButton';
+export { default as ExternalLink } from './ExternalLink';
+export { default as SocialButtons } from './SocialButtons';
+export { default as ContactButtons } from './ContactButtons';
