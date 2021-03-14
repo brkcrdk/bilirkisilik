@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <StyledHeader
       scrolled={scrolled}
-      animate={shouldHide && currentY > 200 ? { y: '-100%' } : { y: 0 }}
+      animate={shouldHide && currentY > 250 ? { y: '-100%' } : { y: 0 }}
       transition={{ duration: 0.3, type: 'tween' }}
     >
       <Info scrolled={scrolled} />
