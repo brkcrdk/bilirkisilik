@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { device, color } from 'theme';
 import Hamburger from './Hamburger';
@@ -9,15 +9,45 @@ const MobileNavigation = () => {
   const containerRef = useRef();
   const { isSidebarOpen } = useSidebar(containerRef);
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
   return (
     <StyledNavigation
       ref={containerRef}
-      animate={isSidebarOpen ? { right: 0 } : { right: '-100%' }}
+      initial={{ right: 0 }}
+      // animate={isSidebarOpen ? { right: 0 } : { right: '-100%' }}
       transition={{ type: 'tween', duration: 0.6 }}
     >
       <Hamburger burgerColor={color.primary} />
       <div />
-      <p>links</p>
+      <AnimatePresence>
+        <AnimatedLinks
+          variants={container}
+          initial="hidden"
+          animate={isSidebarOpen ? 'show' : 'hidden'}
+        >
+          {[1, 3, 4, 6].map((link) => (
+            <AnimatedLink
+              transition={{ duration: 0.3, type: 'tween' }}
+              key={link}
+            >
+              1
+            </AnimatedLink>
+          ))}
+        </AnimatedLinks>
+      </AnimatePresence>
       <p>socials</p>
     </StyledNavigation>
   );
@@ -54,3 +84,6 @@ const StyledNavigation = styled(motion.nav)`
     right: 15px;
   }
 `;
+
+const AnimatedLinks = styled(motion.ul)``;
+const AnimatedLink = styled(motion.li)``;

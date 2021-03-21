@@ -13,6 +13,7 @@ const DesktopNavigation = ({ scrolled }) => {
           <MenuItem
             scrolled={scrolled}
             hasSubLinks
+            key={item.label}
             onMouseEnter={(e) => {
               const margin = window.outerWidth - e.clientX;
               if (margin < 250) {
@@ -35,7 +36,7 @@ const DesktopNavigation = ({ scrolled }) => {
             </Dropdown>
           </MenuItem>
         ) : (
-          <MenuItem>
+          <MenuItem key={item.label}>
             <Link href={item.route} passHref>
               <a alt={item.label} title={item.label}>
                 {item.label}
