@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Container } from 'components';
-import { m, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { color, sizes } from 'theme';
 import { useHeaderScroll, useWindowWidth } from 'hooks';
 
@@ -14,7 +14,7 @@ const Header = () => {
   const { hideHeader, scrolled } = useHeaderScroll();
   const { windowWidth } = useWindowWidth();
   const isPhone = windowWidth <= sizes.phone;
-  const headerItemAnimations = scrolled ? { top: 0 } : { top: 70 };
+  const headerItemAnimations = isPhone ? { top: 0 } : { top: 70 };
   const logoSizes = scrolled ? (isPhone ? 125 : 150) : isPhone ? 150 : 200;
   return (
     <StyledHeader
@@ -25,7 +25,7 @@ const Header = () => {
       <Info scrolled={scrolled} />
       <HeaderItems
         scrolled={scrolled}
-        animate={isPhone ? { top: 0 } : headerItemAnimations}
+        animate={scrolled ? { top: 0 } : headerItemAnimations}
         transition={{ duration: 0.3, type: 'tween' }}
       >
         <HeaderContent scrolled={scrolled}>
