@@ -39,6 +39,7 @@ export default AccordionItem;
 
 const StyledAccordionItem = styled(motion.div)`
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const AccordionHeader = styled.span`

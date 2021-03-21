@@ -159,6 +159,7 @@ const AnimatedLinkItem = styled(motion.li)`
   font-size: 20px;
   color: ${color.primary};
   margin: 10px 0;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const InfoSection = styled.div`
