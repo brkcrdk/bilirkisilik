@@ -9,10 +9,11 @@ import { device, color } from 'theme';
 import Hamburger from './Hamburger';
 import navigationData from 'data/navigation.json';
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ routeInfo }) => {
   const containerRef = useRef();
   const { isSidebarOpen, closeSidebar } = useSidebar(containerRef);
-
+  const { asPath, parentRoute } = routeInfo;
+  console.log({ asPath, parentRoute });
   const animationVariants = {
     hidden: {
       transition: {
@@ -72,6 +73,7 @@ const MobileNavigation = () => {
               key={link.label}
               variants={itemVariants}
               title={link.label}
+              active={parentRoute === link.label.toLowerCase()}
             >
               {link.sublinks.map((sublink) => (
                 <AnimatedLinkItem key={sublink.label} onClick={closeSidebar}>
@@ -86,6 +88,7 @@ const MobileNavigation = () => {
               variants={itemVariants}
               key={link.label}
               onClick={closeSidebar}
+              active={asPath === link.route}
             >
               <Link href={link.route} passHref>
                 <a>{link.label}</a>
@@ -123,7 +126,7 @@ const StyledNavigation = styled(motion.nav)`
     display: flex;
     width: 70%;
   }
-  @media ${device.mini} {
+  @media ${device.phone} {
     width: 100%;
   }
 `;
@@ -160,6 +163,7 @@ const AnimatedLinkItem = styled(motion.li)`
   color: ${color.primary};
   margin: 10px 0;
   -webkit-tap-highlight-color: transparent;
+  font-weight: ${(p) => p.active && 800};
 `;
 
 const InfoSection = styled.div`

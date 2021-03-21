@@ -4,13 +4,16 @@ import Link from 'next/link';
 import { color, device } from 'theme';
 import { useState } from 'react';
 
-const DesktopNavigation = ({ scrolled }) => {
+const DesktopNavigation = ({ scrolled, routeInfo }) => {
   const [closeToCorner, setCloseToCorner] = useState(false);
+  const { asPath, parentRoute } = routeInfo;
+
   return (
     <StyledNavigation>
       {navigationData?.map((item) =>
         item.sublinks ? (
           <MenuItem
+            active={parentRoute === item.label.toLowerCase()}
             scrolled={scrolled}
             hasSubLinks
             key={item.label}
@@ -36,7 +39,7 @@ const DesktopNavigation = ({ scrolled }) => {
             </Dropdown>
           </MenuItem>
         ) : (
-          <MenuItem key={item.label}>
+          <MenuItem key={item.label} active={asPath === item.route}>
             <Link href={item.route} passHref>
               <a alt={item.label} title={item.label}>
                 {item.label}
@@ -64,6 +67,8 @@ const MenuItem = styled.div`
   cursor: pointer;
   position: relative;
   padding: 10px;
+  font-weight: ${(p) => p.active && 800};
+
   &:hover {
     color: ${(p) =>
       p.hasSubLinks && !p.scrolled ? color.backgroundColor : color.primary};
@@ -82,6 +87,7 @@ const Dropdown = styled.div`
   height: 100%;
   position: absolute;
   right: ${(p) => p.isCloseToCorner && '75px'};
+
   animation-duration: 0.3s;
   animation-iteration-count: 1;
   @keyframes dropdownFadeIn {
@@ -107,6 +113,7 @@ const DropdownContent = styled.ul`
     color: ${color.text600};
     white-space: nowrap;
     margin: 8px 0;
+    font-weight: 400;
 
     &:hover {
       color: ${color.primary};

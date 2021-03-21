@@ -3,7 +3,7 @@ import { Container } from 'components';
 import { motion } from 'framer-motion';
 import { color, sizes } from 'theme';
 import { useHeaderScroll, useWindowWidth } from 'hooks';
-
+import { useRouter } from 'next/router';
 import Logo from './Logo';
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
@@ -16,6 +16,12 @@ const Header = () => {
   const isPhone = windowWidth <= sizes.phone;
   const headerItemAnimations = isPhone ? { top: 0 } : { top: 70 };
   const logoSizes = scrolled ? (isPhone ? 125 : 150) : isPhone ? 150 : 200;
+
+  const { asPath } = useRouter();
+  const parentRoute = asPath.split('/')[1];
+
+  const routeInfo = { asPath, parentRoute };
+
   return (
     <StyledHeader
       scrolled={scrolled}
@@ -30,14 +36,14 @@ const Header = () => {
       >
         <HeaderContent scrolled={scrolled}>
           <Logo lightLogo={!scrolled} width={logoSizes} />
-          <DesktopNavigation scrolled={scrolled} />
+          <DesktopNavigation scrolled={scrolled} routeInfo={routeInfo} />
           <Hamburger
             size={scrolled ? 0.7 : 0.9}
             burgerColor={scrolled && color.primary}
           />
         </HeaderContent>
       </HeaderItems>
-      <MobileNavigation />
+      <MobileNavigation routeInfo={routeInfo} />
     </StyledHeader>
   );
 };
