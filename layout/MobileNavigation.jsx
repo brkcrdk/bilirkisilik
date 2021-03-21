@@ -9,45 +9,65 @@ const MobileNavigation = () => {
   const containerRef = useRef();
   const { isSidebarOpen } = useSidebar(containerRef);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
+  const animationVariants = {
+    hidden: {
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
+    },
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: 1,
+        delayChildren: 0.4,
       },
     },
   };
 
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
+  const itemVariants = {
+    hidden: {
+      x: 50,
+      opacity: 0,
+      transition: {
+        type: 'tween',
+      },
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+      },
+    },
   };
+
   return (
     <StyledNavigation
       ref={containerRef}
       initial={{ right: 0 }}
-      // animate={isSidebarOpen ? { right: 0 } : { right: '-100%' }}
-      transition={{ type: 'tween', duration: 0.6 }}
+      animate={isSidebarOpen ? { right: 0 } : { right: '-100%' }}
+      transition={{
+        type: 'tween',
+        duration: 0.6,
+        delay: isSidebarOpen ? 0 : 0.4,
+      }}
     >
       <Hamburger burgerColor={color.primary} />
       <div />
-      <AnimatePresence>
-        <AnimatedLinks
-          variants={container}
-          initial="hidden"
-          animate={isSidebarOpen ? 'show' : 'hidden'}
-        >
-          {[1, 3, 4, 6].map((link) => (
-            <AnimatedLink
-              transition={{ duration: 0.3, type: 'tween' }}
-              key={link}
-            >
-              1
-            </AnimatedLink>
-          ))}
-        </AnimatedLinks>
-      </AnimatePresence>
+      <motion.ul
+        variants={animationVariants}
+        initial="hidden"
+        animate={isSidebarOpen ? 'show' : 'hidden'}
+      >
+        <motion.li variants={itemVariants}>1</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>2</motion.li>
+      </motion.ul>
       <p>socials</p>
     </StyledNavigation>
   );
