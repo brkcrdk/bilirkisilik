@@ -8,11 +8,11 @@
     "sublinks": [
       {
         "label": "Hizmet 1",
-        "route": "hizmet-1"
+        "route": "/hizmetlerimiz/hizmet-1"
       },
       {
         "label": "Hizmet 2",
-        "route": "hizmet-2"
+        "route": "/hizmetlerimiz/hizmet-2"
       }
     ]
   },
@@ -25,11 +25,11 @@
     "sublinks": [
       {
         "label": "Sublink 1 Lorem ipsum dolor sit amet",
-        "route": "sublink-test-1"
+        "route": "/sublink-test/sublink-test-1"
       },
       {
         "label": "Sublink 2",
-        "route": "sublink-test-2"
+        "route": "/sublink-test/sublink-test-2"
       }
     ]
   }
