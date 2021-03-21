@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useSidebar } from 'hooks';
-import Logo from './Logo';
 import { AccordionItem, ContactButtons, SocialButtons } from 'components';
 import { device, color } from 'theme';
-import Hamburger from './Hamburger';
+import Logo from '../Logo';
+import Hamburger from '../Hamburger';
 import navigationData from 'data/navigation.json';
 
 const MobileNavigation = ({ routeInfo }) => {

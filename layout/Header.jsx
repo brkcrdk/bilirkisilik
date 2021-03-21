@@ -5,10 +5,10 @@ import { color, sizes } from 'theme';
 import { useHeaderScroll, useWindowWidth } from 'hooks';
 import { useRouter } from 'next/router';
 import Logo from './Logo';
-import DesktopNavigation from './DesktopNavigation';
-import MobileNavigation from './MobileNavigation';
 import Info from './Info';
 import Hamburger from './Hamburger';
+import MobileNavigation from './MobileNavigation/index';
+import DesktopNavigation from './DesktopNavigation/index';
 
 const Header = () => {
   const { hideHeader, scrolled } = useHeaderScroll();
