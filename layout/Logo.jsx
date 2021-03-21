@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const Logo = ({ lightLogo, width = 200 }) => (
-  <StyledLogo
-    src={`/images/${lightLogo ? 'light-logo' : 'logo'}.png`}
-    width={width}
-  />
+  <Link href="/" passHref>
+    <a title="Logo" alt="logo">
+      <StyledLogo
+        src={`/images/${lightLogo ? 'light-logo' : 'logo'}.png`}
+        width={width}
+      />
+    </a>
+  </Link>
 );
 export default Logo;
 
