@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useSidebar } from 'hooks';
+import Logo from './Logo';
 import { AccordionItem, ContactButtons, SocialButtons } from 'components';
 import { device, color } from 'theme';
 import Hamburger from './Hamburger';
@@ -10,7 +11,7 @@ import navigationData from 'data/navigation.json';
 
 const MobileNavigation = () => {
   const containerRef = useRef();
-  const { isSidebarOpen } = useSidebar(containerRef);
+  const { isSidebarOpen, closeSidebar } = useSidebar(containerRef);
 
   const animationVariants = {
     hidden: {
@@ -56,8 +57,10 @@ const MobileNavigation = () => {
         delay: isSidebarOpen ? 0 : 0.4,
       }}
     >
-      <Hamburger burgerColor={color.primary} />
-      <div />
+      <HeaderSection>
+        <Logo width={125} />
+        <Hamburger burgerColor={color.primary} />
+      </HeaderSection>
       <LinkContainer
         variants={animationVariants}
         initial="hidden"
@@ -71,7 +74,7 @@ const MobileNavigation = () => {
               title={link.label}
             >
               {link.sublinks.map((sublink) => (
-                <AnimatedLinkItem key={sublink.label}>
+                <AnimatedLinkItem key={sublink.label} onClick={closeSidebar}>
                   <Link href={sublink.route} passHref>
                     <a>{sublink.label}</a>
                   </Link>
@@ -79,7 +82,11 @@ const MobileNavigation = () => {
               ))}
             </AccordionItem>
           ) : (
-            <AnimatedLinkItem variants={itemVariants} key={link.label}>
+            <AnimatedLinkItem
+              variants={itemVariants}
+              key={link.label}
+              onClick={closeSidebar}
+            >
               <Link href={link.route} passHref>
                 <a>{link.label}</a>
               </Link>
@@ -119,17 +126,32 @@ const StyledNavigation = styled(motion.nav)`
   @media ${device.mini} {
     width: 100%;
   }
-
+`;
+const HeaderSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding: 10px 20px 0 20px;
   .hamburger-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 10px;
   }
 `;
 
 const LinkContainer = styled(motion.ul)`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0 20px;
+  span {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const AnimatedLinkItem = styled(motion.li)`
@@ -149,5 +171,11 @@ const InfoSection = styled.div`
   margin-bottom: 20px;
   .contact-btns {
     margin-bottom: 20px;
+    @media ${device.mini} {
+      flex-direction: column;
+      a {
+        margin: 5px 0;
+      }
+    }
   }
 `;
