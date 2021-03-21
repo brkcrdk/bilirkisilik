@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { device, color } from 'theme';
 import Hamburger from './Hamburger';
 import { useSidebar } from 'hooks';
+import { AccordionItem } from 'components';
 
 const MobileNavigation = () => {
   const containerRef = useRef();
@@ -64,9 +65,10 @@ const MobileNavigation = () => {
         <motion.li variants={itemVariants}>2</motion.li>
         <motion.li variants={itemVariants}>2</motion.li>
         <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
+        <motion.li variants={itemVariants}>Title title asd</motion.li>
+        <motion.li variants={itemVariants}>Title</motion.li>
+        <motion.li variants={itemVariants}>Accordion</motion.li>
+        <AccordionItem variants={itemVariants}>Accordion</AccordionItem>
       </motion.ul>
       <p>socials</p>
     </StyledNavigation>
@@ -105,5 +107,5 @@ const StyledNavigation = styled(motion.nav)`
   }
 `;
 
-const AnimatedLinks = styled(motion.ul)``;
-const AnimatedLink = styled(motion.li)``;
+const LinkContainer = styled.ul``;
+const AnimatedLinkItem = styled.li``;
