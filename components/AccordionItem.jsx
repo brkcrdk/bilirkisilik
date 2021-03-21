@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { color } from 'theme';
-const AccordionItem = ({ children, ...props }) => {
+const AccordionItem = ({ children, title, ...props }) => {
   const [active, setActive] = useState(false);
   const [scrollHeight, setHeight] = useState(0);
   const contentRef = useRef();
@@ -18,7 +18,7 @@ const AccordionItem = ({ children, ...props }) => {
   return (
     <StyledAccordionItem {...props}>
       <AccordionHeader onClick={() => setActive(!active)}>
-        Title
+        {title}
         <AnimatedIcon
           className="icon-chevron-down"
           animate={active ? { rotate: -180 } : { rotate: 0 }}
@@ -37,7 +37,9 @@ const AccordionItem = ({ children, ...props }) => {
 };
 export default AccordionItem;
 
-const StyledAccordionItem = styled(motion.div)``;
+const StyledAccordionItem = styled(motion.div)`
+  cursor: pointer;
+`;
 
 const AccordionHeader = styled.span`
   display: flex;
@@ -52,6 +54,12 @@ const AccordionHeader = styled.span`
 `;
 const AccordionContent = styled(motion.div)`
   overflow: hidden;
+  background: #e8e8e8;
+  padding: 0 10px;
+  border-radius: 6px;
+  li {
+    font-size: 18px;
+  }
 `;
 
 const AnimatedIcon = styled(motion.i)``;
