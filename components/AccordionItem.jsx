@@ -49,7 +49,6 @@ const AccordionHeader = styled.span`
   color: ${color.primary};
   margin: 0;
   padding: 0;
-  font-weight: ${(p) => p.active && 800};
   i {
     font-size: 25px;
   }
