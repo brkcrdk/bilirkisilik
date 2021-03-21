@@ -1,10 +1,12 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import Link from 'next/link';
+import { useSidebar } from 'hooks';
+import { AccordionItem, ContactButtons, SocialButtons } from 'components';
 import { device, color } from 'theme';
 import Hamburger from './Hamburger';
-import { useSidebar } from 'hooks';
-import { AccordionItem } from 'components';
+import navigationData from 'data/navigation.json';
 
 const MobileNavigation = () => {
   const containerRef = useRef();
@@ -21,7 +23,7 @@ const MobileNavigation = () => {
       transition: {
         staggerChildren: 0.1,
         staggerDirection: 1,
-        delayChildren: 0.4,
+        delayChildren: isSidebarOpen ? 0 : 0.4,
       },
     },
   };
@@ -56,21 +58,39 @@ const MobileNavigation = () => {
     >
       <Hamburger burgerColor={color.primary} />
       <div />
-      <motion.ul
+      <LinkContainer
         variants={animationVariants}
         initial="hidden"
         animate={isSidebarOpen ? 'show' : 'hidden'}
       >
-        <motion.li variants={itemVariants}>1</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>2</motion.li>
-        <motion.li variants={itemVariants}>Title title asd</motion.li>
-        <motion.li variants={itemVariants}>Title</motion.li>
-        <motion.li variants={itemVariants}>Accordion</motion.li>
-        <AccordionItem variants={itemVariants}>Accordion</AccordionItem>
-      </motion.ul>
-      <p>socials</p>
+        {navigationData.map((link) =>
+          link.sublinks ? (
+            <AccordionItem
+              key={link.label}
+              variants={itemVariants}
+              title={link.label}
+            >
+              {link.sublinks.map((sublink) => (
+                <AnimatedLinkItem key={sublink.label}>
+                  <Link href={sublink.route} passHref>
+                    <a>{sublink.label}</a>
+                  </Link>
+                </AnimatedLinkItem>
+              ))}
+            </AccordionItem>
+          ) : (
+            <AnimatedLinkItem variants={itemVariants} key={link.label}>
+              <Link href={link.route} passHref>
+                <a>{link.label}</a>
+              </Link>
+            </AnimatedLinkItem>
+          )
+        )}
+      </LinkContainer>
+      <InfoSection>
+        <ContactButtons />
+        <SocialButtons />
+      </InfoSection>
     </StyledNavigation>
   );
 };
@@ -107,5 +127,27 @@ const StyledNavigation = styled(motion.nav)`
   }
 `;
 
-const LinkContainer = styled.ul``;
-const AnimatedLinkItem = styled.li``;
+const LinkContainer = styled(motion.ul)`
+  width: 100%;
+  padding: 0 20px;
+`;
+
+const AnimatedLinkItem = styled(motion.li)`
+  cursor: pointer;
+  font-size: 20px;
+  color: ${color.primary};
+  margin: 10px 0;
+`;
+
+const InfoSection = styled.div`
+  a {
+    color: ${color.primary};
+  }
+  label {
+    font-weight: 700;
+  }
+  margin-bottom: 20px;
+  .contact-btns {
+    margin-bottom: 20px;
+  }
+`;
