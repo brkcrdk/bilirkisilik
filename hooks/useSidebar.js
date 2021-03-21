@@ -5,6 +5,7 @@ const useSidebar = (ref) => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   useEffect(() => {
     if (isSidebarOpen) {
@@ -29,7 +30,7 @@ const useSidebar = (ref) => {
     };
   }, [ref, setIsSidebarOpen, isSidebarOpen]);
 
-  return { isSidebarOpen, toggleSidebar };
+  return { isSidebarOpen, toggleSidebar, closeSidebar };
 };
 
 export default useSidebar;
