@@ -3,6 +3,10 @@ const useWindowWidth = () => {
   const [windowWidth, setWidth] = useState(0);
 
   useEffect(() => {
+    setWidth(window.outerWidth);
+  }, []);
+
+  useEffect(() => {
     const handleWindowWidth = () => {
       setWidth(window.outerWidth);
     };
