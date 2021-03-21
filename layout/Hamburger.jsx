@@ -5,6 +5,7 @@ import { useSidebar } from 'hooks';
 
 const Hamburger = ({ burgerColor, size = 0.9 }) => {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
+  const delay = isSidebarOpen ? 0 : 0.7;
   return (
     <StyledHamburger
       onClick={() => toggleSidebar()}
@@ -14,15 +15,15 @@ const Hamburger = ({ burgerColor, size = 0.9 }) => {
     >
       <motion.span
         animate={isSidebarOpen ? { rotate: -45, y: 14 } : { rotate: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay }}
       />
       <motion.span
         animate={isSidebarOpen ? { opacity: 0 } : { opacity: 1 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay }}
       />
       <motion.span
         animate={isSidebarOpen ? { rotate: 45, y: -10 } : { rotate: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, delay }}
       />
     </StyledHamburger>
   );
