@@ -16,7 +16,7 @@ const MobileNavigation = ({ routeInfo }) => {
   return (
     <StyledNavigation
       ref={containerRef}
-      initial={{ right: 0 }}
+      initial={{ right: '-100%' }}
       animate={isSidebarOpen ? { right: 0 } : { right: '-100%' }}
       transition={{
         type: 'tween',
