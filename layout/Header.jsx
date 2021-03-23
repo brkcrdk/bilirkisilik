@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { color, sizes } from 'theme';
 import { useHeaderScroll, useWindowWidth } from 'hooks';
 import { useRouter } from 'next/router';
+import { device, theme } from 'theme';
 import Info from './Info';
 import Hamburger from './Hamburger';
 import MobileNavigation from './MobileNavigation/index';
@@ -14,7 +15,7 @@ const Header = () => {
   const { windowWidth } = useWindowWidth();
   const isPhone = windowWidth <= sizes.phone;
   const headerItemAnimations = isPhone ? { top: 0 } : { top: 70 };
-  const logoSizes = scrolled ? (isPhone ? 125 : 150) : isPhone ? 150 : 200;
+  const logoSizes = scrolled ? (isPhone ? 125 : 170) : isPhone ? 150 : 200;
 
   const { asPath } = useRouter();
   const parentRoute = asPath.split('/')[1];
@@ -59,8 +60,8 @@ const HeaderItems = styled(motion.div)`
   width: 100%;
   background: ${(p) => (p.scrolled ? color.backgroundColor : 'transparent')};
   position: absolute;
-  border-bottom: ${(p) => p.scrolled && `1px solid ${color.primary}`};
   transition: background 0.3s ease-in-out;
+  box-shadow: ${(p) => p.scrolled && theme.boxShadow200};
 `;
 
 const HeaderContent = styled(Container)`
@@ -68,6 +69,9 @@ const HeaderContent = styled(Container)`
   align-items: center;
   justify-content: space-between;
   color: ${(p) => (p.scrolled ? color.text800 : 'white')};
-  padding-top: ${(p) => (p.scrolled ? '10px' : '20px')};
-  padding-bottom: ${(p) => (p.scrolled ? '10px' : '20px')};
+  padding: 20px 0;
+
+  @media ${device.laptop} {
+    padding: 15px 0;
+  }
 `;
