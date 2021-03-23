@@ -8,13 +8,13 @@ const Hamburger = ({ burgerColor, size = 0.9 }) => {
   const delay = isSidebarOpen ? 0 : 0.7;
   return (
     <StyledHamburger
-      onClick={() => toggleSidebar()}
+      onClick={toggleSidebar}
       burgerColor={burgerColor}
       size={size}
       className="hamburger-btn"
     >
       <motion.span
-        animate={isSidebarOpen ? { rotate: -45, y: 14 } : { rotate: 0 }}
+        animate={isSidebarOpen ? { rotate: -45, y: 4 } : { rotate: 0, y: 14 }}
         transition={{ duration: 0.3, delay }}
       />
       <motion.span
@@ -22,7 +22,7 @@ const Hamburger = ({ burgerColor, size = 0.9 }) => {
         transition={{ duration: 0.3, delay }}
       />
       <motion.span
-        animate={isSidebarOpen ? { rotate: 45, y: -10 } : { rotate: 0 }}
+        animate={isSidebarOpen ? { rotate: 45, y: -4 } : { rotate: 0, y: -14 }}
         transition={{ duration: 0.3, delay }}
       />
     </StyledHamburger>
@@ -46,7 +46,6 @@ const StyledHamburger = styled.button`
     height: 4px;
     background: ${(p) =>
       p.burgerColor ? p.burgerColor : color.backgroundColor};
-    margin: 4px 0;
     border-radius: ${theme.borderRadius};
   }
 `;
