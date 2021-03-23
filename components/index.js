@@ -6,3 +6,4 @@ export { default as ContactButtons } from './ContactButtons';
 export { default as AccordionItem } from './AccordionItem';
 export { default as CustomLink } from './CustomLink';
 export { default as Logo } from './Logo';
+export { default as Map } from './Map';
