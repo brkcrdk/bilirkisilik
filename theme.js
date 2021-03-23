@@ -14,6 +14,16 @@ export const color = {
   backgroundColor09: 'rgba(238, 238, 238,0.9)',
 };
 
+export const theme = {
+  font14: '14px',
+  font16: '16px',
+  font18: '18px',
+  font20: '20px',
+  font24: '24px',
+  borderRadius: '6px',
+  boxShadow: '0px 4px 16px rgba(40, 67, 107, 0.15)',
+};
+
 export const sizes = {
   desktop: 1280,
   laptop: 1024,
