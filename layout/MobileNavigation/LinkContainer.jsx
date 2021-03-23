@@ -22,7 +22,7 @@ const LinkContainer = ({
       transition: {
         staggerChildren: 0.1,
         staggerDirection: 1,
-        delayChildren: isSidebarOpen ? 0 : 0.4,
+        delayChildren: 0.4,
       },
     },
   };

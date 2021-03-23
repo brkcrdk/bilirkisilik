@@ -12,7 +12,6 @@ const MobileNavigation = ({ routeInfo }) => {
   const containerRef = useRef();
   const { isSidebarOpen, closeSidebar } = useSidebar(containerRef);
   const { asPath, parentRoute } = routeInfo;
-
   return (
     <StyledNavigation
       ref={containerRef}

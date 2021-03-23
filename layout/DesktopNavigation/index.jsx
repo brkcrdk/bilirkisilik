@@ -28,7 +28,11 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
             onMouseEnter={handleDropdownPosition}
             onMouseLeave={() => setCloseToCorner(false)}
           >
-            <Dropdown title={item.label} isCloseToCorner={closeToCorner}>
+            <Dropdown
+              title={item.label}
+              scrolled={scrolled}
+              isCloseToCorner={closeToCorner}
+            >
               {item.sublinks.map((link) => (
                 <CustomLink
                   key={link.label}
