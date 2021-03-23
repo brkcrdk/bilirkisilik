@@ -8,15 +8,11 @@ const Container = ({ children, className }) => {
 export default Container;
 
 const StyledContainer = styled.section`
-  max-width: 1279px;
+  max-width: 1400px;
   display: grid;
   margin: 0 auto;
   width: 100%;
-  @media ${device.desktop} {
-    padding: 0 30px;
-    margin: 0;
-  }
-  @media ${device.phone} {
-    padding: 0 15px;
+  @media (max-width: 1450px) {
+    width: 95%;
   }
 `;
