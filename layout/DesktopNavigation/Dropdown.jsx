@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'theme';
+import { color, theme } from 'theme';
 
 const Dropdown = ({ title, isCloseToCorner, children }) => (
   <StyledDropdown>
@@ -38,7 +38,7 @@ const DropdownContent = styled.ul`
   max-width: 200px;
   min-width: 100px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: ${theme.borderRadius};
   padding: 10px;
   margin-top: 24px;
   a {

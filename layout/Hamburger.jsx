@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { device, color } from 'theme';
+import { device, color, theme } from 'theme';
 import { useSidebar } from 'hooks';
 
 const Hamburger = ({ burgerColor, size = 0.9 }) => {
@@ -47,6 +47,6 @@ const StyledHamburger = styled.button`
     background: ${(p) =>
       p.burgerColor ? p.burgerColor : color.backgroundColor};
     margin: 4px 0;
-    border-radius: 6px;
+    border-radius: ${theme.borderRadius};
   }
 `;
