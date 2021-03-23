@@ -1,6 +1,6 @@
 import navigationData from 'data/navigation.json';
 import styled from 'styled-components';
-import { color, device } from 'theme';
+import { color, device, theme } from 'theme';
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 import { CustomLink } from 'components';
@@ -69,7 +69,7 @@ const StyledNavigation = styled.nav`
 
 const MenuItem = styled.div`
   margin: 0 10px;
-  font-size: 20px;
+  font-size: ${theme.font20};
   cursor: pointer;
   position: relative;
   padding: 10px;
@@ -79,7 +79,7 @@ const MenuItem = styled.div`
     color: ${(p) =>
       p.hasSubLinks && !p.scrolled ? color.backgroundColor : color.primary};
     background-color: ${(p) => !p.hasSubLinks && color.backgroundColor};
-    border-radius: 6px;
+    border-radius: ${theme.borderRadius};
     div {
       display: block;
       animation-name: dropdownFadeIn;

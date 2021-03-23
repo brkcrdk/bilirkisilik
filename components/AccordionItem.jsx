@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { color } from 'theme';
+import { color, theme } from 'theme';
 const AccordionItem = ({ children, title, active, ...props }) => {
   const [open, setOpen] = useState(false);
   const [scrollHeight, setHeight] = useState(0);
@@ -45,7 +45,7 @@ const StyledAccordionItem = styled(motion.div)`
 const AccordionHeader = styled.span`
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: ${theme.font20};
   color: ${color.primary};
   margin: 0;
   padding: 0;
@@ -57,9 +57,9 @@ const AccordionContent = styled(motion.div)`
   overflow: hidden;
   background: #e8e8e8;
   padding: 0 10px;
-  border-radius: 6px;
+  border-radius: ${theme.borderRadius};
   li {
-    font-size: 18px;
+    font-size: ${theme.font18};
   }
 `;
 

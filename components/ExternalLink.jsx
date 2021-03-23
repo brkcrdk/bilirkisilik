@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'theme';
+import { color, theme } from 'theme';
 const ExternalLink = ({ icon, name, link, label }) => (
   <StyledExternalLink
     href={link}
@@ -17,7 +17,7 @@ export default ExternalLink;
 
 const StyledExternalLink = styled.a`
   margin: 0 10px;
-  font-size: 20px;
+  font-size: ${theme.font20};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +29,6 @@ const ContactIcon = styled.i`
   margin-right: ${(p) => p.hasLabel && '8px'};
 `;
 const ContactLabel = styled.label`
-  font-size: 16px;
+  font-size: ${theme.font16};
   font-weight: 400;
 `;
