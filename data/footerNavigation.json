@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Anasayfa",
+    "route": "/"
+  },
+  {
+    "label": "Hizmet 1",
+    "route": "/hizmetlerimiz/hizmet-1"
+  },
+  {
+    "label": "Hizmet 1",
+    "route": "/hizmetlerimiz/hizmet-1"
+  },
+  {
+    "label": "Normal Test",
+    "route": "/normal-test"
+  },
+  {
+    "label": "Sublink 1 Lorem ipsum dolor sit amet",
+    "route": "/sublink-test/sublink-test-1"
+  },
+  {
+    "label": "Sublink 2",
+    "route": "/sublink-test/sublink-test-2"
+  }
+]
