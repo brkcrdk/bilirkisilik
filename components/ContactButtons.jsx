@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { ExternalLink } from 'components';
 import contactData from 'data/contact.json';
 
-const ContactButtons = () => (
-  <StyledContactButtons className="contact-btns">
+const ContactButtons = ({ ...props }) => (
+  <StyledContactButtons className="contact-btns" {...props}>
     {contactData?.map((data) => (
       <ExternalLink
         key={data.name}

@@ -2,8 +2,8 @@ import { ExternalLink } from 'components';
 import styled from 'styled-components';
 import socialData from 'data/social.json';
 
-const SocialButtons = () => (
-  <StyledSocialButtons className="social-btns">
+const SocialButtons = ({ ...props }) => (
+  <StyledSocialButtons className="social-btns" {...props}>
     {socialData?.map((data) => (
       <ExternalLink
         key={data.name}
