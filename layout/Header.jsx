@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { Container } from 'components';
+import { Container, Logo } from 'components';
 import { motion } from 'framer-motion';
 import { color, sizes } from 'theme';
 import { useHeaderScroll, useWindowWidth } from 'hooks';
 import { useRouter } from 'next/router';
-import Logo from './Logo';
 import Info from './Info';
 import Hamburger from './Hamburger';
 import MobileNavigation from './MobileNavigation/index';
