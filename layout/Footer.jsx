@@ -1,34 +1,33 @@
 import styled from 'styled-components';
-import { Container, Logo, Map } from 'components';
-import { color, theme } from 'theme';
-import navigationData from 'data/navigation.json';
+import { Container, Logo, Map, ContactButtons, CustomLink } from 'components';
+import { color, theme, device } from 'theme';
+import footerNavigation from 'data/footerNavigation.json';
 
 const Footer = () => {
-  console.log(navigationData);
   return (
     <StyledFooter>
       <FooterContent>
         <FooterLogoSection>
-          <Logo />
-          <p>Lorem ipsum dolor sit amet,</p>
+          <div>
+            <Logo />
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+          <CustomContacts />
         </FooterLogoSection>
         <FooterNavigationSection>
-          <h2>Menu</h2>
+          <h2>Sayfalar</h2>
           <FooterNavigation>
-            {navigationData.map((item) =>
-              item.sublinks ? (
-                <ul key={item.label}>
-                  <NavigationTitle>{item.label}</NavigationTitle>
-                  {item.sublinks.map((sublink) => (
-                    <NavigationItem key={sublink.label}>
-                      {sublink.label}
-                    </NavigationItem>
-                  ))}
-                </ul>
-              ) : (
-                <NavigationTitle key={item.label}>{item.label}</NavigationTitle>
-              )
-            )}
+            {footerNavigation.map((item) => (
+              <li key={item.label}>
+                <CustomLink
+                  route={item.route}
+                  alt={item.label}
+                  title={item.label}
+                >
+                  {item.label}
+                </CustomLink>
+              </li>
+            ))}
           </FooterNavigation>
         </FooterNavigationSection>
         <Map />
@@ -44,39 +43,75 @@ const StyledFooter = styled.footer`
 
 const FooterContent = styled(Container)`
   background: #fff;
-  display: flex;
   border-radius: ${theme.borderRadius};
   box-shadow: ${theme.boxShadow};
   padding: 36px;
+  display: grid;
+  grid-template-columns: 3fr 4fr 5fr;
+  column-gap: 12px;
+  @media ${device.laptop} {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 48px;
+    padding: 24px;
+
+    iframe {
+      grid-column: 1/3;
+    }
+  }
+  @media ${device.phone} {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+
+    iframe {
+      grid-column: initial;
+    }
+  }
 `;
 
 const FooterLogoSection = styled.div`
-  margin-right: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   p {
-    margin-top: 32px;
+    margin-top: 12px;
+    color: ${color.primary};
   }
 `;
 
 const FooterNavigationSection = styled.nav`
-  width: 100%;
   h2 {
     font-size: ${theme.font24};
+    color: ${color.primary};
+    font-weight: 600;
+  }
+  li {
+    font-size: ${theme.font18};
+    margin-bottom: 12px;
+    color: ${color.text400};
+  }
+  @media ${device.laptop} {
+    text-align: center;
   }
 `;
 const FooterNavigation = styled.ul`
   margin-top: 18px;
-  display: flex;
-  font-weight: 400;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  a:hover {
+    color: ${color.primary};
+  }
+  @media ${device.phone} {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const NavigationTitle = styled.h4`
-  font-size: ${theme.font18};
-  margin-bottom: 12px;
-`;
-const NavigationItem = styled.li`
-  font-size: ${theme.font16};
-  margin: 4px 0;
+const CustomContacts = styled(ContactButtons)`
+  display: grid;
+  row-gap: 12px;
+  margin-top: 32px;
+  i,
+  label {
+    color: ${color.primary};
+  }
 `;
