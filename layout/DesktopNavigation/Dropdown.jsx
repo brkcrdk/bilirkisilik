@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { color, theme } from 'theme';
 
-const Dropdown = ({ title, isCloseToCorner, children }) => (
+const Dropdown = ({ title, isCloseToCorner, scrolled, children }) => (
   <StyledDropdown>
     <span>{title}</span>
     <DropdownContainer isCloseToCorner={isCloseToCorner}>
-      <DropdownContent>{children}</DropdownContent>
+      <DropdownContent scrolled={scrolled}>{children}</DropdownContent>
     </DropdownContainer>
   </StyledDropdown>
 );
@@ -40,7 +40,7 @@ const DropdownContent = styled.ul`
   overflow: hidden;
   border-radius: ${theme.borderRadius};
   padding: 10px;
-  margin-top: 24px;
+  margin-top: ${(p) => (p.scrolled ? '34px' : '24px')};
   a {
     color: ${color.text600};
     white-space: nowrap;
