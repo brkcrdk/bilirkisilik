@@ -10,7 +10,7 @@ export const color = {
   text700: '#666d72',
   text800: '#50585d',
   text900: '#3a4349',
-  backgroundColor: '#eeeeee',
+  backgroundColor: '#fcfcfc',
   backgroundColor09: 'rgba(238, 238, 238,0.9)',
 };
 
@@ -21,7 +21,8 @@ export const theme = {
   font20: '20px',
   font24: '24px',
   borderRadius: '6px',
-  boxShadow: '0px 4px 16px rgba(40, 67, 107, 0.15)',
+  boxShadow200: '0px 4px 16px rgba(40, 67, 107, 0.2)',
+  boxShadow150: '0px 4px 16px rgba(40, 67, 107, 0.15)',
 };
 
 export const sizes = {
