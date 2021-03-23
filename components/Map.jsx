@@ -12,4 +12,8 @@ const Map = () => (
 
 export default Map;
 
-const StyledMap = styled.iframe``;
+const StyledMap = styled.iframe`
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+`;
