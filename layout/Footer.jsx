@@ -44,7 +44,7 @@ const StyledFooter = styled.footer`
 const FooterContent = styled(Container)`
   background: #fff;
   border-radius: ${theme.borderRadius};
-  box-shadow: ${theme.boxShadow};
+  box-shadow: ${theme.boxShadow150};
   padding: 36px;
   display: grid;
   grid-template-columns: 3fr 4fr 5fr;
@@ -75,7 +75,7 @@ const FooterLogoSection = styled.div`
   justify-content: flex-start;
   p {
     margin-top: 12px;
-    color: ${color.primary};
+    color: ${color.text800};
   }
 `;
 
@@ -88,19 +88,18 @@ const FooterNavigationSection = styled.nav`
   li {
     font-size: ${theme.font18};
     margin-bottom: 12px;
-    color: ${color.text400};
-  }
-  @media ${device.laptop} {
-    text-align: center;
+    color: ${color.text600};
   }
 `;
 const FooterNavigation = styled.ul`
   margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
   a:hover {
     color: ${color.primary};
   }
+
   @media ${device.phone} {
     grid-template-columns: 1fr;
   }
