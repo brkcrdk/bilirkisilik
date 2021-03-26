@@ -80,6 +80,9 @@ const FooterLogoSection = styled.div`
 `;
 
 const FooterNavigationSection = styled.nav`
+  @media ${device.phone} {
+    text-align: center;
+  }
   h2 {
     font-size: ${theme.font24};
     color: ${color.primary};
