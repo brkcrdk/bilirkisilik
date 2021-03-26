@@ -11,9 +11,56 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
 
   const handleDropdownPosition = (e) => {
     const margin = window.outerWidth - e.clientX;
-    if (margin < 250) {
+    if (margin <= 250) {
       setCloseToCorner(true);
     }
+  };
+
+  const colors = {
+    unScrolled: {
+      hasSubLinks: {
+        hover: {
+          color: color.backgroundColor,
+          backgroundColor: 'transparent',
+        },
+        normal: {
+          color: color.backgroundColor,
+          backgroundColor: 'transparent',
+        },
+      },
+      default: {
+        hover: {
+          color: color.primary,
+          backgroundColor: color.backgroundColor,
+        },
+        normal: {
+          color: color.backgroundColor,
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+    scrolled: {
+      hasSubLinks: {
+        hover: {
+          color: color.primary,
+          backgroundColor: color.backgroundColor,
+        },
+        normal: {
+          color: color.primary,
+          backgroundColor: color.backgroundColor,
+        },
+      },
+      default: {
+        hover: {
+          color: color.backgroundColor,
+          backgroundColor: color.primary,
+        },
+        normal: {
+          backgroundColor: color.backgroundColor,
+          color: color.primary,
+        },
+      },
+    },
   };
 
   return (
@@ -24,6 +71,11 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
             active={parentRoute === item.label.toLowerCase()}
             scrolled={scrolled}
             hasSubLinks
+            color={
+              scrolled
+                ? colors.scrolled.hasSubLinks
+                : colors.unScrolled.hasSubLinks
+            }
             key={item.label}
             onMouseEnter={handleDropdownPosition}
             onMouseLeave={() => setCloseToCorner(false)}
@@ -46,7 +98,14 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
             </Dropdown>
           </MenuItem>
         ) : (
-          <MenuItem key={item.label} active={asPath === item.route}>
+          <MenuItem
+            key={item.label}
+            scrolled={scrolled}
+            active={asPath === item.route}
+            color={
+              scrolled ? colors.scrolled.default : colors.unScrolled.default
+            }
+          >
             <CustomLink
               route={item.route}
               key={item.label}
@@ -78,11 +137,12 @@ const MenuItem = styled.div`
   position: relative;
   padding: 10px;
   font-weight: ${(p) => p.active && 800};
+  color: ${(p) => p.color && p.color.normal.color};
+  background: ${(p) => p.color && p.color.normal.backgroundColor};
 
   &:hover {
-    color: ${(p) =>
-      p.hasSubLinks && !p.scrolled ? color.backgroundColor : color.primary};
-    background-color: ${(p) => !p.hasSubLinks && color.backgroundColor};
+    color: ${(p) => p.color && p.color.hover.color};
+    background: ${(p) => p.color && p.color.hover.backgroundColor};
     border-radius: ${theme.borderRadius};
     div {
       display: block;
