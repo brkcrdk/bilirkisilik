@@ -11,7 +11,7 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
 
   const handleDropdownPosition = (e) => {
     const margin = window.outerWidth - e.clientX;
-    if (margin <= 250) {
+    if (margin <= 300) {
       setCloseToCorner(true);
     }
   };
