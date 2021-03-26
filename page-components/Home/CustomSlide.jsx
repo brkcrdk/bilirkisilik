@@ -10,6 +10,7 @@ const CustomSlide = () => (
         <p>123123</p>
       </HeroContent>
     </Container>
+    <HeroShadow />
   </StyledCustomHero>
 );
 export default CustomSlide;
@@ -29,4 +30,15 @@ const HeroImage = styled.img`
   height: 100vh;
   width: 100vw;
   object-fit: cover;
+`;
+
+const HeroShadow = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.4);
 `;
