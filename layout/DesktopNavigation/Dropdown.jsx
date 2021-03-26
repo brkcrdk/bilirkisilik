@@ -41,6 +41,8 @@ const DropdownContent = styled.ul`
   padding: 10px;
   margin-top: ${(p) => (p.scrolled ? '34px' : '24px')};
   box-shadow: ${theme.boxShadow200};
+  font-size: ${theme.font18};
+
   a {
     color: ${color.primary};
     white-space: nowrap;
