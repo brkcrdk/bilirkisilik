@@ -40,6 +40,7 @@ const DropdownContent = styled.ul`
   right: ${(p) => p.isCloseToCorner && '0px'};
   padding: 10px;
   margin-top: ${(p) => (p.scrolled ? '34px' : '24px')};
+  box-shadow: ${theme.boxShadow200};
   a {
     color: ${color.primary};
     white-space: nowrap;
