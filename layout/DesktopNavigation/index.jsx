@@ -1,9 +1,9 @@
-import navigationData from 'data/navigation.json';
-import styled from 'styled-components';
-import { color, device, theme } from 'theme';
 import { useState } from 'react';
-import Dropdown from './Dropdown';
+import styled from 'styled-components';
 import { CustomLink } from 'components';
+import navigationData from 'data/navigation.json';
+import { color, device, theme } from 'theme';
+import Dropdown from './Dropdown';
 
 const DesktopNavigation = ({ scrolled, routeInfo }) => {
   const [closeToCorner, setCloseToCorner] = useState(false);
@@ -139,11 +139,11 @@ const MenuItem = styled.div`
   font-weight: ${(p) => p.active && 800};
   color: ${(p) => p.color && p.color.normal.color};
   background: ${(p) => p.color && p.color.normal.backgroundColor};
-
+  transition: all 0.3s ease-in-out;
+  border-radius: ${theme.borderRadius};
   &:hover {
     color: ${(p) => p.color && p.color.hover.color};
     background: ${(p) => p.color && p.color.hover.backgroundColor};
-    border-radius: ${theme.borderRadius};
     div {
       display: block;
       animation-name: dropdownFadeIn;
