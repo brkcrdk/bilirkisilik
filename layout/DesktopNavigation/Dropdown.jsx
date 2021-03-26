@@ -23,9 +23,11 @@ const DropdownContainer = styled.div`
   animation-iteration-count: 1;
   @keyframes dropdownFadeIn {
     from {
+      transform: translateY(20px);
       opacity: 0;
     }
     to {
+      transform: translateY(0);
       opacity: 1;
     }
   }
@@ -38,7 +40,7 @@ const DropdownContent = styled.ul`
   overflow: hidden;
   border-radius: ${theme.borderRadius};
   right: ${(p) => p.isCloseToCorner && '0px'};
-  padding: 10px;
+  padding: 8px 6px;
   margin-top: ${(p) => (p.scrolled ? '34px' : '24px')};
   box-shadow: ${theme.boxShadow200};
   font-size: ${theme.font18};
