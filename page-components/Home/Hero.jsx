@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Slider } from 'components';
+import { Slider, Container } from 'components';
+import { color } from 'theme';
+import CustomSlide from './CustomSlide';
 
 const Hero = () => {
   const settings = {
@@ -8,9 +10,9 @@ const Hero = () => {
   return (
     <StyledHero>
       <Slider settings={settings}>
-        <HeroImage src="/images/slider-placeholder/1.png" />
-        <HeroImage src="/images/slider-placeholder/2.jpg" />
-        <HeroImage src="/images/slider-placeholder/3.jpg" />
+        <CustomSlide />
+        <CustomSlide />
+        <CustomSlide />
       </Slider>
       <HeroShadow />
     </StyledHero>
@@ -26,6 +28,18 @@ const HeroImage = styled.img`
   height: 100vh;
   width: 100vw;
   object-fit: cover;
+`;
+
+const CustumHero = styled.div`
+  border: 1px solid red;
+  position: relative;
+  p,
+  button {
+    position: absolute;
+    z-index: 999999;
+    bottom: 50vh;
+    color: #fff;
+  }
 `;
 
 const HeroShadow = styled.div`
