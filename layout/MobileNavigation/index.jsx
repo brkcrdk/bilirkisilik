@@ -71,7 +71,7 @@ const HeaderSection = styled.div`
   padding: 10px 20px 0 20px;
   .hamburger-btn {
     position: absolute;
-    top: 0;
+    top: 16px;
     right: 10px;
   }
 `;
