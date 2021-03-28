@@ -2,17 +2,20 @@ import styled from 'styled-components';
 import { Container, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
 import { motion } from 'framer-motion';
-const CustomSlide = () => {
+
+const CustomSlide = ({ active }) => {
   const animationVariants = {
     hide: {
       opacity: 0,
+      x: -200,
     },
     show: {
       opacity: 1,
+      x: 0,
       transition: {
-        duration: 0.5,
-        staggerChildren: 0.5,
-        delayChildren: 0.3,
+        duration: 1,
+        staggerChildren: 0.7,
+        delayChildren: 0.5,
       },
     },
   };
@@ -20,7 +23,11 @@ const CustomSlide = () => {
     <StyledCustomHero>
       <HeroImage src="/images/slider-placeholder/1.png" />
       <Container>
-        <HeroContent initial="hide" animate="show" variants={animationVariants}>
+        <HeroContent
+          initial="hide"
+          animate={active ? 'show' : 'hide'}
+          variants={animationVariants}
+        >
           <HeroTitle variants={animationVariants}>
             Lorem Ipsum Dolor Sit Amet!
           </HeroTitle>
@@ -75,7 +82,6 @@ const HeroDescription = styled(motion.h4)`
 const AnimatedButton = styled(motion.div)``;
 
 const HeroButton = styled(CustomLink)`
-  /* font-family: Work Sans; */
   font-size: 14px;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
@@ -86,22 +92,6 @@ const HeroButton = styled(CustomLink)`
     background: ${color.backgroundColor};
     color: ${color.primary};
   }
-
-  /* &:before {
-    transition: all 0.3s ease-in-out;
-    content: '';
-    width: 0;
-    height: 2px;
-    position: absolute;
-    background: #fff;
-    bottom: -5px;
-    left: -5px;
-  }
-  &:hover {
-    &:before {
-      width: 120px;
-    }
-  } */
 `;
 
 const HeroShadow = styled.div`
