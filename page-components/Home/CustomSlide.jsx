@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 import { Container, CustomLink } from 'components';
-import { color } from 'theme';
+import { color, theme, device } from 'theme';
 
 const CustomSlide = () => (
   <StyledCustomHero>
     <HeroImage src="/images/slider-placeholder/1.png" />
     <Container>
       <HeroContent>
-        <HeroTitle>Lorem Ipsum</HeroTitle>
+        <HeroTitle>Lorem Ipsum Dolor Sit Amet!</HeroTitle>
         <HeroDescription>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </HeroDescription>
-        <HeroButton route="/">Daha Fazla</HeroButton>
+        <HeroButton route="/">DEVAMINI OKU</HeroButton>
       </HeroContent>
     </Container>
     <HeroShadow />
@@ -39,34 +39,48 @@ const HeroImage = styled.img`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 48px;
+  font-size: 64px;
   font-family: Work Sans;
+  font-weight: 600;
 `;
 const HeroDescription = styled.h4`
-  font-size: 24px;
+  font-size: 20px;
   font-family: Work Sans;
-  margin: 24px 0;
+  margin-top: 36px;
+  margin-bottom: 24px;
+  font-weight: 400;
+  user-select: auto;
+  letter-spacing: -0.15px;
 `;
 
 const HeroButton = styled(CustomLink)`
-  font-family: Work Sans;
+  /* font-family: Work Sans; */
+  font-size: 14px;
   font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border-radius: ${theme.borderRadius};
+  padding: 10px;
+  margin-left: -10px;
+  &:hover {
+    background: ${color.backgroundColor};
+    color: ${color.primary};
+  }
 
-  &:before {
+  /* &:before {
     transition: all 0.3s ease-in-out;
     content: '';
     width: 0;
     height: 2px;
     position: absolute;
-    background: red;
+    background: #fff;
     bottom: -5px;
     left: -5px;
   }
   &:hover {
     &:before {
-      width: 90px;
+      width: 120px;
     }
-  }
+  } */
 `;
 
 const HeroShadow = styled.div`
