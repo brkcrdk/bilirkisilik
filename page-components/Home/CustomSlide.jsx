@@ -1,30 +1,49 @@
 import styled from 'styled-components';
 import { Container, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
-
-const CustomSlide = () => (
-  <StyledCustomHero>
-    <HeroImage src="/images/slider-placeholder/1.png" />
-    <Container>
-      <HeroContent>
-        <HeroTitle>Lorem Ipsum Dolor Sit Amet!</HeroTitle>
-        <HeroDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </HeroDescription>
-        <HeroButton route="/">DEVAMINI OKU</HeroButton>
-      </HeroContent>
-    </Container>
-    <HeroShadow />
-  </StyledCustomHero>
-);
+import { motion } from 'framer-motion';
+const CustomSlide = () => {
+  const animationVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.5,
+        delayChildren: 0.3,
+      },
+    },
+  };
+  return (
+    <StyledCustomHero>
+      <HeroImage src="/images/slider-placeholder/1.png" />
+      <Container>
+        <HeroContent initial="hide" animate="show" variants={animationVariants}>
+          <HeroTitle variants={animationVariants}>
+            Lorem Ipsum Dolor Sit Amet!
+          </HeroTitle>
+          <HeroDescription variants={animationVariants}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </HeroDescription>
+          <AnimatedButton variants={animationVariants}>
+            <HeroButton route="/">DEVAMINI OKU</HeroButton>
+          </AnimatedButton>
+        </HeroContent>
+      </Container>
+      <HeroShadow />
+    </StyledCustomHero>
+  );
+};
 export default CustomSlide;
 
 const StyledCustomHero = styled.div`
   position: relative;
 `;
 
-const HeroContent = styled.div`
+const HeroContent = styled(motion.div)`
   position: absolute;
   z-index: 999999;
   bottom: 25vh;
@@ -38,12 +57,12 @@ const HeroImage = styled.img`
   object-fit: cover;
 `;
 
-const HeroTitle = styled.h1`
+const HeroTitle = styled(motion.h1)`
   font-size: 64px;
   font-family: Work Sans;
   font-weight: 600;
 `;
-const HeroDescription = styled.h4`
+const HeroDescription = styled(motion.h4)`
   font-size: 20px;
   font-family: Work Sans;
   margin-top: 36px;
@@ -52,6 +71,8 @@ const HeroDescription = styled.h4`
   user-select: auto;
   letter-spacing: -0.15px;
 `;
+
+const AnimatedButton = styled(motion.div)``;
 
 const HeroButton = styled(CustomLink)`
   /* font-family: Work Sans; */
