@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CustomSlide = ({ active }) => {
   const animationVariants = {
@@ -23,22 +23,25 @@ const CustomSlide = ({ active }) => {
     <StyledCustomHero>
       <HeroImage src="/images/slider-placeholder/1.png" />
       <Container>
-        <HeroContent
-          initial="hide"
-          animate={active ? 'show' : 'hide'}
-          variants={animationVariants}
-        >
-          <HeroTitle variants={animationVariants}>
-            Lorem Ipsum Dolor Sit Amet!
-          </HeroTitle>
-          <HeroDescription variants={animationVariants}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </HeroDescription>
-          <AnimatedButton variants={animationVariants}>
-            <HeroButton route="/">DEVAMINI OKU</HeroButton>
-          </AnimatedButton>
-        </HeroContent>
+        <AnimatePresence exitBeforeEnter>
+          <HeroContent
+            initial="hide"
+            animate={active ? 'show' : 'hide'}
+            exit="hide"
+            variants={animationVariants}
+          >
+            <HeroTitle variants={animationVariants}>
+              Lorem Ipsum Dolor Sit Amet!
+            </HeroTitle>
+            <HeroDescription variants={animationVariants}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </HeroDescription>
+            <AnimatedButton variants={animationVariants}>
+              <HeroButton route="/">DEVAMINI OKU</HeroButton>
+            </AnimatedButton>
+          </HeroContent>
+        </AnimatePresence>
       </Container>
       <HeroShadow />
     </StyledCustomHero>
