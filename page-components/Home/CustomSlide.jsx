@@ -22,7 +22,7 @@ const CustomSlide = ({ active }) => {
   return (
     <StyledCustomHero>
       <HeroImage src="/images/slider-placeholder/1.png" />
-      <Container>
+      {/* <Container>
         <AnimatePresence exitBeforeEnter>
           <HeroContent
             initial="hide"
@@ -42,7 +42,7 @@ const CustomSlide = ({ active }) => {
             </AnimatedButton>
           </HeroContent>
         </AnimatePresence>
-      </Container>
+      </Container> */}
       <HeroShadow />
     </StyledCustomHero>
   );
