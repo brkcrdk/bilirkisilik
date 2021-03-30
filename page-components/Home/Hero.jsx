@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSwiper } from 'hooks';
 import { Slider, CustomLink, Container } from 'components';
@@ -8,19 +8,30 @@ import { animationVariants, itemAnimations } from './heroAnimations';
 import heroData from 'data/hero.json';
 
 const Hero = () => {
-  const [animationName, setAnimationName] = useState('show');
-  const settings = {
-    loop: true,
-  };
   const [slider, setSlider] = useState();
   const { active, slideChange } = useSwiper(slider);
+  const [animationName, setAnimationName] = useState('show');
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const handleAnimation = () => {
     setAnimationName('hide');
-    return setTimeout(() => setAnimationName('show'), 1600);
+    return setTimeout(() => {
+      setAnimationName('show');
+    }, 1600);
   };
 
+  useEffect(() => {
+    const activeTimer = setTimeout(() => setActiveSlide(active), 1600);
+    return () => {
+      clearTimeout(activeTimer);
+    };
+  }, [active]);
+
   slideChange(handleAnimation);
+
+  const settings = {
+    loop: true,
+  };
   return (
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
@@ -34,7 +45,9 @@ const Hero = () => {
           initial="hide"
           animate={animationName}
         >
-          <HeroTitle variants={itemAnimations}>Hero Title</HeroTitle>
+          <HeroTitle variants={itemAnimations}>
+            {heroData[activeSlide]?.title}
+          </HeroTitle>
           <HeroDescription variants={itemAnimations}>
             Hero Description Hero Description Hero Description Hero
             DescriptionHero DescriptionHero DescriptionHero DescriptionHero
