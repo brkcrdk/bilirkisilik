@@ -46,15 +46,15 @@ const Hero = () => {
           animate={animationName}
         >
           <HeroTitle variants={itemAnimations}>
-            {heroData[activeSlide]?.title}
+            {heroData[activeSlide].title}
           </HeroTitle>
           <HeroDescription variants={itemAnimations}>
-            Hero Description Hero Description Hero Description Hero
-            DescriptionHero DescriptionHero DescriptionHero DescriptionHero
-            Description
+            {heroData[activeSlide].description}
           </HeroDescription>
           <AnimatedButton variants={itemAnimations} onClick={handleAnimation}>
-            <HeroButton route="/">DEVAMINI OKU</HeroButton>
+            <HeroButton route={heroData[activeSlide].route}>
+              DEVAMINI OKU
+            </HeroButton>
           </AnimatedButton>
         </HeroHeader>
       </Container>
