@@ -7,31 +7,31 @@
   },
   {
     "title": "Lorem Ipsum Dolor 1",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    "description": "1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
     "image": "/images/slider-placeholder/2.jpg",
     "route": "/"
   },
   {
     "title": "Lorem Ipsum Dolor 2",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    "description": "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
     "image": "/images/slider-placeholder/3.jpg",
     "route": "/"
   },
   {
     "title": "Lorem Ipsum Dolor 3",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    "description": "3 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
     "image": "/images/slider-placeholder/1.png",
     "route": "/"
   },
   {
     "title": "Lorem Ipsum Dolor 4",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    "description": "4 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
     "image": "/images/slider-placeholder/2.jpg",
     "route": "/"
   },
   {
     "title": "Lorem Ipsum Dolor 5",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
+    "description": "5 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
     "image": "/images/slider-placeholder/3.jpg",
     "route": "/"
   }
