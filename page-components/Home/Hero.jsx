@@ -5,6 +5,8 @@ import { Slider, CustomLink, Container } from 'components';
 import { motion } from 'framer-motion';
 import { color, theme } from 'theme';
 import { animationVariants, itemAnimations } from './heroAnimations';
+import heroData from 'data/hero.json';
+
 const Hero = () => {
   const [animationName, setAnimationName] = useState('show');
   const settings = {
@@ -22,8 +24,8 @@ const Hero = () => {
   return (
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
-        {[0, 1, 2].map((slide) => (
-          <HeroImage key={slide} src="/images/slider-placeholder/1.png" />
+        {heroData.map((slide) => (
+          <HeroImage key={slide} src={slide.image} />
         ))}
       </Slider>
       <Container>
