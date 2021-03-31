@@ -51,9 +51,10 @@ const DotContainer = styled.div`
     top: -32px;
     padding: 4px;
     border-radius: ${theme.borderRadius};
-    font-weight: 600;
+    font-weight: 500;
     transition: ${theme.transition};
     font-size: ${theme.font14};
+    font-family: Work Sans;
   }
 `;
 
