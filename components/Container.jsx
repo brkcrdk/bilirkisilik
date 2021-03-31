@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { device } from 'theme';
 
 const Container = ({ children, className }) => {
   return <StyledContainer className={className}>{children}</StyledContainer>;
