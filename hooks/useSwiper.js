@@ -26,7 +26,8 @@ const useSwiper = (slider) => {
   const slideChange = useCallback(
     (method) => {
       if (slider && method) {
-        return slider.on('slideChange', method);
+        slider.on('slideChange', method);
+        return startAutoPlay();
       }
       if (slider) {
         return slider.on('slideChange', () => {
