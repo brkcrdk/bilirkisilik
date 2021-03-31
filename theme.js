@@ -20,9 +20,12 @@ export const theme = {
   font18: '18px',
   font20: '20px',
   font24: '24px',
+  font32: '32px',
+  font64: '64px',
   borderRadius: '6px',
   boxShadow200: '0px 4px 16px rgba(40, 67, 107, 0.2)',
   boxShadow150: '0px 4px 16px rgba(40, 67, 107, 0.15)',
+  transition: 'all 0.3s ease-in-out',
 };
 
 export const sizes = {
