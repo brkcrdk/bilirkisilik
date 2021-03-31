@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Container, CustomLink } from 'components';
 import { motion } from 'framer-motion';
 import { animationVariants, itemAnimations } from './heroAnimations';
-import { color, theme } from 'theme';
+import { color, theme, device } from 'theme';
 
 const HeroHeader = ({ animationName, activeSlide }) => (
   <Container>
@@ -29,19 +29,34 @@ const StyledHeroHeader = styled(motion.header)`
   bottom: 25vh;
   z-index: 99;
   color: ${color.backgroundColor};
+  @media ${device.laptop} {
+    max-width: 70%;
+    bottom: 30vh;
+  }
+  @media ${device.phone} {
+    max-width: 90%;
+  }
 `;
 
 const HeroTitle = styled(motion.h1)`
   font-size: ${theme.font64};
   font-family: Work Sans;
   font-weight: 600;
+  @media ${device.phone} {
+    font-size: ${theme.font32};
+  }
 `;
+
 const HeroDescription = styled(motion.h4)`
   font-size: ${theme.font32};
   font-family: Work Sans;
   margin: 24px 0;
   font-weight: 400;
   letter-spacing: -0.15px;
+
+  @media ${device.phone} {
+    font-size: ${theme.font18};
+  }
 `;
 
 const AnimatedButton = styled(motion.div)``;
@@ -55,5 +70,11 @@ const HeroButton = styled(CustomLink)`
   &:hover {
     background: ${color.backgroundColor};
     color: ${color.primary};
+  }
+  @media ${device.laptop} {
+    background: ${color.backgroundColor};
+    color: ${color.primary};
+    margin-left: 0;
+    padding: 8px;
   }
 `;
