@@ -32,12 +32,12 @@ const StyledHeroHeader = styled(motion.header)`
 `;
 
 const HeroTitle = styled(motion.h1)`
-  font-size: 64px;
+  font-size: ${theme.font64};
   font-family: Work Sans;
   font-weight: 600;
 `;
 const HeroDescription = styled(motion.h4)`
-  font-size: 32px;
+  font-size: ${theme.font32};
   font-family: Work Sans;
   margin: 24px 0;
   font-weight: 400;
@@ -46,9 +46,9 @@ const HeroDescription = styled(motion.h4)`
 
 const AnimatedButton = styled(motion.div)``;
 const HeroButton = styled(CustomLink)`
-  font-size: 14px;
+  font-size: ${theme.font14};
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  transition: ${theme.transition};
   border-radius: ${theme.borderRadius};
   padding: 10px;
   margin-left: -10px;
