@@ -1,5 +1,5 @@
 const animationVariables = {
-  duration: 1,
+  duration: 0.6,
   stagger: 0.3,
 };
 
@@ -7,13 +7,13 @@ export const animationVariants = {
   hide: {
     transition: {
       staggerChildren: animationVariables.stagger,
-      staggerDirection: -1,
+      staggerDirection: 1,
     },
   },
   show: {
     transition: {
       staggerChildren: animationVariables.stagger,
-      staggerDirection: 1,
+      staggerDirection: -1,
     },
   },
 };
