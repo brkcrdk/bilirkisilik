@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-
+import { theme } from 'theme';
 const Logo = ({ lightLogo, width = 200 }) => (
   <Link href="/" passHref>
     <a title="Logo" alt="logo">
@@ -14,5 +14,5 @@ const Logo = ({ lightLogo, width = 200 }) => (
 export default Logo;
 
 const StyledLogo = styled.img`
-  transition: all 0.3s ease-in-out;
+  transition: ${theme.transition};
 `;
