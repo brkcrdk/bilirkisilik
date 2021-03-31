@@ -4,6 +4,7 @@ import { useSwiper } from 'hooks';
 import { Slider } from 'components';
 import heroData from 'data/hero.json';
 import HeroHeader from './HeroHeader';
+import Dots from './Dots';
 
 const Hero = () => {
   const [slider, setSlider] = useState();
@@ -29,6 +30,9 @@ const Hero = () => {
 
   const settings = {
     loop: true,
+    autoplay: {
+      delay: 7000,
+    },
   };
   return (
     <StyledHero>
@@ -41,6 +45,7 @@ const Hero = () => {
         activeSlide={heroData[activeSlide]}
         animationName={animationName}
       />
+      <Dots slides={heroData} active={active} />
       <HeroShadow />
     </StyledHero>
   );
