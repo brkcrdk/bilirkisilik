@@ -8,7 +8,7 @@ import Dots from './Dots';
 
 const Hero = () => {
   const [slider, setSlider] = useState();
-  const { active, slideChange } = useSwiper(slider);
+  const { active, slideChange, slideTo } = useSwiper(slider);
   const [animationName, setAnimationName] = useState('show');
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -45,7 +45,7 @@ const Hero = () => {
         activeSlide={heroData[activeSlide]}
         animationName={animationName}
       />
-      <Dots slides={heroData} active={active} />
+      <Dots slides={heroData} active={active} slideTo={slideTo} />
       <HeroShadow />
     </StyledHero>
   );

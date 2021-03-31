@@ -3,11 +3,15 @@ import { motion } from 'framer-motion';
 import { Container } from 'components';
 import { color, theme, device } from 'theme';
 
-const Dots = ({ slides, active }) => (
+const Dots = ({ slides, active, slideTo }) => (
   <Container>
     <StyledDots>
       {slides.map((slide, index) => (
-        <DotContainer key={slide.title} activeSlide={active === index}>
+        <DotContainer
+          key={slide.title}
+          activeSlide={active === index}
+          onClick={() => slideTo(index)}
+        >
           {active === index && (
             <span className="dot-number">
               {`${index + 1}`.padStart(2, '0')}
@@ -46,6 +50,7 @@ const DotContainer = styled.div`
   margin: 0 20px;
   border-radius: 50px;
   transition: ${theme.transition};
+  cursor: pointer;
   @media ${device.phone} {
     margin: 0 10px;
     width: ${(p) => (p.activeSlide ? '180px' : '10px')};
