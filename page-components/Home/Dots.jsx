@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Container } from 'components';
-import { color, theme } from 'theme';
+import { color, theme, device } from 'theme';
 
 const Dots = ({ slides, active }) => (
   <Container>
@@ -31,6 +31,11 @@ const StyledDots = styled.div`
   bottom: 16vh;
   z-index: 99;
   display: flex;
+  @media ${device.phone} {
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const DotContainer = styled.div`
@@ -41,6 +46,14 @@ const DotContainer = styled.div`
   margin: 0 20px;
   border-radius: 50px;
   transition: ${theme.transition};
+  @media ${device.phone} {
+    margin: 0 10px;
+    width: ${(p) => (p.activeSlide ? '180px' : '10px')};
+  }
+  @media ${device.mini} {
+    margin: 0 10px;
+    width: ${(p) => (p.activeSlide ? '150px' : '10px')};
+  }
   &:first-of-type {
     margin-left: 0;
   }
