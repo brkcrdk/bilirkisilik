@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-import { Hero } from 'page-components/Home';
+import { Hero, Services, WorkWithUs } from 'page-components/Home';
 
 export default function Home() {
   return (
     <Container>
       <Hero />
+      <WorkWithUs />
+      <Services />
     </Container>
   );
 }
