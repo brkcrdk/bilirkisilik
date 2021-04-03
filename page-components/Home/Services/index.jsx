@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { device } from 'theme';
 const Services = () => (
   <StyledServices>
-    <ServicesTitle
+    <SectionTitle
       title="Hizmetlerimiz"
       description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the is simply dummy text of the printing."
@@ -25,6 +25,9 @@ export default Services;
 
 const StyledServices = styled(Container)`
   margin-top: 100px;
+  @media ${device.tablet} {
+    margin-top: 70px;
+  }
 `;
 
 const ServiceCards = styled.section`
@@ -40,14 +43,10 @@ const ServiceCards = styled.section`
   @media ${device.tablet} {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    margin-top: 70px;
   }
-  @media ${device.mini} {
-    padding: 0 32px;
-    row-gap: 24px;
+  @media ${device.phone} {
     grid-template-columns: 1fr;
+    row-gap: 24px;
   }
-`;
-
-const ServicesTitle = styled(SectionTitle)`
-  margin-bottom: 64px;
 `;
