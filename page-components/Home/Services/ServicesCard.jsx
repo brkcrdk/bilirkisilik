@@ -8,7 +8,25 @@ import { useWindowWidth } from 'hooks';
 const ServicesCard = () => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useWindowWidth();
-  const isTablet = windowWidth <= sizes.laptop;
+  const isLaptop = windowWidth <= sizes.laptop;
+
+  const contentAnimations = {
+    hidden: {
+      height: isLaptop ? '55%' : 50,
+      borderTopLeftRadius: '0px',
+      borderTopRightRadius: '0px',
+    },
+    hovered: {
+      height: '55%',
+      borderTopLeftRadius: theme.borderRadius,
+      borderTopRightRadius: theme.borderRadius,
+    },
+  };
+
+  const paragraphAnimations = {
+    hidden: { opacity: isLaptop ? 1 : 0 },
+    hovered: { opacity: 1 },
+  };
 
   return (
     <StyledServicesCard
@@ -17,32 +35,18 @@ const ServicesCard = () => {
       onMouseLeave={() => setHovered(false)}
     >
       <Content
-        initial={{
-          height: isTablet ? '55%' : 50,
-          borderTopLeftRadius: '0px',
-          borderTopRightRadius: '0px',
-        }}
-        animate={
-          hovered
-            ? {
-                height: '55%',
-                borderTopLeftRadius: theme.borderRadius,
-                borderTopRightRadius: theme.borderRadius,
-              }
-            : {
-                height: isTablet ? '55%' : 50,
-                borderTopLeftRadius: '0px',
-                borderTopRightRadius: '0px',
-              }
-        }
+        variants={contentAnimations}
+        initial="hidden"
+        animate={hovered ? 'hovered' : 'hidden'}
         transition={{ duration: 0.2, type: 'tween' }}
       >
         <CustomLink route="/">
           <h5>Trafik Kazası İncelemesi ve Kusur Tespiti</h5>
         </CustomLink>
         <motion.p
-          initial={{ opacity: isTablet ? 1 : 0 }}
-          animate={hovered ? { opacity: 1 } : { opacity: isTablet ? 1 : 0 }}
+          variants={paragraphAnimations}
+          initial="hidden"
+          animate={hovered ? 'show' : 'hidden'}
           transition={{ duration: 0.3 }}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting Lorem
