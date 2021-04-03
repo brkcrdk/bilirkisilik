@@ -41,7 +41,9 @@ const ServiceCards = styled.section`
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  @media ${device.phone} {
+  @media ${device.mini} {
+    padding: 0 32px;
+    row-gap: 24px;
     grid-template-columns: 1fr;
   }
 `;
