@@ -22,6 +22,7 @@ export const theme = {
   font20: '20px',
   font24: '24px',
   font32: '32px',
+  font48: '48px',
   font64: '64px',
   borderRadius: '6px',
   boxShadow400: '0px 4px 16px rgba(40, 67, 107, 0.4)',
