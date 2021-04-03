@@ -18,34 +18,36 @@ const ServicesCard = () => {
     >
       <Content
         initial={{
-          height: isTablet ? 150 : 40,
+          height: isTablet ? '55%' : 50,
           borderTopLeftRadius: '0px',
           borderTopRightRadius: '0px',
         }}
         animate={
           hovered
             ? {
-                height: 150,
+                height: '55%',
                 borderTopLeftRadius: theme.borderRadius,
                 borderTopRightRadius: theme.borderRadius,
               }
             : {
-                height: isTablet ? 150 : 40,
+                height: isTablet ? '55%' : 50,
                 borderTopLeftRadius: '0px',
                 borderTopRightRadius: '0px',
               }
         }
-        transition={{ duration: 0.3, type: 'tween' }}
+        transition={{ duration: 0.2, type: 'tween' }}
       >
-        <h5>Görüntü ve Ses İnceleme</h5>
+        <CustomLink route="/">
+          <h5>Trafik Kazası İncelemesi ve Kusur Tespiti</h5>
+        </CustomLink>
         <motion.p
           initial={{ opacity: isTablet ? 1 : 0 }}
           animate={hovered ? { opacity: 1 } : { opacity: isTablet ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the is simply dummy text of the
-          printing.
+          Lorem Ipsum is simply dummy text of the printing and typesetting Lorem
+          Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum
+          is simply dummy text of the printing and typesetting
         </motion.p>
         <DetailLink route="/">Detaylı Gör</DetailLink>
       </Content>
@@ -82,10 +84,14 @@ const Content = styled(motion.header)`
   transition: ${theme.transition};
   color: ${color.primary};
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   h5 {
     font-size: ${theme.font18};
   }
   p {
+    ${theme.lineClamp(3)}
     margin: 12px 0;
     color: ${color.secondary};
     font-size: ${theme.font14};
@@ -97,6 +103,7 @@ const DetailLink = styled(CustomLink)`
   padding: 4px 8px;
   border-radius: ${theme.borderRadius};
   font-size: ${theme.font14};
+  width: 75px;
   &:hover {
     background: ${color.primary};
     color: ${color.backgroundColor};
