@@ -1,7 +1,8 @@
 import { Container, SectionTitle } from 'components';
-import { ServicesCard } from 'components/Cards';
 import styled from 'styled-components';
 import { device } from 'theme';
+import ServicesCard from './ServicesCard';
+
 const Services = () => (
   <StyledServices>
     <SectionTitle

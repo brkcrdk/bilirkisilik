@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container, SectionTitle } from 'components';
-import { WorkWithUsCard } from 'components/Cards';
 import { device } from 'theme';
+import WorkWithUsCard from './WorkWithUsCard';
 
 const WorkWithUs = () => (
   <StyledWorkWithUs>
