@@ -100,10 +100,10 @@ const Content = styled(motion.header)`
 
 const DetailLink = styled(CustomLink)`
   border: 1px solid ${color.primary};
-  padding: 4px 8px;
+  padding: 8px;
   border-radius: ${theme.borderRadius};
   font-size: ${theme.font14};
-  width: 75px;
+  width: 72px;
   &:hover {
     background: ${color.primary};
     color: ${color.backgroundColor};
