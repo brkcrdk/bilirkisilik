@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, theme } from 'theme';
+import { color, device, theme } from 'theme';
 
 const WorkWithUsCard = ({ title, description }) => (
   <StyledWorkWithUsCard>
@@ -28,6 +28,16 @@ const Icon = styled.img`
   height: 64px;
   margin-right: 24px;
   object-fit: contain;
+  @media ${device.tablet} {
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+  }
+  @media ${device.phone} {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+  }
 `;
 const Content = styled.header`
   font-family: Work Sans;
