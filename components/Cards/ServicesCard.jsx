@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { color, theme } from 'theme';
+import { color, device, sizes, theme } from 'theme';
 import { CustomLink } from 'components';
+import { useWindowWidth } from 'hooks';
 
 const ServicesCard = () => {
   const [hovered, setHovered] = useState(false);
+  const { windowWidth } = useWindowWidth();
+  const isTablet = windowWidth <= sizes.laptop;
+
   return (
     <StyledServicesCard
       background="/images/slider-placeholder/2.jpg"
@@ -14,7 +18,7 @@ const ServicesCard = () => {
     >
       <Content
         initial={{
-          height: 40,
+          height: isTablet ? 150 : 40,
           borderTopLeftRadius: '0px',
           borderTopRightRadius: '0px',
         }}
@@ -26,7 +30,7 @@ const ServicesCard = () => {
                 borderTopRightRadius: theme.borderRadius,
               }
             : {
-                height: 40,
+                height: isTablet ? 150 : 40,
                 borderTopLeftRadius: '0px',
                 borderTopRightRadius: '0px',
               }
@@ -35,8 +39,8 @@ const ServicesCard = () => {
       >
         <h5>Görüntü ve Ses İnceleme</h5>
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={hovered ? { opacity: 1 } : { opacity: 0 }}
+          initial={{ opacity: isTablet ? 1 : 0 }}
+          animate={hovered ? { opacity: 1 } : { opacity: isTablet ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -59,11 +63,12 @@ const StyledServicesCard = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 300px;
+
+  @media ${device.laptop} {
+    box-shadow: ${theme.boxShadow200};
+  }
   &:hover {
     box-shadow: ${theme.boxShadow400};
-    header {
-      height: 150px;
-    }
   }
 `;
 
@@ -95,5 +100,12 @@ const DetailLink = styled(CustomLink)`
   &:hover {
     background: ${color.primary};
     color: ${color.backgroundColor};
+  }
+  @media ${device.laptop} {
+    &:hover {
+      background: ${color.backgroundColor};
+      border: 1px solid ${color.primary};
+      color: ${color.primary};
+    }
   }
 `;
