@@ -1,7 +1,7 @@
 import { Container, SectionTitle } from 'components';
 import { ServicesCard } from 'components/Cards';
 import styled from 'styled-components';
-
+import { device } from 'theme';
 const Services = () => (
   <StyledServices>
     <ServicesTitle
@@ -32,6 +32,18 @@ const ServiceCards = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   padding: 0 24px;
+  @media ${device.laptop} {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 12px;
+    padding: 0 12px;
+  }
+  @media ${device.tablet} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media ${device.phone} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ServicesTitle = styled(SectionTitle)`
