@@ -36,6 +36,7 @@ const ServiceCards = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   padding: 0 24px;
+  margin-top: 100px;
   @media ${device.laptop} {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px 12px;
