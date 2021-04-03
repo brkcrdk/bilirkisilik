@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Hero, Services, WorkWithUs } from 'page-components/Home';
+import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <Hero />
       <WorkWithUs />
       <Services />
+      <Faq />
     </Container>
   );
 }
