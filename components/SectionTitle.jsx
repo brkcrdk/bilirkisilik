@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme, color } from 'theme';
+import { theme, color, device } from 'theme';
 const SectionTitle = ({ title = 'Title', description, ...props }) => (
   <StyledSectionTitle {...props}>
     <Header>
@@ -27,9 +27,13 @@ const Header = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
+
   h1 {
     font-size: ${theme.font64};
     color: ${color.text200};
+    @media ${device.phone} {
+      font-size: ${theme.font48};
+    }
   }
   h3 {
     font-size: ${theme.font32};
