@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SectionContainer, AccordionItem } from 'components';
-import { color, theme } from 'theme';
+import { color, theme, device } from 'theme';
 
 const Faq = () => (
   <CustomSection
@@ -33,7 +33,9 @@ const CustomSection = styled(SectionContainer)`
 `;
 
 const CustomAccordion = styled(AccordionItem)`
-  margin: 6px 0;
+  margin: 6px auto;
+  width: 100%;
+  max-width: 1000px;
   border: 1px solid ${color.primary100};
   padding: 12px;
   border-radius: ${theme.borderRadius};
@@ -47,6 +49,10 @@ const CustomAccordion = styled(AccordionItem)`
   }
   .accordion-header {
     font-weight: 700;
+    font-size: ${theme.font24};
+    @media ${device.phone} {
+      font-size: ${theme.font18};
+    }
     i {
       font-size: 20px;
       margin-left: 8px;
@@ -59,4 +65,8 @@ const Content = styled.div`
   cursor: auto;
   color: ${color.secondary};
   background: ${color.primary50};
+  font-size: ${theme.font18};
+  @media ${device.phone} {
+    font-size: ${theme.font14};
+  }
 `;
