@@ -41,7 +41,13 @@ const LinkContainer = ({
           >
             {link.sublinks.map((sublink) => (
               <LinkItem key={sublink.label} onClick={closeSidebar}>
-                <CustomLink route={sublink.route}>{sublink.label}</CustomLink>
+                <CustomLink
+                  route={sublink.route}
+                  alt={link.label}
+                  title={link.label}
+                >
+                  {sublink.label}
+                </CustomLink>
               </LinkItem>
             ))}
           </ExpandableItem>
@@ -51,7 +57,9 @@ const LinkContainer = ({
             onClick={closeSidebar}
             active={asPath === link.route}
           >
-            <CustomLink route={link.route}>{link.label}</CustomLink>
+            <CustomLink route={link.route} alt={link.label} title={link.label}>
+              {link.label}
+            </CustomLink>
           </LinkItem>
         )
       )}
