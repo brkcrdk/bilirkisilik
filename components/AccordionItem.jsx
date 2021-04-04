@@ -17,7 +17,12 @@ const AccordionItem = ({ children, title, active, ...props }) => {
 
   return (
     <StyledAccordionItem {...props}>
-      <AccordionHeader onClick={() => setOpen(!open)} active={active}>
+      <AccordionHeader
+        onClick={() => setOpen(!open)}
+        isOpen={open}
+        active={active}
+        className="accordion-header"
+      >
         {title}
         <AnimatedIcon
           className="icon-chevron-down"
@@ -26,7 +31,9 @@ const AccordionItem = ({ children, title, active, ...props }) => {
         />
       </AccordionHeader>
       <AccordionContent
+        className="accordion-content"
         ref={contentRef}
+        initial={{ height: 0 }}
         animate={open ? { height: scrollHeight } : { height: 0 }}
         transition={{ duration: 0.3, type: 'tween' }}
       >
@@ -49,6 +56,8 @@ const AccordionHeader = styled.span`
   color: ${color.primary};
   margin: 0;
   padding: 0;
+  padding-bottom: ${(p) => p.isOpen && '10px'};
+  transition: ${theme.transition};
   i {
     font-size: 25px;
   }
