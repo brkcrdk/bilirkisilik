@@ -64,11 +64,11 @@ const AccordionHeader = styled.span`
 `;
 const AccordionContent = styled(motion.div)`
   overflow: hidden;
-  background: #e8e8e8;
+  background: ${color.primary50};
   padding: 0 10px;
   border-radius: ${theme.borderRadius};
   li {
-    font-size: ${theme.font18};
+    font-size: ${theme.font16};
   }
 `;
 
