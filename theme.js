@@ -1,5 +1,7 @@
 export const color = {
   primary: '#28436b',
+  primary100: 'rgba(40, 67, 107,0.1)',
+  primary50: 'rgba(40, 67, 107,0.05)',
   secondary: '#393e46',
   yellow: '#ffd369',
   red: '#ef4f4f',
