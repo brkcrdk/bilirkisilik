@@ -4,7 +4,11 @@ import { device } from 'theme';
 
 const SectionContainer = ({ title, description, children, ...props }) => (
   <StyledSectionContainer {...props}>
-    <CustomTitle title={title} description={description} />
+    <CustomTitle
+      className="section-title"
+      title={title}
+      description={description}
+    />
     {children}
   </StyledSectionContainer>
 );
