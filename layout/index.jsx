@@ -1,10 +1,10 @@
 import Header from './Header';
 import Footer from './Footer';
-const Layout = ({ children, navigation }) => (
+const Layout = ({ children, navigation, footerNav }) => (
   <>
     <Header navigation={navigation} />
     {children}
-    <Footer />
+    <Footer navigation={footerNav} />
   </>
 );
 export default Layout;
