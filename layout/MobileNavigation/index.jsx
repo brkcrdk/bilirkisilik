@@ -8,10 +8,11 @@ import Hamburger from '../Hamburger';
 import LinkContainer from './LinkContainer';
 import InfoSection from './InfoSection';
 
-const MobileNavigation = ({ routeInfo }) => {
+const MobileNavigation = ({ routeInfo, navigation }) => {
   const containerRef = useRef();
   const { isSidebarOpen, closeSidebar } = useSidebar(containerRef);
   const { asPath, parentRoute } = routeInfo;
+
   return (
     <StyledNavigation
       ref={containerRef}
