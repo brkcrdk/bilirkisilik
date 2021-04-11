@@ -5,7 +5,7 @@ const handleNavigation = (data) => {
     if (item.hasSubLinks) {
       return {
         ...item,
-        subLinks: data.navigasyons.filter(
+        subLinks: data.filter(
           (link) => link.kategori === item.kategori && !link.hasSubLinks
         ),
       };
@@ -14,8 +14,8 @@ const handleNavigation = (data) => {
   });
   const initialNavigation = [
     {
-      label: 'Anasayfa',
-      route: '/',
+      linkLabel: 'Anasayfa',
+      linkRoute: '/',
     },
   ];
 
