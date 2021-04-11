@@ -1,13 +1,13 @@
 import { gql } from '@apollo/client';
 import client from 'client';
 import Layout from 'layout';
-import { handleNavigation } from 'utils';
+import { handleNavigation, footerNavigation } from 'utils';
 
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, footerNav }) {
   return (
-    <Layout navigation={navigation}>
+    <Layout navigation={navigation} footerNav={footerNav}>
       <Hero />
       <WorkWithUs />
       <Services />
@@ -32,10 +32,12 @@ export async function getStaticProps() {
   });
 
   const navigation = handleNavigation(data.navigasyons);
+  const footerNav = footerNavigation(data.navigasyons);
 
   return {
     props: {
       navigation,
+      footerNav,
     },
   };
 }
