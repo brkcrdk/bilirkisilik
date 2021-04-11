@@ -98,7 +98,7 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
           </MenuItem>
         ) : (
           <MenuItem
-            key={item.label}
+            key={item.linkLabel}
             scrolled={scrolled}
             active={asPath === item.route}
             color={
@@ -107,7 +107,6 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
           >
             <CustomLink
               route={item.linkRoute}
-              key={item.linkLabel}
               alt={item.linkLabel}
               title={item.linkLabel}
             >
