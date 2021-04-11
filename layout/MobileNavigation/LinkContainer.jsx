@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { CustomLink } from 'components';
 import LinkItem from './LinkItem';
 import ExpandableItem from './ExpandableItem';
-import navigationData from 'data/navigation.json';
 
 const LinkContainer = ({
   isSidebarOpen,
   closeSidebar,
   parentRoute,
   asPath,
+  navigation,
 }) => {
   const containerAnimations = {
     hidden: {
@@ -32,33 +32,37 @@ const LinkContainer = ({
       initial="hidden"
       animate={isSidebarOpen ? 'show' : 'hidden'}
     >
-      {navigationData.map((link) =>
-        link.sublinks ? (
+      {navigation.map((link) =>
+        link.subLinks ? (
           <ExpandableItem
-            key={link.label}
-            title={link.label}
-            active={parentRoute === link.label.toLowerCase()}
+            key={link.linkLabel}
+            title={link.linkLabel}
+            active={parentRoute === link.linkLabel.toLowerCase()}
           >
-            {link.sublinks.map((sublink) => (
-              <LinkItem key={sublink.label} onClick={closeSidebar}>
+            {link.subLinks.map((sublink) => (
+              <LinkItem key={sublink.linkLabel} onClick={closeSidebar}>
                 <CustomLink
-                  route={sublink.route}
-                  alt={link.label}
-                  title={link.label}
+                  route={sublink.linkRoute}
+                  alt={link.linkLabel}
+                  title={link.linkLabel}
                 >
-                  {sublink.label}
+                  {sublink.linkLabel}
                 </CustomLink>
               </LinkItem>
             ))}
           </ExpandableItem>
         ) : (
           <LinkItem
-            key={link.label}
+            key={link.linkLabel}
             onClick={closeSidebar}
-            active={asPath === link.route}
+            active={asPath === link.linkRoute}
           >
-            <CustomLink route={link.route} alt={link.label} title={link.label}>
-              {link.label}
+            <CustomLink
+              route={link.linkRoute}
+              alt={link.linkLabel}
+              title={link.linkLabel}
+            >
+              {link.linkLabel}
             </CustomLink>
           </LinkItem>
         )

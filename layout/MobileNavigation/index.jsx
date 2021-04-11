@@ -33,6 +33,7 @@ const MobileNavigation = ({ routeInfo, navigation }) => {
         parentRoute={parentRoute}
         isSidebarOpen={isSidebarOpen}
         closeSidebar={closeSidebar}
+        navigation={navigation}
       />
       <InfoSection />
     </StyledNavigation>

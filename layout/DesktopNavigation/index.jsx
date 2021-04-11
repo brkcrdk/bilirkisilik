@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { CustomLink } from 'components';
-import navigationData from 'data/navigation.json';
 import { color, device, theme } from 'theme';
 import Dropdown from './Dropdown';
 
@@ -67,10 +66,10 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
 
   return (
     <StyledNavigation>
-      {navigationData?.map((item) =>
-        item.sublinks ? (
+      {navigation?.map((item) =>
+        item.subLinks ? (
           <MenuItem
-            active={parentRoute === item.label.toLowerCase()}
+            active={parentRoute === item.linkLabel.toLowerCase()}
             scrolled={scrolled}
             hasSubLinks
             color={
@@ -78,23 +77,23 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
                 ? colors.scrolled.hasSubLinks
                 : colors.unScrolled.hasSubLinks
             }
-            key={item.label}
+            key={item.linkLabel}
             onMouseEnter={handleDropdownPosition}
             onMouseLeave={() => setCloseToCorner(false)}
           >
             <Dropdown
-              title={item.label}
+              title={item.linkLabel}
               scrolled={scrolled}
               isCloseToCorner={closeToCorner}
             >
-              {item.sublinks.map((link) => (
+              {item.subLinks.map((link) => (
                 <CustomLink
-                  key={link.label}
-                  alt={link.label}
-                  title={link.label}
-                  route={link.route}
+                  key={link.linkLabel}
+                  alt={link.linkLabel}
+                  title={link.linkLabel}
+                  route={link.linkRoute}
                 >
-                  {link.label}
+                  {link.linkLabel}
                 </CustomLink>
               ))}
             </Dropdown>
@@ -109,12 +108,12 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
             }
           >
             <CustomLink
-              route={item.route}
-              key={item.label}
-              alt={item.label}
-              title={item.label}
+              route={item.linkRoute}
+              key={item.linkLabel}
+              alt={item.linkLabel}
+              title={item.linkLabel}
             >
-              {item.label}
+              {item.linkLabel}
             </CustomLink>
           </MenuItem>
         )
