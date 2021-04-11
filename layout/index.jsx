@@ -1,8 +1,8 @@
 import Header from './Header';
 import Footer from './Footer';
-const Layout = ({ children }) => (
+const Layout = ({ children, navigation }) => (
   <>
-    <Header />
+    <Header navigation={navigation} />
     {children}
     <Footer />
   </>
