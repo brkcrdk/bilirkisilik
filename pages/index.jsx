@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import client from 'client';
 import Layout from 'layout';
+import { handleNavigation } from 'utils';
 
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
@@ -30,19 +31,7 @@ export async function getStaticProps() {
     `,
   });
 
-  const mainLinks = data.navigasyons.filter((item) => item.isMainLink === true);
-
-  const navigation = mainLinks.map((item) => {
-    if (item.hasSubLinks) {
-      return {
-        ...item,
-        subLinks: data.navigasyons.filter(
-          (link) => link.kategori === item.kategori && !link.hasSubLinks
-        ),
-      };
-    }
-    return item;
-  });
+  const navigation = handleNavigation(data.navigasyons);
 
   return {
     props: {
