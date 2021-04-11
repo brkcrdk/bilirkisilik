@@ -292,10 +292,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@googlemaps/js-api-loader@1.11.1":
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.11.1.tgz#b7f02c04d8d8602fb4bd873b03685fccefce1c6f"
-  integrity sha512-2ug4uBu0onRXTAo7Yxkay5N7pdNIz3XpTElMTLdCtEfQDxikbjeR6GS8atVhblX+ubFBNlXvDzz7VtuXv0vMRQ==
+"@googlemaps/js-api-loader@^1.7.0":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.11.3.tgz#de2db86c5c64ed62f2f16dc59eb59821257dc583"
+  integrity sha512-MUX04/b5dBIqi2jl2/89FS48gWPm5cgUwO4dDffIoylKv/e7HP9gJvpKqk1/JMIYPX2y/qO2TqFteRAWmNU1BA==
   dependencies:
     fast-deep-equal "^3.1.3"
 
@@ -323,6 +323,11 @@
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
+
+"@mapbox/point-geometry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
+  integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
 "@next/env@10.1.3":
   version "10.1.3"
@@ -367,26 +372,6 @@
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
-
-"@react-google-maps/api@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.1.1.tgz#0d195632927c72867b0cfcfec7eaef4b79f3bacc"
-  integrity sha512-Z/dcaDDfZD4DFnE1GhdHOIFHZ+VocEt6Ixe82f0f9tL/J0CZBQvfJ3V8RogY9fVraxdKIwnQx75U0O1JVqqBnw==
-  dependencies:
-    "@googlemaps/js-api-loader" "1.11.1"
-    "@react-google-maps/infobox" "2.1.1"
-    "@react-google-maps/marker-clusterer" "2.1.1"
-    invariant "2.2.4"
-
-"@react-google-maps/infobox@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-2.1.1.tgz#1d2f20f00725f087edc031c3291fcc4c08edae7c"
-  integrity sha512-x/+Td4Wsw+ziEcLjgQketCphuueLZ4vQLFkLrUBVzsHj4as4at79GsdVwoAdKIkBc5BDYJZw3ZGSr/SnWSObeg==
-
-"@react-google-maps/marker-clusterer@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-2.1.1.tgz#fa6cdcbbfee6a529a4d60b1575168a7aa1fedf91"
-  integrity sha512-LIqf1T2dVXRaf/gqk/7kEDpRvr1aQGlqOv/p5zwZus3qI6/3qK4jxNpc89gQ2WkCMrGwcI/fTQrnI55BZCxsLA==
 
 "@types/node@*":
   version "14.14.37"
@@ -1303,6 +1288,11 @@ etag@1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
+eventemitter3@^4.0.4:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+
 events@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
@@ -1482,6 +1472,16 @@ globals@^12.1.0:
   dependencies:
     type-fest "^0.8.1"
 
+google-map-react@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.1.9.tgz#6e539ce8bf28e7b8cda6058402e7581d1d1cec3d"
+  integrity sha512-//Pa0o6sdspU2H0ehVztSDQSnYYeV6TY4Z6ftty34yiCJYLliOzeq17dA9uFkyUFdL+XwbTU6e9mfs+bjBMIzw==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.7.0"
+    "@mapbox/point-geometry" "^0.1.0"
+    eventemitter3 "^4.0.4"
+    prop-types "^15.7.2"
+
 graceful-fs@^4.1.2:
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
@@ -1653,13 +1653,6 @@ internal-slot@^1.0.3:
     get-intrinsic "^1.1.0"
     has "^1.0.3"
     side-channel "^1.0.4"
-
-invariant@2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
-  integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
-  dependencies:
-    loose-envify "^1.0.0"
 
 is-arguments@^1.0.4:
   version "1.1.0"
@@ -1903,7 +1896,7 @@ lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.19, lodash@^4.17.20:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
