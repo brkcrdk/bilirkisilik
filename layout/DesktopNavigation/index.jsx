@@ -5,7 +5,7 @@ import navigationData from 'data/navigation.json';
 import { color, device, theme } from 'theme';
 import Dropdown from './Dropdown';
 
-const DesktopNavigation = ({ scrolled, routeInfo }) => {
+const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
   const [closeToCorner, setCloseToCorner] = useState(false);
   const { asPath, parentRoute } = routeInfo;
 
@@ -15,6 +15,8 @@ const DesktopNavigation = ({ scrolled, routeInfo }) => {
       setCloseToCorner(true);
     }
   };
+
+  console.log(navigation);
 
   const colors = {
     unScrolled: {
