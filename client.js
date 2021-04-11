@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
   uri:
-    'https://api-eu-central-1.graphcms.com/v2/ckn3gap2f5m3501xs9y7ec9au/master',
+    'https://api-eu-central-1.graphcms.com/v2/cknbxmfzxgfbh01xm6dti8u4l/master',
   cache: new InMemoryCache(),
 });
 
