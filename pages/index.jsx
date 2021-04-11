@@ -1,8 +1,6 @@
-import { gql } from '@apollo/client';
-import client from 'client';
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-
+import { pageSettings } from 'queries';
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
 export default function Home({ navigation, footerNav }) {
@@ -17,27 +15,16 @@ export default function Home({ navigation, footerNav }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Navigation {
-        navigasyons {
-          kategori
-          linkLabel
-          linkRoute
-          hasSubLinks
-          isMainLink
-        }
-      }
-    `,
-  });
+  const settings = await pageSettings();
 
-  const navigation = handleNavigation(data.navigasyons);
-  const footerNav = footerNavigation(data.navigasyons);
+  const navigation = handleNavigation(settings.navigasyons);
+  const footerNav = footerNavigation(settings.navigasyons);
 
   return {
     props: {
       navigation,
       footerNav,
+      settings: settings.settings,
     },
   };
 }
