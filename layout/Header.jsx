@@ -10,7 +10,7 @@ import Hamburger from './Hamburger';
 import MobileNavigation from './MobileNavigation/index';
 import DesktopNavigation from './DesktopNavigation/index';
 
-const Header = () => {
+const Header = ({ navigation }) => {
   const { hideHeader, scrolled } = useHeaderScroll();
   const { windowWidth } = useWindowWidth();
   const isPhone = windowWidth <= sizes.phone;
@@ -36,14 +36,18 @@ const Header = () => {
       >
         <HeaderContent scrolled={scrolled}>
           <Logo lightLogo={!scrolled} width={logoSizes} />
-          <DesktopNavigation scrolled={scrolled} routeInfo={routeInfo} />
+          <DesktopNavigation
+            scrolled={scrolled}
+            routeInfo={routeInfo}
+            navigation={navigation}
+          />
           <Hamburger
             size={scrolled ? 0.7 : 0.9}
             burgerColor={scrolled && color.primary}
           />
         </HeaderContent>
       </HeaderItems>
-      <MobileNavigation routeInfo={routeInfo} />
+      <MobileNavigation routeInfo={routeInfo} navigation={navigation} />
     </StyledHeader>
   );
 };
