@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { Container, Logo, Map, ContactButtons, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
-import footerNavigation from 'data/footerNavigation.json';
 
-const Footer = () => {
+const Footer = ({ navigation }) => {
   return (
     <StyledFooter>
       <FooterContent>
@@ -17,14 +16,14 @@ const Footer = () => {
         <FooterNavigationSection>
           <h2>Sayfalar</h2>
           <FooterNavigation>
-            {footerNavigation.map((item) => (
-              <li key={item.label}>
+            {navigation.map((item) => (
+              <li key={item.linkLabel}>
                 <CustomLink
-                  route={item.route}
-                  alt={item.label}
-                  title={item.label}
+                  route={item.linkRoute}
+                  alt={item.linkLabel}
+                  title={item.linkLabel}
                 >
-                  {item.label}
+                  {item.linkLabel}
                 </CustomLink>
               </li>
             ))}
