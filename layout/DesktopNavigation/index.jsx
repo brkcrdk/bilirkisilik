@@ -15,8 +15,6 @@ const DesktopNavigation = ({ scrolled, routeInfo, navigation }) => {
     }
   };
 
-  console.log(navigation);
-
   const colors = {
     unScrolled: {
       hasSubLinks: {
