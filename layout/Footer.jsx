@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Container, Logo, Map, ContactButtons, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
 
-const Footer = ({ navigation }) => {
+const Footer = ({ navigation, adres }) => {
+  console.log(adres);
   return (
     <StyledFooter>
       <FooterContent>
@@ -29,7 +30,12 @@ const Footer = ({ navigation }) => {
             ))}
           </FooterNavigation>
         </FooterNavigationSection>
-        <Map />
+        <Map
+          coordinations={{
+            lat: adres.latitude,
+            lng: adres.longitude,
+          }}
+        />
       </FooterContent>
     </StyledFooter>
   );
