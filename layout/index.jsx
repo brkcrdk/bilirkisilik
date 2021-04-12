@@ -5,8 +5,52 @@ const Layout = ({ children, settings }) => {
   const {
     navigation,
     footerNav,
-    settings: { siteName, siteDescription, adres },
+    settings: {
+      siteName,
+      siteDescription,
+      adres,
+      email,
+      phoneNumber,
+      instagram,
+      twitter,
+      facebook,
+    },
   } = settings;
+
+  const contactData = [
+    {
+      name: 'Mail',
+      icon: 'icon-mail',
+      link: `mailto:${email}`,
+      label: 'test@test.com.tr',
+    },
+    {
+      name: 'Phone',
+      icon: 'icon-phone',
+      link: 'tel:+095556664433',
+      label: '+09555-666-44-33',
+    },
+  ];
+
+  // [
+  //   {
+  //     "name": "Twitter",
+  //     "icon": "icon-twitter",
+  //     "link": "https://www.twitter.com"
+  //   },
+  //   {
+  //     "name": "Facebook",
+  //     "icon": "icon-facebook",
+  //     "link": "https://www.facebook.com"
+  //   },
+  //   {
+  //     "name": "Instagram",
+  //     "icon": "icon-instagram",
+  //     "link": "https://www.instagram.com"
+  //   }
+  // ]
+  const socialData = { twitter, instagram, facebook };
+
   return (
     <>
       <Head>
