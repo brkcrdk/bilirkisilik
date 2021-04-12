@@ -34,7 +34,6 @@ export default class MyDocument extends Document {
           <link href="/fonts/WorkSans/work-sans.css" rel="stylesheet" />
           <link href="/styles/index.css" rel="stylesheet" />
         </Head>
-
         <body>
           <Main />
           <NextScript />
