@@ -14,6 +14,7 @@ const pageSettings = async () => {
         }
         settings {
           siteName
+          siteDescription
           adres {
             latitude
             longitude
