@@ -3,14 +3,12 @@ import { Container, Logo, Map, ContactButtons, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
 
 const Footer = ({ navigation, adres }) => {
-  console.log(adres);
   return (
     <StyledFooter>
       <FooterContent>
         <FooterLogoSection>
           <div>
             <Logo />
-            <p>Lorem ipsum dolor sit amet</p>
           </div>
           <CustomContacts />
         </FooterLogoSection>
