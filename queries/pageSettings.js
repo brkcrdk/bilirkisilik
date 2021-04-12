@@ -15,6 +15,11 @@ const pageSettings = async () => {
         settings {
           siteName
           siteDescription
+          facebook
+          instagram
+          twitter
+          email
+          phoneNumber
           adres {
             latitude
             longitude
