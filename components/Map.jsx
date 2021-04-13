@@ -7,9 +7,11 @@ const Map = () => {
   const {
     settings: { adres },
   } = useContext(SettingsContext);
+
   return (
     <GoogleMapReact
-      bootstrapURLKeys={{ key: 'AIzaSyAvYFSKMTb5CTg_g1gYRdVY9YWiaolXx2c' }}
+      // Google maps api key
+      bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAP }}
       defaultCenter={{ lat: adres?.latitude, lng: adres?.longitude }}
       defaultZoom={14}
     >
