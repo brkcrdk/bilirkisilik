@@ -8,16 +8,7 @@ const Layout = ({ children, settings }) => {
   const {
     navigation,
     footerNav,
-    settings: {
-      siteName,
-      siteDescription,
-      adres,
-      email,
-      phoneNumber,
-      instagram,
-      twitter,
-      facebook,
-    },
+    settings: { siteName, siteDescription, instagram, twitter, facebook },
   } = settings;
 
   const { setSettings } = useContext(SettingsContext);
@@ -25,21 +16,6 @@ const Layout = ({ children, settings }) => {
   useEffect(() => {
     setSettings(settings.settings);
   }, []);
-
-  const contactData = [
-    {
-      name: 'Mail',
-      icon: 'icon-mail',
-      link: `mailto:${email}`,
-      label: email,
-    },
-    {
-      name: 'Phone',
-      icon: 'icon-phone',
-      link: `tel:${phoneNumber}`,
-      label: phoneNumber,
-    },
-  ];
 
   const socialData = [
     {
@@ -88,9 +64,9 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header navigation={navigation} infoData={{ socialData, contactData }} />
+      <Header navigation={navigation} infoData={{ socialData }} />
       {children}
-      <Footer navigation={footerNav} adres={adres} contactData={contactData} />
+      <Footer navigation={footerNav} />
     </>
   );
 };
