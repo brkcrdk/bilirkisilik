@@ -1,17 +1,21 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 import { color, theme } from 'theme';
-
-const Map = ({ coordinations }) => {
+import { SettingsContext } from 'context';
+const Map = () => {
+  const {
+    settings: { adres },
+  } = useContext(SettingsContext);
   return (
     <GoogleMapReact
       bootstrapURLKeys={{ key: 'AIzaSyAvYFSKMTb5CTg_g1gYRdVY9YWiaolXx2c' }}
-      defaultCenter={{ lat: coordinations.lat, lng: coordinations.lng }}
+      defaultCenter={{ lat: adres?.latitude, lng: adres?.longitude }}
       defaultZoom={14}
     >
       <CustomMarker
-        lat={coordinations.lat}
-        lng={coordinations.lng}
+        lat={adres?.latitude}
+        lng={adres?.longitude}
         className="icon-map-marker"
       />
     </GoogleMapReact>
