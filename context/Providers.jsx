@@ -1,8 +1,10 @@
 import { SidebarProvider } from './sidebarStore';
-
+import { SettingsProvider } from './settingsStore';
 const Providers = ({ children }) => (
   <>
-    <SidebarProvider>{children}</SidebarProvider>
+    <SettingsProvider>
+      <SidebarProvider>{children}</SidebarProvider>
+    </SettingsProvider>
   </>
 );
 
