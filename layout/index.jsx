@@ -1,6 +1,8 @@
+import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
+import { SettingsContext } from 'context';
 
 const Layout = ({ children, settings }) => {
   const {
@@ -17,6 +19,12 @@ const Layout = ({ children, settings }) => {
       facebook,
     },
   } = settings;
+
+  const { setSettings } = useContext(SettingsContext);
+
+  useEffect(() => {
+    setSettings(settings.settings);
+  }, []);
 
   const contactData = [
     {
