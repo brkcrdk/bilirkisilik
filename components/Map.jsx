@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
-import { theme } from 'theme';
+import { color, theme } from 'theme';
 
 const Map = ({ coordinations }) => {
   return (
@@ -12,7 +12,7 @@ const Map = ({ coordinations }) => {
       <CustomMarker
         lat={coordinations.lat}
         lng={coordinations.lng}
-        className="icon-map-pin"
+        className="icon-map-marker"
       />
     </GoogleMapReact>
   );
@@ -21,5 +21,6 @@ const Map = ({ coordinations }) => {
 export default Map;
 
 const CustomMarker = styled.i`
-  font-size: ${theme.font20};
+  font-size: ${theme.font32};
+  color: ${color.primary};
 `;
