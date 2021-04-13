@@ -8,7 +8,7 @@ import Hamburger from '../Hamburger';
 import LinkContainer from './LinkContainer';
 import InfoSection from './InfoSection';
 
-const MobileNavigation = ({ routeInfo, navigation }) => {
+const MobileNavigation = ({ routeInfo, navigation, infoData }) => {
   const containerRef = useRef();
   const { isSidebarOpen, closeSidebar } = useSidebar(containerRef);
   const { asPath, parentRoute } = routeInfo;
@@ -35,7 +35,7 @@ const MobileNavigation = ({ routeInfo, navigation }) => {
         closeSidebar={closeSidebar}
         navigation={navigation}
       />
-      <InfoSection />
+      <InfoSection infoData={infoData} />
     </StyledNavigation>
   );
 };

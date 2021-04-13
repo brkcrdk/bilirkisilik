@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
+
 const Layout = ({ children, settings }) => {
   const {
     navigation,
@@ -22,34 +23,33 @@ const Layout = ({ children, settings }) => {
       name: 'Mail',
       icon: 'icon-mail',
       link: `mailto:${email}`,
-      label: 'test@test.com.tr',
+      label: email,
     },
     {
       name: 'Phone',
       icon: 'icon-phone',
-      link: 'tel:+095556664433',
-      label: '+09555-666-44-33',
+      link: `tel:${phoneNumber}`,
+      label: phoneNumber,
     },
   ];
 
-  // [
-  //   {
-  //     "name": "Twitter",
-  //     "icon": "icon-twitter",
-  //     "link": "https://www.twitter.com"
-  //   },
-  //   {
-  //     "name": "Facebook",
-  //     "icon": "icon-facebook",
-  //     "link": "https://www.facebook.com"
-  //   },
-  //   {
-  //     "name": "Instagram",
-  //     "icon": "icon-instagram",
-  //     "link": "https://www.instagram.com"
-  //   }
-  // ]
-  const socialData = { twitter, instagram, facebook };
+  const socialData = [
+    {
+      name: 'Twitter',
+      icon: 'icon-twitter',
+      link: twitter,
+    },
+    {
+      name: 'Facebook',
+      icon: 'icon-facebook',
+      link: facebook,
+    },
+    {
+      name: 'Instagram',
+      icon: 'icon-instagram',
+      link: instagram,
+    },
+  ];
 
   return (
     <>
@@ -80,9 +80,9 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header navigation={navigation} />
+      <Header navigation={navigation} infoData={{ socialData, contactData }} />
       {children}
-      <Footer navigation={footerNav} adres={adres} />
+      <Footer navigation={footerNav} adres={adres} contactData={contactData} />
     </>
   );
 };

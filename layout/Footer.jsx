@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Container, Logo, Map, ContactButtons, CustomLink } from 'components';
 import { color, theme, device } from 'theme';
 
-const Footer = ({ navigation, adres }) => {
+const Footer = ({ navigation, adres, contactData }) => {
   return (
     <StyledFooter>
       <FooterContent>
@@ -10,7 +10,7 @@ const Footer = ({ navigation, adres }) => {
           <div>
             <Logo />
           </div>
-          <CustomContacts />
+          <CustomContacts contactData={contactData} />
         </FooterLogoSection>
         <FooterNavigationSection>
           <h2>Sayfalar</h2>
