@@ -28,7 +28,7 @@ const Footer = ({ navigation, contactData }) => {
             ))}
           </FooterNavigation>
         </FooterNavigationSection>
-        <Map />
+        <Map className="map" />
       </FooterContent>
     </StyledFooter>
   );
@@ -52,7 +52,7 @@ const FooterContent = styled(Container)`
     row-gap: 48px;
     padding: 24px;
 
-    iframe {
+    .map {
       grid-column: 1/3;
     }
   }
@@ -60,7 +60,7 @@ const FooterContent = styled(Container)`
     grid-template-columns: 1fr;
     padding: 24px 18px;
 
-    iframe {
+    .map {
       grid-column: initial;
     }
   }
