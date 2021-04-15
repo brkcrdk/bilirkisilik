@@ -1,14 +1,13 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-import { pageSettings, heroSlides } from 'queries';
+import { pageSettings, heroSlides, nedenBiz } from 'queries';
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
-export default function Home({ settings, slides }) {
-  console.log(slides);
+export default function Home({ settings, slides, whyUs }) {
   return (
     <Layout settings={settings}>
       <Hero data={slides} />
-      <WorkWithUs />
+      <WorkWithUs data={whyUs} />
       <Services />
       <Faq />
     </Layout>
@@ -17,9 +16,10 @@ export default function Home({ settings, slides }) {
 
 export async function getStaticProps() {
   const settings = await pageSettings();
-  const slides = await heroSlides();
-  const navigation = handleNavigation(settings.navigasyons);
   const footerNav = footerNavigation(settings.navigasyons);
+  const navigation = handleNavigation(settings.navigasyons);
+  const slides = await heroSlides();
+  const whyUs = await nedenBiz();
 
   return {
     props: {
@@ -29,6 +29,7 @@ export async function getStaticProps() {
         settings: settings.settings[0],
       },
       slides,
+      whyUs,
     },
   };
 }
