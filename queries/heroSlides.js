@@ -17,7 +17,7 @@ const pageSettings = async () => {
     `,
   });
 
-  return data;
+  return data.homepageSlides;
 };
 
 export default pageSettings;
