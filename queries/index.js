@@ -1,3 +1,4 @@
 import pageSettings from './pageSettings';
+import heroSlides from './heroSlides';
 
-export { pageSettings };
+export { pageSettings, heroSlides };
