@@ -1,6 +1,6 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-import { pageSettings } from 'queries';
+import { pageSettings, heroSlides } from 'queries';
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
 export default function Home({ settings }) {
