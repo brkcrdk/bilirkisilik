@@ -6,7 +6,7 @@ import heroData from 'data/hero.json';
 import HeroHeader from './HeroHeader';
 import Dots from './Dots';
 
-const Hero = () => {
+const Hero = ({ data }) => {
   const [slider, setSlider] = useState();
   const { active, slideChange, slideTo } = useSwiper(slider);
   const [animationName, setAnimationName] = useState('show');
@@ -37,15 +37,15 @@ const Hero = () => {
   return (
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
-        {heroData.map((slide) => (
-          <HeroImage key={slide} src={slide.image} />
+        {data.map((slide) => (
+          <HeroImage key={slide} src={slide.slideBackground.url} />
         ))}
       </Slider>
       <HeroHeader
-        activeSlide={heroData[activeSlide]}
+        activeSlide={data[activeSlide]}
         animationName={animationName}
       />
-      <Dots slides={heroData} active={active} slideTo={slideTo} />
+      <Dots slides={data} active={active} slideTo={slideTo} />
       <HeroShadow />
     </StyledHero>
   );
