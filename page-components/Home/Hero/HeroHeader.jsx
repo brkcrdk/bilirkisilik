@@ -11,12 +11,12 @@ const HeroHeader = ({ animationName, activeSlide }) => (
       initial="hide"
       animate={animationName}
     >
-      <HeroTitle variants={itemAnimations}>{activeSlide.title}</HeroTitle>
+      <HeroTitle variants={itemAnimations}>{activeSlide.slideTitle}</HeroTitle>
       <HeroDescription variants={itemAnimations}>
-        {activeSlide.description}
+        {activeSlide.slideDescription}
       </HeroDescription>
       <AnimatedButton variants={itemAnimations}>
-        <HeroButton route={activeSlide.route}>DEVAMINI OKU</HeroButton>
+        <HeroButton route={activeSlide.linkRoute}>DEVAMINI OKU</HeroButton>
       </AnimatedButton>
     </StyledHeroHeader>
   </Container>
