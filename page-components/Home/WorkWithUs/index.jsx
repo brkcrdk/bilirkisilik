@@ -3,21 +3,24 @@ import { SectionContainer } from 'components';
 import { device } from 'theme';
 import WorkWithUsCard from './WorkWithUsCard';
 
-const WorkWithUs = () => (
-  <SectionContainer
-    title="Neden Biz?"
-    description="Neden bizimle çalışmalısınız"
-  >
-    <CardContainer>
-      <WorkWithUsCard />
-      <WorkWithUsCard />
-      <WorkWithUsCard />
-      <WorkWithUsCard />
-      <WorkWithUsCard />
-      <WorkWithUsCard />
-    </CardContainer>
-  </SectionContainer>
-);
+const WorkWithUs = ({ data }) => {
+  const title = data[0]?.sectionTitle;
+  const description = data[0]?.sectionDescription;
+  return (
+    <SectionContainer title={title} description={description}>
+      <CardContainer>
+        {data.map((item) => (
+          <WorkWithUsCard
+            key={item.title}
+            icon={item.icon.url}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
+      </CardContainer>
+    </SectionContainer>
+  );
+};
 export default WorkWithUs;
 
 const CardContainer = styled.section`
