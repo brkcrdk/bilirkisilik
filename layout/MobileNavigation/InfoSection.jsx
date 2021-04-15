@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { ContactButtons, SocialButtons } from 'components';
 import { device, color } from 'theme';
-const InfoSection = ({ infoData }) => (
+const InfoSection = () => (
   <StyledInfoSection>
-    <ContactButtons contactData={infoData.contactData} />
-    <SocialButtons socialData={infoData.socialData} />
+    <ContactButtons />
+    <SocialButtons />
   </StyledInfoSection>
 );
 export default InfoSection;
