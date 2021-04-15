@@ -8,7 +8,7 @@ const Layout = ({ children, settings }) => {
   const {
     navigation,
     footerNav,
-    settings: { siteName, siteDescription, instagram, twitter, facebook },
+    settings: { siteName, siteDescription },
   } = settings;
 
   const { setSettings } = useContext(SettingsContext);
@@ -16,24 +16,6 @@ const Layout = ({ children, settings }) => {
   useEffect(() => {
     setSettings(settings.settings);
   }, []);
-
-  const socialData = [
-    {
-      name: 'Twitter',
-      icon: 'icon-twitter',
-      link: twitter,
-    },
-    {
-      name: 'Facebook',
-      icon: 'icon-facebook',
-      link: facebook,
-    },
-    {
-      name: 'Instagram',
-      icon: 'icon-instagram',
-      link: instagram,
-    },
-  ];
 
   return (
     <>
@@ -64,7 +46,7 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header navigation={navigation} infoData={{ socialData }} />
+      <Header navigation={navigation} />
       {children}
       <Footer navigation={footerNav} />
     </>
