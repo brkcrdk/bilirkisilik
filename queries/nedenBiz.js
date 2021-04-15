@@ -8,6 +8,8 @@ const pageSettings = async () => {
         nedenBizs {
           title
           description
+          sectionTitle
+          sectionDescription
           icon {
             url
           }
