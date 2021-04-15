@@ -1,19 +1,12 @@
 import styled from 'styled-components';
 import { color, device, theme } from 'theme';
 
-const WorkWithUsCard = ({ title, description }) => (
+const WorkWithUsCard = ({ title, description, icon }) => (
   <StyledWorkWithUsCard>
-    <Icon
-      src="https://cdn.onlinewebfonts.com/svg/img_447865.png"
-      alt={title}
-      title={title}
-    />
+    <Icon src={icon} alt={title} title={title} />
     <Content>
-      <h3>Lorem Ipsum Dolor</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the is simply dummy text of the printing.
-      </p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </Content>
   </StyledWorkWithUsCard>
 );
