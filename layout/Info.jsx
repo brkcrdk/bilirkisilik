@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { Container, ContactButtons, SocialButtons } from 'components';
 import { color, device } from 'theme';
 
-const Info = ({ scrolled, infoData }) => (
+const Info = ({ scrolled }) => (
   <StyledInfo scrolled={scrolled}>
     <InfoContent>
-      <ContactButtons contactData={infoData.contactData} />
-      <SocialButtons socialData={infoData.socialData} />
+      <ContactButtons />
+      <SocialButtons />
     </InfoContent>
   </StyledInfo>
 );
