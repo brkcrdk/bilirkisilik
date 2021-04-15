@@ -10,7 +10,7 @@ import Hamburger from './Hamburger';
 import MobileNavigation from './MobileNavigation/index';
 import DesktopNavigation from './DesktopNavigation/index';
 
-const Header = ({ navigation, infoData }) => {
+const Header = ({ navigation }) => {
   const { hideHeader, scrolled } = useHeaderScroll();
   const { windowWidth } = useWindowWidth();
   const isPhone = windowWidth <= sizes.phone;
@@ -28,7 +28,7 @@ const Header = ({ navigation, infoData }) => {
       animate={hideHeader ? { top: -100, opacity: 0 } : { top: 0, opacity: 1 }}
       transition={{ duration: 0.5, type: 'tween' }}
     >
-      <Info scrolled={scrolled} infoData={infoData} />
+      <Info scrolled={scrolled} />
       <HeaderItems
         scrolled={scrolled}
         animate={scrolled ? { top: 0 } : headerItemAnimations}
@@ -47,11 +47,7 @@ const Header = ({ navigation, infoData }) => {
           />
         </HeaderContent>
       </HeaderItems>
-      <MobileNavigation
-        routeInfo={routeInfo}
-        navigation={navigation}
-        infoData={infoData}
-      />
+      <MobileNavigation routeInfo={routeInfo} navigation={navigation} />
     </StyledHeader>
   );
 };
