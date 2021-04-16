@@ -1,4 +1,4 @@
-import { Container, SectionTitle, SectionContainer } from 'components';
+import { SectionContainer } from 'components';
 import styled from 'styled-components';
 import { device } from 'theme';
 import ServicesCard from './ServicesCard';
