@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { device } from 'theme';
 import ServicesCard from './ServicesCard';
 
-const Services = () => (
+const Services = ({ data }) => (
   <SectionContainer
     title="Hizmetlerimiz"
     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.

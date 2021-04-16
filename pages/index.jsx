@@ -1,14 +1,14 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-import { pageSettings, heroSlides, nedenBiz } from 'queries';
+import { pageSettings, heroSlides, nedenBiz, services } from 'queries';
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
-export default function Home({ settings, slides, whyUs }) {
+export default function Home({ settings, slides, whyUs, servicesData }) {
   return (
     <Layout settings={settings}>
       <Hero data={slides} />
       <WorkWithUs data={whyUs} />
-      <Services />
+      <Services data={servicesData} />
       <Faq />
     </Layout>
   );
@@ -20,6 +20,7 @@ export async function getStaticProps() {
   const navigation = handleNavigation(settings.navigasyons);
   const slides = await heroSlides();
   const whyUs = await nedenBiz();
+  const servicesData = await services();
 
   return {
     props: {
@@ -30,6 +31,7 @@ export async function getStaticProps() {
       },
       slides,
       whyUs,
+      servicesData,
     },
   };
 }
