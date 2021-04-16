@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import client from './client';
 
-const pageSettings = async () => {
+const services = async () => {
   const { data } = await client.query({
     query: gql`
       query Navigation {
@@ -21,4 +21,4 @@ const pageSettings = async () => {
   return data.services;
 };
 
-export default pageSettings;
+export default services;
