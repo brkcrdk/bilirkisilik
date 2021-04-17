@@ -58,7 +58,7 @@ const ServicesCard = ({ title, description }) => {
 };
 export default ServicesCard;
 
-const StyledServicesCard = styled.div`
+const StyledServicesCard = styled.article`
   position: relative;
   border-radius: ${theme.borderRadius};
   border: 1px solid ${color.backgroundColor};
