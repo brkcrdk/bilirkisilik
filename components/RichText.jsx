@@ -9,7 +9,6 @@ function RichText({ content = 'İçerik girilmedi', ...props }) {
 export default RichText;
 
 const StyledRichText = styled.div`
-  background: ${color.primary50};
   font-size: ${theme.font16};
   color: ${color.secondary};
   @media ${device.phone} {
