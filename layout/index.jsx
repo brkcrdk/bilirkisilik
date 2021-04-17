@@ -35,7 +35,7 @@ const Layout = ({ children, settings }) => {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
@@ -54,6 +54,7 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:image:alt" content={siteName} />
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#fcfcfc" />
         <title>{pageTitle ? `${pageTitle} - ${siteName}` : siteName}</title>
       </Head>
       <Header navigation={navigation} />
