@@ -7,9 +7,7 @@ const Footer = ({ navigation, contactData }) => {
     <StyledFooter>
       <FooterContent>
         <FooterLogoSection>
-          <div>
-            <Logo />
-          </div>
+          <Logo />
           <CustomContacts contactData={contactData} />
         </FooterLogoSection>
         <FooterNavigationSection>
