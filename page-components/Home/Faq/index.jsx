@@ -2,28 +2,20 @@ import styled from 'styled-components';
 import { SectionContainer, AccordionItem } from 'components';
 import { color, theme, device } from 'theme';
 
-const Faq = () => (
-  <CustomSection
-    title="S.S.S"
-    description="Sıkça sorulan sorularınızın cevapları."
-  >
-    <CustomAccordion title="Test">
-      <Content>Content</Content>
-    </CustomAccordion>
-    <CustomAccordion title="Test">
-      <Content>Content</Content>
-    </CustomAccordion>
-    <CustomAccordion title="Test">
-      <Content>Content</Content>
-    </CustomAccordion>
-    <CustomAccordion title="Test">
-      <Content>Content</Content>
-    </CustomAccordion>
-    <CustomAccordion title="Test">
-      <Content>Content</Content>
-    </CustomAccordion>
-  </CustomSection>
-);
+function Faq({ data }) {
+  console.log(data);
+  const title = data[0]?.sectionTitle;
+  const description = data[0]?.sectionDescription;
+  return (
+    <CustomSection title={title} description={description}>
+      {data?.map((faq, index) => (
+        <CustomAccordion title={faq.title} key={`${faq.title}-${index}`}>
+          <Content dangerouslySetInnerHTML={{ __html: faq.content.html }} />
+        </CustomAccordion>
+      ))}
+    </CustomSection>
+  );
+}
 export default Faq;
 
 const CustomSection = styled(SectionContainer)`
@@ -68,5 +60,10 @@ const Content = styled.div`
   font-size: ${theme.font18};
   @media ${device.phone} {
     font-size: ${theme.font14};
+  }
+  ol {
+    padding: 0;
+    margin: 0;
+    margin-inline-start: 12px;
   }
 `;
