@@ -1,16 +1,15 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-import { pageSettings, heroSlides, whyUs, services } from 'queries';
+import { pageSettings, heroSlides, whyUs, services, faq } from 'queries';
 import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
 
-function Home({ settings, slides, whyUsData, servicesData }) {
-  console.log(whyUsData);
+function Home({ settings, slides, whyUsData, servicesData, faqData }) {
   return (
     <Layout settings={settings}>
       <Hero data={slides} />
       <WorkWithUs data={whyUsData} />
       <Services data={servicesData} />
-      <Faq />
+      <Faq data={faqData} />
     </Layout>
   );
 }
@@ -24,6 +23,7 @@ export async function getStaticProps() {
   const slides = await heroSlides();
   const whyUsData = await whyUs();
   const servicesData = await services();
+  const faqData = await faq();
 
   return {
     props: {
@@ -35,6 +35,7 @@ export async function getStaticProps() {
       slides,
       whyUsData,
       servicesData,
+      faqData,
     },
   };
 }
