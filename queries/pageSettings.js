@@ -4,7 +4,7 @@ import client from './client';
 const pageSettings = async () => {
   const { data } = await client.query({
     query: gql`
-      query Navigation {
+      query PageSettings {
         navigasyons {
           kategori
           linkLabel
