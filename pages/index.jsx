@@ -26,6 +26,7 @@ export async function getStaticProps() {
   const faqData = await faq();
 
   return {
+    revalidate: 1,
     props: {
       settings: {
         navigation,
