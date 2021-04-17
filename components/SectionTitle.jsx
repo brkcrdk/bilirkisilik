@@ -3,8 +3,8 @@ import { theme, color, device } from 'theme';
 const SectionTitle = ({ title = 'Title', description, ...props }) => (
   <StyledSectionTitle {...props}>
     <Header>
-      <h1>{title}</h1>
       <h3>{title}</h3>
+      <span>{title}</span>
     </Header>
     {description && <span>{description}</span>}
   </StyledSectionTitle>
@@ -28,15 +28,16 @@ const Header = styled.div`
   align-items: center;
   justify-content: center;
 
-  h1 {
+  h3 {
     font-size: ${theme.font64};
     color: ${color.text200};
     @media ${device.phone} {
       font-size: ${theme.font48};
     }
   }
-  h3 {
+  span {
     font-size: ${theme.font32};
+    font-weight: 700;
     position: absolute;
     bottom: 0;
     color: ${color.primary};
