@@ -4,7 +4,7 @@ import client from './client';
 const services = async () => {
   const { data } = await client.query({
     query: gql`
-      query Navigation {
+      query Services {
         services {
           sectionTitle
           sectionDescription
