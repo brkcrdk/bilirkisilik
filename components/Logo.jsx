@@ -25,4 +25,6 @@ export default Logo;
 
 const StyledLogo = styled.img`
   transition: ${theme.transition};
+  width: ${(p) => p.width && `${p.width}px`};
+  height: auto;
 `;
