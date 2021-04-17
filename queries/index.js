@@ -1,6 +1,6 @@
 import pageSettings from './pageSettings';
 import heroSlides from './heroSlides';
-import nedenBiz from './nedenBiz';
+import whyUs from './whyUs';
 import services from './services';
 
-export { pageSettings, heroSlides, nedenBiz, services };
+export { pageSettings, heroSlides, whyUs, services };
