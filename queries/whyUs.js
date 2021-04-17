@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 import client from './client';
 
-const pageSettings = async () => {
+const whyUs = async () => {
   const { data } = await client.query({
     query: gql`
-      query Navigation {
+      query WhyUs {
         nedenBizs {
           title
           description
@@ -21,4 +21,4 @@ const pageSettings = async () => {
   return data.nedenBizs;
 };
 
-export default pageSettings;
+export default whyUs;
