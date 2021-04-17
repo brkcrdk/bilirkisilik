@@ -54,4 +54,5 @@ const CustomAccordion = styled(AccordionItem)`
 const Content = styled(RichText)`
   padding: 12px;
   cursor: auto;
+  background: ${color.primary50};
 `;
