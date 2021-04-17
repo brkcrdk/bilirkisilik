@@ -24,6 +24,15 @@ const pageSettings = async () => {
             latitude
             longitude
           }
+          siteLogo {
+            url
+          }
+          siteLightLogo {
+            url
+          }
+          siteIcon {
+            url
+          }
         }
       }
     `,
