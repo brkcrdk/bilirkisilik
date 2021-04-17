@@ -9,11 +9,10 @@ function RichText({ content = 'İçerik girilmedi', ...props }) {
 export default RichText;
 
 const StyledRichText = styled.div`
+  white-space: pre-wrap;
   font-size: ${theme.font16};
   color: ${color.secondary};
-  @media ${device.phone} {
-    font-size: ${theme.font14};
-  }
+
   ol,
   ul {
     padding: 0;
@@ -38,11 +37,28 @@ const StyledRichText = styled.div`
   h6 {
     font-size: ${theme.font14};
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
   a {
     text-decoration: underline;
     color: ${color.primary};
     &:hover {
       color: ${color.text400};
+    }
+  }
+
+  @media ${device.phone} {
+    font-size: ${theme.font14};
+    img {
+      width: 100%;
     }
   }
 `;
