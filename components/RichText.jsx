@@ -44,10 +44,15 @@ const StyledRichText = styled.div`
   h4,
   h5,
   h6,
-  p,
   img {
     line-height: 24px;
     margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  p {
+    line-height: 24px;
   }
 
   a {
