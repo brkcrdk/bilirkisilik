@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+public/sw.js
+.gitignore
+public/workbox-6b19f60b.js
+.gitignore
+public/workbox-6b19f60b.js.map
+public/sw.js.map
