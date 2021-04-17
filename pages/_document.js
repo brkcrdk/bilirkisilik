@@ -33,6 +33,7 @@ export default class MyDocument extends Document {
           <link href="/fonts/Nunito/nunito.css" rel="stylesheet" />
           <link href="/fonts/WorkSans/work-sans.css" rel="stylesheet" />
           <link href="/styles/index.css" rel="stylesheet" />
+          <link href="/manifest.json" rel="manifest" />
         </Head>
         <body>
           <Main />
