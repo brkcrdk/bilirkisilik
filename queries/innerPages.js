@@ -7,6 +7,7 @@ const innerPages = async (route) => {
       query InnerPages {
         icerikSayfalari(where: { route: "${route}" }) {
           headerTitle
+          headerDescription
           headerImage {
             url
           }
