@@ -5,7 +5,7 @@ import { color, device, sizes, theme } from 'theme';
 import { CustomLink } from 'components';
 import { useWindowWidth } from 'hooks';
 
-const ServicesCard = () => {
+const ServicesCard = ({ title, description }) => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useWindowWidth();
   const isLaptop = windowWidth <= sizes.laptop;
@@ -41,7 +41,7 @@ const ServicesCard = () => {
         transition={{ duration: 0.2, type: 'tween' }}
       >
         <CustomLink route="/">
-          <h5>Trafik Kazası İncelemesi ve Kusur Tespiti</h5>
+          <h3>{title}</h3>
         </CustomLink>
         <motion.p
           variants={paragraphAnimations}
@@ -49,9 +49,7 @@ const ServicesCard = () => {
           animate={hovered ? 'show' : 'hidden'}
           transition={{ duration: 0.3 }}
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting Lorem
-          Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum
-          is simply dummy text of the printing and typesetting
+          {description}
         </motion.p>
         <DetailLink route="/">Detaylı Gör</DetailLink>
       </Content>
@@ -91,7 +89,7 @@ const Content = styled(motion.header)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  h5 {
+  h3 {
     font-size: ${theme.font18};
   }
   p {
