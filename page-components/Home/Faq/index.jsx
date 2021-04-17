@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SectionContainer, AccordionItem } from 'components';
+import { SectionContainer, AccordionItem, RichText } from 'components';
 import { color, theme, device } from 'theme';
 
 function Faq({ data }) {
@@ -9,7 +9,7 @@ function Faq({ data }) {
     <CustomSection title={title} description={description}>
       {data?.map((faq, index) => (
         <CustomAccordion title={faq.title} key={`${faq.title}-${index}`}>
-          <Content dangerouslySetInnerHTML={{ __html: faq.content.html }} />
+          <Content content={faq.content.html} />
         </CustomAccordion>
       ))}
     </CustomSection>
@@ -40,7 +40,7 @@ const CustomAccordion = styled(AccordionItem)`
   }
   .accordion-header {
     font-weight: 700;
-    font-size: ${theme.font24};
+    font-size: ${theme.font20};
     @media ${device.phone} {
       font-size: ${theme.font18};
     }
@@ -51,18 +51,7 @@ const CustomAccordion = styled(AccordionItem)`
   }
 `;
 
-const Content = styled.div`
+const Content = styled(RichText)`
   padding: 12px;
   cursor: auto;
-  color: ${color.secondary};
-  background: ${color.primary50};
-  font-size: ${theme.font18};
-  @media ${device.phone} {
-    font-size: ${theme.font14};
-  }
-  ol {
-    padding: 0;
-    margin: 0;
-    margin-inline-start: 12px;
-  }
 `;
