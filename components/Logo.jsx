@@ -6,14 +6,16 @@ import { SettingsContext } from 'context';
 
 function Logo({ lightLogo, width = 200 }) {
   const {
-    settings: { siteLogo, siteLightLogo },
+    settings: { siteName, siteLogo, siteLightLogo },
   } = useContext(SettingsContext);
   return (
     <Link href="/" passHref>
-      <a title="Logo" alt="logo">
+      <a title={`${siteName} Logo`} alt={`${siteName} Logo`}>
         <StyledLogo
           src={lightLogo ? siteLightLogo?.url : siteLogo?.url}
           width={width}
+          alt={`${siteName} Logo`}
+          title={`${siteName} Logo`}
         />
       </a>
     </Link>
