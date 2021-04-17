@@ -9,9 +9,9 @@ const WorkWithUs = ({ data }) => {
   return (
     <SectionContainer title={title} description={description}>
       <CardContainer>
-        {data.map((item) => (
+        {data.map((item, index) => (
           <WorkWithUsCard
-            key={item.title}
+            key={`${item.title}-${index}`}
             icon={item.icon.url}
             title={item.title}
             description={item.description}

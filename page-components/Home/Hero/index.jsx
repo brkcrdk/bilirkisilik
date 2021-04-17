@@ -38,7 +38,7 @@ const Hero = ({ data }) => {
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
         {data.map((slide) => (
-          <HeroImage key={slide} src={slide.slideBackground.url} />
+          <HeroImage key={slide.slideTitle} src={slide.slideBackground.url} />
         ))}
       </Slider>
       <HeroHeader

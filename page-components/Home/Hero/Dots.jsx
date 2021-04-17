@@ -8,7 +8,7 @@ const Dots = ({ slides, active, slideTo }) => (
     <StyledDots>
       {slides.map((slide, index) => (
         <DotContainer
-          key={slide.title}
+          key={`${slide.slideTitle}-${index}`}
           activeSlide={active === index}
           onClick={() => slideTo(index)}
         >
