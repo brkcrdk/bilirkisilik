@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { color, theme } from 'theme';
+import { RichText, Container } from 'components';
 
 function InnerPages({ data }) {
-  const { headerImage, headerTitle, headerDescription } = data;
+  const { headerImage, headerTitle, headerDescription, content } = data;
   return (
     <StyledInnerPages>
       <Header>
@@ -12,6 +13,9 @@ function InnerPages({ data }) {
           <span>{headerDescription}</span>
         </HeaderContent>
       </Header>
+      <Content>
+        <RichText content={content.html} />
+      </Content>
     </StyledInnerPages>
   );
 }
@@ -45,4 +49,9 @@ const HeaderContent = styled.div`
     font-size: ${theme.font16};
     font-weight: 100;
   }
+`;
+
+const Content = styled(Container)`
+  margin-top: 50px;
+  padding: 0 20px;
 `;
