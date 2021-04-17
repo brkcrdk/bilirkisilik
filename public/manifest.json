@@ -1,6 +1,11 @@
 {
   "name": "Bilirkisilik",
   "short_name": "Bilirkisilik.com",
+  "start_url": "/",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#fcfcfc",
+  "background_color": "#fcfcfc",
   "icons": [
     {
       "src": "images/icons/48x48.png",
@@ -41,11 +46,12 @@
       "src": "images/icons/512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "images/icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "start_url": "/",
-  "orientation": "portrait",
-  "display": "standalone",
-  "theme_color": "#fcfcfc",
-  "background_color": "#fcfcfc"
+  ]
 }
