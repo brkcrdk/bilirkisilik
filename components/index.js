@@ -9,3 +9,4 @@ export { default as Logo } from './Logo';
 export { default as Map } from './Map';
 export { default as SectionTitle } from './SectionTitle';
 export { default as SectionContainer } from './SectionContainer';
+export { default as RichText } from './RichText';
