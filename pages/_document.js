@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
           <link href="/fonts/WorkSans/work-sans.css" rel="stylesheet" />
           <link href="/styles/index.css" rel="stylesheet" />
           <link href="/manifest.json" rel="manifest" />
+          <link rel="apple-touch-icon" href="/images/icon/192x192.png" />
         </Head>
         <body>
           <Main />
