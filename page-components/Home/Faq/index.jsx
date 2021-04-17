@@ -3,7 +3,6 @@ import { SectionContainer, AccordionItem } from 'components';
 import { color, theme, device } from 'theme';
 
 function Faq({ data }) {
-  console.log(data);
   const title = data[0]?.sectionTitle;
   const description = data[0]?.sectionDescription;
   return (
