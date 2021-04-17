@@ -12,7 +12,7 @@ const WorkWithUsCard = ({ title, description, icon }) => (
 );
 export default WorkWithUsCard;
 
-const StyledWorkWithUsCard = styled.div`
+const StyledWorkWithUsCard = styled.article`
   display: flex;
   justify-content: space-between;
 `;
