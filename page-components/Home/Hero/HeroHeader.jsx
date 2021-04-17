@@ -47,7 +47,7 @@ const HeroTitle = styled(motion.h1)`
   }
 `;
 
-const HeroDescription = styled(motion.h4)`
+const HeroDescription = styled(motion.h2)`
   font-size: ${theme.font32};
   font-family: Work Sans;
   margin: 24px 0;
