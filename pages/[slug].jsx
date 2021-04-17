@@ -1,8 +1,9 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
-import { pageSettings } from 'queries';
+import { pageSettings, innerPages } from 'queries';
 
-function DetailPage({ settings }) {
+function DetailPage({ settings, contentData }) {
+  console.log(contentData);
   return (
     <Layout settings={settings}>
       <div>This is detail page</div>;
@@ -12,11 +13,11 @@ function DetailPage({ settings }) {
 
 export default DetailPage;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const settings = await pageSettings();
   const footerNav = footerNavigation(settings.navigasyons);
   const navigation = handleNavigation(settings.navigasyons);
-
+  const contentData = await innerPages(context?.query?.slug);
   return {
     props: {
       settings: {
@@ -24,6 +25,7 @@ export async function getServerSideProps() {
         footerNav,
         settings: settings.settings[0],
       },
+      contentData,
     },
   };
 }
