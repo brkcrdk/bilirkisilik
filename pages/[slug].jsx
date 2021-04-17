@@ -1,12 +1,12 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
 import { pageSettings, innerPages } from 'queries';
+import InnerPages from 'page-components/InnerPages';
 
 function DetailPage({ settings, contentData }) {
-  console.log(contentData);
   return (
     <Layout settings={settings}>
-      <div>This is detail page</div>;
+      <InnerPages data={contentData} />
     </Layout>
   );
 }
