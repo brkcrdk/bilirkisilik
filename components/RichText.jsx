@@ -12,6 +12,7 @@ const StyledRichText = styled.div`
   white-space: pre-wrap;
   font-size: ${theme.font16};
   color: ${color.secondary};
+  font-weight: 300;
 
   ol,
   ul {
@@ -43,10 +44,12 @@ const StyledRichText = styled.div`
   h4,
   h5,
   h6,
-  p {
+  p,
+  img {
     line-height: 24px;
     margin-bottom: 24px;
   }
+
   a {
     text-decoration: underline;
     color: ${color.primary};
