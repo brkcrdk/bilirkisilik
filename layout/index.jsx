@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -34,23 +35,26 @@ const Layout = ({ children, settings }) => {
   return (
     <>
       <Head>
-        <title>{pageTitle ? `${pageTitle} - ${siteName}` : siteName}</title>
-        <meta name="description" content={siteDescription} />
+        <meta charset="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="keywords" content="Keywords" />
         <link rel="shortcut icon" href={siteIcon.url} />
-
         <meta property="og:title" content={siteName} />
         <meta property="og:description" content={siteDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={siteLogo.url} />
-
         <meta property="og:site_name" content={siteName} />
-
         <meta property="twitter:title" content={siteName} />
         <meta property="twitter:description" content={siteDescription} />
         <meta property="twitter:image" content={siteLogo.url} />
         <meta name="twitter:image:alt" content={siteName} />
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
+        <title>{pageTitle ? `${pageTitle} - ${siteName}` : siteName}</title>
       </Head>
       <Header navigation={navigation} />
       <Content
