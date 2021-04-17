@@ -3,7 +3,7 @@ import { SectionContainer } from 'components';
 import { device } from 'theme';
 import WorkWithUsCard from './WorkWithUsCard';
 
-const WorkWithUs = ({ data }) => {
+function WorkWithUs({ data }) {
   const title = data[0]?.sectionTitle;
   const description = data[0]?.sectionDescription;
   return (
@@ -20,7 +20,7 @@ const WorkWithUs = ({ data }) => {
       </CardContainer>
     </SectionContainer>
   );
-};
+}
 export default WorkWithUs;
 
 const CardContainer = styled.section`
