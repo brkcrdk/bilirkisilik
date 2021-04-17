@@ -28,7 +28,7 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
+      <Html lang="tr">
         <Head>
           <link href="/fonts/Nunito/nunito.css" rel="stylesheet" />
           <link href="/fonts/WorkSans/work-sans.css" rel="stylesheet" />
