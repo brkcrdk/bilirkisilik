@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, theme } from 'theme';
+import { color, device, theme } from 'theme';
 import { RichText, Container } from 'components';
 
 function InnerPages({ data }) {
@@ -41,17 +41,25 @@ const HeaderContent = styled.div`
   text-align: center;
   font-family: Work Sans;
 
+  @media ${device.laptop} {
+    width: 80%;
+  }
+
   h1 {
     font-size: ${theme.font48};
     font-weight: 400;
+    margin-bottom: 24px;
   }
   span {
     font-size: ${theme.font16};
-    font-weight: 100;
+    font-weight: 200;
   }
 `;
 
 const Content = styled(Container)`
   margin-top: 50px;
-  padding: 0 20px;
+  padding: 0 10%;
+  @media ${device.phone} {
+    padding: 0;
+  }
 `;
