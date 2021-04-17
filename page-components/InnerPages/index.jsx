@@ -7,7 +7,7 @@ function InnerPages({ data }) {
   return (
     <StyledInnerPages>
       <Header>
-        <img src={headerImage.url} />
+        <img src={headerImage.url} alt={headerTitle} title={headerTitle} />
         <HeaderContent>
           <h1>{headerTitle}</h1>
           <span>{headerDescription}</span>
