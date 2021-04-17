@@ -41,7 +41,9 @@ const ServicesCard = ({ title, description }) => {
         transition={{ duration: 0.2, type: 'tween' }}
       >
         <CustomLink route="/">
-          <h3>{title}</h3>
+          <h3 alt={title} title={title}>
+            {title}
+          </h3>
         </CustomLink>
         <motion.p
           variants={paragraphAnimations}
