@@ -3,24 +3,26 @@ import styled from 'styled-components';
 import { device } from 'theme';
 import ServicesCard from './ServicesCard';
 
-const Services = ({ data }) => (
-  <SectionContainer
-    title="Hizmetlerimiz"
-    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+function Services({ data }) {
+  console.log(data);
+  return (
+    <SectionContainer
+      title="Hizmetlerimiz"
+      description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     Lorem Ipsum has been the is simply dummy text of the printing."
-  >
-    <ServiceCards>
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-      <ServicesCard />
-    </ServiceCards>
-  </SectionContainer>
-);
+    >
+      <ServiceCards>
+        {data.map((service, index) => (
+          <ServicesCard
+            key={`${service.title}-${index}`}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
+      </ServiceCards>
+    </SectionContainer>
+  );
+}
 export default Services;
 
 const ServiceCards = styled.section`
