@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Header from './Header';
 import Footer from './Footer';
 import { SettingsContext } from 'context';
@@ -11,8 +12,18 @@ const Layout = ({ children, settings }) => {
     settings: { siteName, siteDescription, siteLogo, siteIcon },
   } = settings;
 
-  const { setSettings } = useContext(SettingsContext);
+  // İç sayfalarda sayfa ismini al, routetan / çıkar
+  // İsimden - çıkar ilk harfleri büyük yapıp aralarına boşluk ekle
+  const { asPath } = useRouter();
+  const currentPage = asPath.split('/')[1];
+  const pageTitle =
+    currentPage !== '' &&
+    currentPage
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
 
+  const { setSettings } = useContext(SettingsContext);
   useEffect(() => {
     setSettings(settings.settings);
   }, []);
@@ -20,7 +31,7 @@ const Layout = ({ children, settings }) => {
   return (
     <>
       <Head>
-        <title>{siteName}</title>
+        <title>{pageTitle ? `${pageTitle} - ${siteName}` : siteName}</title>
         <meta name="description" content={siteDescription} />
         <link rel="shortcut icon" href={siteIcon.url} />
 
