@@ -1,9 +1,12 @@
 import { Providers } from 'context';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   return (
     <Providers>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} />
+      </AnimatePresence>
     </Providers>
   );
 }

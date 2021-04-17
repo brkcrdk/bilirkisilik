@@ -1,9 +1,12 @@
 import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Header from './Header';
-import Footer from './Footer';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import { SettingsContext } from 'context';
+
+import Footer from './Footer';
+import Header from './Header';
 
 const Layout = ({ children, settings }) => {
   const {
@@ -50,9 +53,17 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header navigation={navigation} />
-      {children}
+      <Content
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        {children}
+      </Content>
       <Footer navigation={footerNav} />
     </>
   );
 };
 export default Layout;
+
+const Content = styled(motion.main)``;
