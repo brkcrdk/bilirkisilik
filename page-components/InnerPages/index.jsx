@@ -12,6 +12,7 @@ function InnerPages({ data }) {
           <h1>{headerTitle}</h1>
           <span>{headerDescription}</span>
         </HeaderContent>
+        <Backdrop />
       </Header>
       <Content>
         <RichText content={content.html} />
@@ -40,7 +41,7 @@ const HeaderContent = styled.div`
   color: ${color.backgroundColor};
   text-align: center;
   font-family: Work Sans;
-
+  z-index: 9;
   @media ${device.laptop} {
     width: 80%;
   }
@@ -49,17 +50,33 @@ const HeaderContent = styled.div`
     font-size: ${theme.font48};
     font-weight: 400;
     margin-bottom: 24px;
+    @media ${device.phone} {
+      font-size: ${theme.font32};
+    }
   }
   span {
     font-size: ${theme.font16};
     font-weight: 200;
+    @media ${device.phone} {
+      font-size: ${theme.font14};
+    }
   }
 `;
 
 const Content = styled(Container)`
   margin-top: 50px;
   padding: 0 10%;
+  background: ${color.backgroundColor};
   @media ${device.phone} {
     padding: 0;
   }
+`;
+
+const Backdrop = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
 `;
