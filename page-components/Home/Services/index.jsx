@@ -4,6 +4,7 @@ import { device } from 'theme';
 import ServicesCard from './ServicesCard';
 
 function Services({ data }) {
+  console.log(data);
   return (
     <SectionContainer
       title="Hizmetlerimiz"
@@ -16,6 +17,7 @@ function Services({ data }) {
             key={`${service.title}-${index}`}
             title={service.title}
             description={service.description}
+            route={service.route}
           />
         ))}
       </ServiceCards>

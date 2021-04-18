@@ -13,6 +13,7 @@ const services = async () => {
           }
           title
           description
+          route
         }
       }
     `,
