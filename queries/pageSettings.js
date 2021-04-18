@@ -15,7 +15,6 @@ const pageSettings = async () => {
         settings {
           siteName
           siteDescription
-          keywords
           facebook
           instagram
           twitter

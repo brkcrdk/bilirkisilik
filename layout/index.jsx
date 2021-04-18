@@ -13,7 +13,7 @@ const Layout = ({ children, settings }) => {
   const {
     navigation,
     footerNav,
-    settings: { siteName, siteDescription, keywords, siteLogo, siteIcon },
+    settings: { siteName, siteDescription, siteLogo, siteIcon },
   } = settings;
 
   // İç sayfalarda sayfa ismini al, routetan / çıkar
@@ -38,7 +38,6 @@ const Layout = ({ children, settings }) => {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="keywords" content={keywords} />
         <meta name="description" content={siteDescription} />
         <link rel="shortcut icon" href={siteIcon.url} />
         <meta property="og:title" content={siteName} />
