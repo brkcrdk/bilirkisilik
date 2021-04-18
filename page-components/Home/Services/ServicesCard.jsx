@@ -5,7 +5,7 @@ import { color, device, sizes, theme } from 'theme';
 import { CustomLink } from 'components';
 import { useWindowWidth } from 'hooks';
 
-const ServicesCard = ({ title, description }) => {
+const ServicesCard = ({ title, description, route }) => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useWindowWidth();
   const isLaptop = windowWidth <= sizes.laptop;
@@ -40,7 +40,7 @@ const ServicesCard = ({ title, description }) => {
         animate={hovered ? 'hovered' : 'hidden'}
         transition={{ duration: 0.2, type: 'tween' }}
       >
-        <CustomLink route="/">
+        <CustomLink route={route}>
           <h3 alt={title} title={title}>
             {title}
           </h3>
@@ -53,7 +53,9 @@ const ServicesCard = ({ title, description }) => {
         >
           {description}
         </motion.p>
-        <DetailLink route="/">Detaylı Gör</DetailLink>
+        <DetailLink route={route} alt={title} title={title}>
+          Detaylı Gör
+        </DetailLink>
       </Content>
     </StyledServicesCard>
   );
