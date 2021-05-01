@@ -12,6 +12,7 @@ const pageSettings = async () => {
             url
           }
           linkRoute
+          order
         }
       }
     `,
