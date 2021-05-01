@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Providers } from 'context';
-import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -23,9 +22,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Providers>
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} />
-      </AnimatePresence>
+      <Component {...pageProps} />
     </Providers>
   );
 }
