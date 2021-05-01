@@ -8,6 +8,7 @@ import { SettingsContext } from 'context';
 
 import Footer from './Footer';
 import Header from './Header';
+import { color } from 'theme';
 
 const Layout = ({ children, settings }) => {
   const {
@@ -51,17 +52,11 @@ const Layout = ({ children, settings }) => {
         <meta name="twitter:image:alt" content={siteName} />
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="theme-color" content="#fcfcfc" />
+        <meta name="theme-color" content={color.backgroundColor} />
         <title>{pageTitle ? `${pageTitle} - ${siteName}` : siteName}</title>
       </Head>
       <Header navigation={navigation} />
-      <Content
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        {children}
-      </Content>
+      <Content>{children}</Content>
       <Footer navigation={footerNav} />
     </>
   );
