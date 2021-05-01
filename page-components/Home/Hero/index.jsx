@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSwiper } from 'hooks';
 import { Slider } from 'components';
-import heroData from 'data/hero.json';
 import HeroHeader from './HeroHeader';
 import Dots from './Dots';
 
@@ -11,6 +10,7 @@ const Hero = ({ data }) => {
   const { active, slideChange, slideTo } = useSwiper(slider);
   const [animationName, setAnimationName] = useState('show');
   const [activeSlide, setActiveSlide] = useState(0);
+  const [sortedData, setSortedData] = useState([]);
 
   const handleAnimation = () => {
     setAnimationName('hide');
@@ -34,10 +34,18 @@ const Hero = ({ data }) => {
       delay: 7000,
     },
   };
+
+  useEffect(() => {
+    if (data) {
+      const sorted = data.sort((a, b) => a.order - b.order);
+      return setSortedData(sorted);
+    }
+  }, []);
+
   return (
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
-        {data.map((slide) => (
+        {sortedData.map((slide) => (
           <HeroImage
             key={slide.slideTitle}
             src={slide.slideBackground.url}
