@@ -41,7 +41,7 @@ const DropdownContent = styled.ul`
   border-radius: ${theme.borderRadius};
   right: ${(p) => p.isCloseToCorner && '0px'};
   padding: 8px 6px;
-  margin-top: ${(p) => (p.scrolled ? '34px' : '24px')};
+  margin-top: ${(p) => (p.scrolled ? '32px' : '22px')};
   box-shadow: ${theme.boxShadow200};
   font-size: ${theme.font18};
 

@@ -129,11 +129,10 @@ const StyledNavigation = styled.nav`
 `;
 
 const MenuItem = styled.div`
-  margin: 0 10px;
-  font-size: ${theme.font20};
+  font-size: ${theme.font16};
   cursor: pointer;
   position: relative;
-  padding: 10px;
+  padding: 8px;
   font-weight: ${(p) => p.active && 800};
   color: ${(p) => p.color && p.color.normal.color};
   background: ${(p) => p.color && p.color.normal.backgroundColor};

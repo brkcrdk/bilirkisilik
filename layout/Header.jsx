@@ -73,7 +73,7 @@ const HeaderContent = styled(Container)`
   align-items: center;
   justify-content: space-between;
   color: ${(p) => (p.scrolled ? color.text800 : 'white')};
-  padding: 20px 0;
+  padding: 16px 0;
 
   @media ${device.laptop} {
     padding: 15px 0;
