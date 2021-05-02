@@ -16,7 +16,13 @@ const HeroHeader = ({ animationName, activeSlide }) => (
         {activeSlide.slideDescription}
       </HeroDescription>
       <AnimatedButton variants={itemAnimations}>
-        <HeroButton route={activeSlide.linkRoute}>DEVAMINI OKU</HeroButton>
+        <HeroButton
+          alt={activeSlide.slideTitle}
+          title={activeSlide.slideTitle}
+          route={activeSlide.linkRoute}
+        >
+          DEVAMINI OKU
+        </HeroButton>
       </AnimatedButton>
     </StyledHeroHeader>
   </Container>
