@@ -53,7 +53,7 @@ const HeroDescription = styled(motion.h2)`
   margin: 24px 0;
   font-weight: 400;
   letter-spacing: -0.15px;
-
+  ${theme.lineClamp(3)}
   @media ${device.phone} {
     font-size: ${theme.font18};
   }
