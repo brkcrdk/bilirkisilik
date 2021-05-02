@@ -5,7 +5,7 @@ import { color, device, sizes, theme } from 'theme';
 import { CustomLink } from 'components';
 import { useWindowWidth } from 'hooks';
 
-const ServicesCard = ({ title, description, route }) => {
+const ServicesCard = ({ title, description, route, background }) => {
   const [hovered, setHovered] = useState(false);
   const { windowWidth } = useWindowWidth();
   const isLaptop = windowWidth <= sizes.laptop;
@@ -30,7 +30,7 @@ const ServicesCard = ({ title, description, route }) => {
 
   return (
     <StyledServicesCard
-      background="/images/slider-placeholder/2.jpg"
+      background={background}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
