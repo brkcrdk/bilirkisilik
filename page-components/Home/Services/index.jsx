@@ -4,12 +4,10 @@ import { device } from 'theme';
 import ServicesCard from './ServicesCard';
 
 function Services({ data }) {
+  const pageTitle = data[0]?.sectionTitle;
+  const pageDescription = data[0]?.sectionDescription;
   return (
-    <SectionContainer
-      title="Hizmetlerimiz"
-      description="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the is simply dummy text of the printing."
-    >
+    <SectionContainer title={pageTitle} description={pageDescription}>
       <ServiceCards>
         {data.map((service, index) => (
           <ServicesCard
@@ -17,6 +15,7 @@ function Services({ data }) {
             title={service.title}
             description={service.description}
             route={service.route}
+            background={service.cardImage.url}
           />
         ))}
       </ServiceCards>
