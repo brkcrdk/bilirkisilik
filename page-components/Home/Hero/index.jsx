@@ -10,7 +10,6 @@ const Hero = ({ data }) => {
   const { active, slideChange, slideTo } = useSwiper(slider);
   const [animationName, setAnimationName] = useState('show');
   const [activeSlide, setActiveSlide] = useState(0);
-  const [sortedData, setSortedData] = useState([]);
 
   const handleAnimation = () => {
     setAnimationName('hide');
@@ -35,17 +34,10 @@ const Hero = ({ data }) => {
     },
   };
 
-  useEffect(() => {
-    if (data) {
-      const sorted = data.sort((a, b) => a.order - b.order);
-      return setSortedData(sorted);
-    }
-  }, []);
-
   return (
     <StyledHero>
       <Slider settings={settings} setSlider={setSlider}>
-        {sortedData.map((slide) => (
+        {data.map((slide) => (
           <HeroImage
             key={slide.slideTitle}
             src={slide.slideBackground.url}

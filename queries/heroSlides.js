@@ -5,7 +5,7 @@ const pageSettings = async () => {
   const { data } = await client.query({
     query: gql`
       query HeroSlides {
-        homepageSlides {
+        homepageSlides(orderBy: order_ASC) {
           slideTitle
           slideDescription
           slideBackground {
