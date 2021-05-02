@@ -28,6 +28,7 @@ const ExpandableItem = ({ children, active, ...props }) => {
 export default ExpandableItem;
 
 const CustomAccordion = styled(AccordionItem)`
+  margin: 10px 0;
   span {
     font-weight: ${(p) => p.active && 800};
   }

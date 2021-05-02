@@ -80,6 +80,7 @@ const StyledLinkContainer = styled(motion.ul)`
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  overflow: auto;
   span {
     display: flex;
     justify-content: center;
