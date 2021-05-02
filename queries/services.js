@@ -5,7 +5,7 @@ const services = async () => {
   const { data } = await client.query({
     query: gql`
       query Services {
-        services {
+        services(orderBy: order_ASC) {
           sectionTitle
           sectionDescription
           cardImage {
