@@ -1,7 +1,7 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
 import { pageSettings, heroSlides, whyUs, services, faq } from 'queries';
-import { Hero, Services, WorkWithUs } from 'page-components/Home';
+import { Hero, Services, WorkWithUs, Form } from 'page-components/Home';
 
 function Home({ settings, slides, whyUsData, servicesData }) {
   return (
@@ -10,6 +10,7 @@ function Home({ settings, slides, whyUsData, servicesData }) {
       <Services data={servicesData} />
       <WorkWithUs data={whyUsData} />
       {/* <Faq data={faqData} />| */}
+      <Form />
     </Layout>
   );
 }
@@ -23,7 +24,7 @@ export async function getStaticProps() {
   const slides = await heroSlides();
   const whyUsData = await whyUs();
   const servicesData = await services();
-  const faqData = await faq();
+  // const faqData = await faq();
 
   return {
     revalidate: 1,
@@ -36,7 +37,7 @@ export async function getStaticProps() {
       slides,
       whyUsData,
       servicesData,
-      faqData,
+      // faqData,
     },
   };
 }
