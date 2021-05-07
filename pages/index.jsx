@@ -1,15 +1,15 @@
 import Layout from 'layout';
 import { handleNavigation, footerNavigation } from 'utils';
 import { pageSettings, heroSlides, whyUs, services, faq } from 'queries';
-import { Hero, Services, WorkWithUs, Faq } from 'page-components/Home';
+import { Hero, Services, WorkWithUs } from 'page-components/Home';
 
-function Home({ settings, slides, whyUsData, servicesData, faqData }) {
+function Home({ settings, slides, whyUsData, servicesData }) {
   return (
     <Layout settings={settings}>
       <Hero data={slides} />
       <Services data={servicesData} />
       <WorkWithUs data={whyUsData} />
-      <Faq data={faqData} />|
+      {/* <Faq data={faqData} />| */}
     </Layout>
   );
 }
