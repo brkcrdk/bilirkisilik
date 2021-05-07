@@ -35,7 +35,7 @@ const Header = ({ navigation }) => {
         transition={{ duration: 0.3, type: 'tween' }}
       >
         <HeaderContent scrolled={scrolled}>
-          <Logo lightLogo={!scrolled} width={logoSizes} />
+          <StyledLogo lightLogo={!scrolled} width={logoSizes} />
           <DesktopNavigation
             scrolled={scrolled}
             routeInfo={routeInfo}
@@ -78,4 +78,8 @@ const HeaderContent = styled(Container)`
   @media ${device.laptop} {
     padding: 15px 0;
   }
+`;
+
+const StyledLogo = styled(Logo)`
+  max-height: 60px;
 `;
