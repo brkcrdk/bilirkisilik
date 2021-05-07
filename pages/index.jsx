@@ -7,9 +7,9 @@ function Home({ settings, slides, whyUsData, servicesData, faqData }) {
   return (
     <Layout settings={settings}>
       <Hero data={slides} />
-      <WorkWithUs data={whyUsData} />
       <Services data={servicesData} />
-      <Faq data={faqData} />
+      <WorkWithUs data={whyUsData} />
+      <Faq data={faqData} />|
     </Layout>
   );
 }
