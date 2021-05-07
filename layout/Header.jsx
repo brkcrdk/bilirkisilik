@@ -73,7 +73,7 @@ const HeaderContent = styled(Container)`
   align-items: center;
   justify-content: space-between;
   color: ${(p) => (p.scrolled ? color.text800 : 'white')};
-  padding: 16px 0;
+  padding: 8px 0;
 
   @media ${device.laptop} {
     padding: 15px 0;
@@ -81,5 +81,5 @@ const HeaderContent = styled(Container)`
 `;
 
 const StyledLogo = styled(Logo)`
-  max-height: 60px;
+  max-height: 50px;
 `;
