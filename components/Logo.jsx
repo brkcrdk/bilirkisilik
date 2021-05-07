@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { theme } from 'theme';
 import { SettingsContext } from 'context';
 
-function Logo({ lightLogo, width = 200 }) {
+function Logo({ lightLogo, width = 200, ...props }) {
   const {
     settings: { siteName, siteLogo, siteLightLogo },
   } = useContext(SettingsContext);
@@ -16,6 +16,7 @@ function Logo({ lightLogo, width = 200 }) {
           width={width}
           alt={`${siteName} Logo`}
           title={`${siteName} Logo`}
+          {...props}
         />
       </a>
     </Link>
@@ -27,4 +28,5 @@ const StyledLogo = styled.img`
   transition: ${theme.transition};
   width: ${(p) => p.width && `${p.width}px`};
   height: auto;
+  object-fit: contain;
 `;
