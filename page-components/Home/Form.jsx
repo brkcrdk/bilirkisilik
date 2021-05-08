@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { SectionContainer, Input, Textarea } from 'components';
+import { device } from 'theme';
 
 function Form() {
   const notify = () => toast('Mesajınız iletildi!', { type: 'success' });
@@ -42,8 +43,8 @@ function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <CustomTextarea />
       </Content>
+      <CustomTextarea />
       <ToastContainer />
     </StyledForm>
   );
@@ -56,11 +57,19 @@ const StyledForm = styled(SectionContainer)`
 
 const Content = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 6fr);
   margin: 0 20px;
   gap: 60px;
+  @media ${device.tablet} {
+    column-gap: 24px;
+  }
+  @media ${device.phone} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const CustomTextarea = styled(Textarea)`
-  grid-column: 1/3;
+  /* grid-column: 1/3; */
+  margin: 0 20px;
+  margin-top: 60px;
 `;
