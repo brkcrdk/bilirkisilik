@@ -14,12 +14,48 @@ function Form() {
     return notify();
   };
   return (
-    <SectionContainer title="İletişim Formu">
-      <button onClick={notify}>Notify!</button>
-      <button onClick={handleTest}>Gönder!</button>
-      <Input value={name} onChange={(e) => setName(e.target.value)} />
+    <StyledForm title="İletişim Formu">
+      {/* <button onClick={notify}>Notify!</button>
+      <button onClick={handleTest}>Gönder!</button> */}
+      <Content>
+        <Input
+          value={name}
+          label="Adınız Soyadınız"
+          placeholder="Adınızı giriniz.."
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          placeholder="Email adresinizi giriniz.."
+          label="Email"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          placeholder="Telefon numaranızı giriniz.."
+          label="Telefon Numaranız"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          placeholder="Kısa açıklama yazınız "
+          label="Kısa Açıklama"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Content>
       <ToastContainer />
-    </SectionContainer>
+    </StyledForm>
   );
 }
 export default Form;
+
+const StyledForm = styled(SectionContainer)`
+  max-width: 1000px;
+`;
+
+const Content = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 20px;
+  gap: 60px;
+`;
