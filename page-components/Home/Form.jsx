@@ -1,50 +1,67 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { SectionContainer, Input, Textarea } from 'components';
 import { device } from 'theme';
+import { useForm } from 'hooks';
 
 function Form() {
   const notify = () => toast('Mesajınız iletildi!', { type: 'success' });
-  const [name, setName] = useState('');
+  const [name, setName] = useState(false);
+  const { dispatch, state } = useForm();
 
-  const handleTest = () => {
+  const handleSend = () => {
     fetch('/api/send', { method: 'POST' });
     return notify();
   };
+
+  const handleInputChange = (value, property) => {
+    return dispatch({ type: property, payload: value });
+  };
+
   return (
     <StyledForm title="İletişim Formu">
       {/* <button onClick={notify}>Notify!</button>
       <button onClick={handleTest}>Gönder!</button> */}
       <Content>
         <Input
-          value={name}
           label="Adınız Soyadınız"
           placeholder="Adınızı giriniz.."
-          onChange={(e) => setName(e.target.value)}
+          value={state.name}
+          onChange={(e) => handleInputChange(e.target.value, 'name')}
+          onBlur={() => {
+            if (state.name === '') return setName(true);
+            return setName(false);
+          }}
+          error={name && 'Gerekli'}
         />
         <Input
-          placeholder="Email adresinizi giriniz.."
           label="Email"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Email adresinizi giriniz.."
+          value={state.email}
+          onChange={(e) => handleInputChange(e.target.value, 'email')}
         />
         <Input
-          placeholder="Telefon numaranızı giriniz.."
           label="Telefon Numaranız"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Telefon numaranızı giriniz.."
+          value={state.phone}
+          onChange={(e) => handleInputChange(e.target.value, 'phone')}
         />
         <Input
-          placeholder="Kısa açıklama yazınız "
           label="Kısa Açıklama"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Kısa açıklama yazınız "
+          value={state.description}
+          onChange={(e) => handleInputChange(e.target.value, 'description')}
         />
       </Content>
-      <CustomTextarea />
+      <CustomTextarea
+        label="Mesajınız"
+        placeholder="Mesajınızı giriniz.."
+        value={state.message}
+        onChange={(e) => handleInputChange(e.target.value, 'message')}
+      />
       <ToastContainer />
     </StyledForm>
   );
