@@ -13,4 +13,6 @@ const StyledTextarea = styled.div``;
 
 const CustomTextarea = styled.textarea`
   width: 100%;
+  min-height: 100px;
+  resize: none;
 `;
