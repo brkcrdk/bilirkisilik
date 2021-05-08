@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { SectionContainer, Input } from 'components';
-import { useState } from 'react';
+import { SectionContainer, Input, Textarea } from 'components';
 
 function Form() {
   const notify = () => toast('Mesajınız iletildi!', { type: 'success' });
@@ -42,6 +42,7 @@ function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <CustomTextarea />
       </Content>
       <ToastContainer />
     </StyledForm>
@@ -58,4 +59,8 @@ const Content = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin: 0 20px;
   gap: 60px;
+`;
+
+const CustomTextarea = styled(Textarea)`
+  grid-column: 1/3;
 `;
