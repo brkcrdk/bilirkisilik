@@ -31,7 +31,7 @@ const StyledTextarea = styled.div`
 const CustomTextarea = styled.textarea`
   box-sizing: border-box;
   width: 100%;
-  min-height: 100px;
+  min-height: 200px;
   resize: none;
   padding: 10px 10px;
   border-color: ${(p) => (p.hasError ? color.red : color.text300)};
