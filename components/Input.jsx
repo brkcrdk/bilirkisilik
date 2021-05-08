@@ -27,7 +27,7 @@ const CustomInput = styled.input`
   border-style: solid;
   border-color: ${(p) => (p.hasError ? color.red : color.text300)};
   border-radius: ${theme.borderRadius};
-  transition: all 0.3s ease-in-out;
+  transition: ${theme.transition};
   font-weight: 300;
   font-family: Work Sans;
   &:focus {
@@ -42,7 +42,7 @@ const CustomInput = styled.input`
 const InputTitle = styled.label`
   position: absolute;
   top: -20px;
-  font-size: ${theme.font18};
+  font-size: ${theme.font16};
   font-weight: 300;
   font-family: Work Sans;
 `;
