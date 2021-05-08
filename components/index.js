@@ -11,3 +11,4 @@ export { default as SectionTitle } from './SectionTitle';
 export { default as SectionContainer } from './SectionContainer';
 export { default as RichText } from './RichText';
 export { default as Input } from './Input';
+export { default as Textarea } from './Textarea';
