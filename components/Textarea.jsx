@@ -3,7 +3,7 @@ import { color, theme } from 'theme';
 
 function Textarea({
   error,
-  title = 'Test',
+  label = 'Test',
   placeholder = 'Mesajınızı giriniz',
   value,
   onChange,
@@ -11,14 +11,14 @@ function Textarea({
 }) {
   return (
     <StyledTextarea {...props}>
-      <InputTitle>{title}</InputTitle>
+      {label && <InputTitle>{label}</InputTitle>}
       <CustomTextarea
         hasError={error}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
-      <InputError>{error}</InputError>
+      {error && <InputError>{error}</InputError>}
     </StyledTextarea>
   );
 }
