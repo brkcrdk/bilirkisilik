@@ -17,6 +17,7 @@ const StyledInput = styled.form`
 `;
 
 const CustomInput = styled.input`
+  box-sizing: border-box;
   width: 100%;
   padding: 10px 10px;
   font-size: ${theme.font16};
