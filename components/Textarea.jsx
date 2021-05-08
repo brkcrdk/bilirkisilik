@@ -29,6 +29,7 @@ const StyledTextarea = styled.div`
 `;
 
 const CustomTextarea = styled.textarea`
+  box-sizing: border-box;
   width: 100%;
   min-height: 100px;
   resize: none;
@@ -40,6 +41,7 @@ const CustomTextarea = styled.textarea`
   font-size: ${theme.font16};
   outline: none;
   transition: ${theme.transition};
+  background: ${color.backgroundColor};
 
   &:focus {
     border: 1px solid ${color.primary};
