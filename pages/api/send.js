@@ -5,7 +5,7 @@ export default async function send(req, res) {
     pool: true,
     host: 'smtpout.secureserver.net',
     port: 465,
-    secure: true, // use TLS
+    secure: true,
     auth: {
       user: 'info@kriminalincelemeleri.com',
       pass: 'yesim.yildiz12',
