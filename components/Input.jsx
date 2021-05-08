@@ -3,9 +3,9 @@ import { color, theme } from 'theme';
 function Input({ label = 'Test..', error, placeholder = 'Test', ...props }) {
   return (
     <StyledInput>
-      <InputTitle>{label}</InputTitle>
+      {label && <InputTitle>{label}</InputTitle>}
       <CustomInput hasError={error} placeholder={placeholder} {...props} />
-      <InputError>{error}</InputError>
+      {error && <InputError>{error}</InputError>}
     </StyledInput>
   );
 }
@@ -42,6 +42,7 @@ const CustomInput = styled.input`
 const InputTitle = styled.label`
   position: absolute;
   top: -20px;
+  left: 0;
   font-size: ${theme.font16};
   font-weight: 300;
   font-family: Work Sans;
@@ -49,6 +50,7 @@ const InputTitle = styled.label`
 
 const InputError = styled.label`
   position: absolute;
+  left: 0;
   bottom: -20px;
   font-size: ${theme.font14};
   font-weight: 300;
