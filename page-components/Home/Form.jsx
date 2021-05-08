@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,13 +8,12 @@ import { device } from 'theme';
 import { useForm } from 'hooks';
 
 function Form() {
-  const notify = () => toast('Mesajınız iletildi!', { type: 'success' });
   const [name, setName] = useState(false);
   const { dispatch, state } = useForm();
 
   const handleSend = () => {
     fetch('/api/send', { method: 'POST' });
-    return notify();
+    return toast('Mesajınız iletildi!', { type: 'success' });
   };
 
   const handleInputChange = (value, property) => {
@@ -23,8 +22,6 @@ function Form() {
 
   return (
     <StyledForm title="İletişim Formu">
-      {/* <button onClick={notify}>Notify!</button>
-      <button onClick={handleTest}>Gönder!</button> */}
       <Content>
         <Input
           label="Adınız Soyadınız"
