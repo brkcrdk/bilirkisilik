@@ -66,7 +66,7 @@ function Form() {
         <Input
           label="Kısa Açıklama"
           placeholder="Kısa açıklama yazınız "
-          value={state.description}
+          value={state.description.value}
           onChange={(e) => handleInputChange(e.target.value, 'description')}
           onBlur={() => handleBlurValidate('description')}
           error={state.description.error}
