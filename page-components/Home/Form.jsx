@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { SectionContainer, Input, Textarea } from 'components';
-import { device } from 'theme';
+import { color, device, theme } from 'theme';
 import { useForm } from 'hooks';
 
 function Form() {
-  const [name, setName] = useState(false);
   const { dispatch, state } = useForm();
 
   const handleSend = () => {
@@ -17,6 +15,9 @@ function Form() {
   };
 
   const handleInputChange = (value, property) => {
+    if (value !== '') {
+      dispatch({ type: `${property}_error`, payload: '' });
+    }
     return dispatch({ type: property, payload: value });
   };
 
@@ -80,6 +81,9 @@ function Form() {
         onBlur={() => handleBlurValidate('message')}
         error={state.message.error}
       />
+      <SendButton alt="Mesaj Gönder." title="Mesaj Gönder">
+        Gönder
+      </SendButton>
       <ToastContainer />
     </StyledForm>
   );
@@ -107,4 +111,15 @@ const CustomTextarea = styled(Textarea)`
   /* grid-column: 1/3; */
   margin: 0 20px;
   margin-top: 60px;
+`;
+
+const SendButton = styled.button`
+  text-align: center;
+  margin: 0 20px;
+  margin-top: 30px;
+  padding: 10px;
+  background: ${color.primary};
+  color: ${color.backgroundColor};
+  border-radius: ${theme.borderRadius};
+  max-width: 200px;
 `;
