@@ -55,6 +55,7 @@ const CustomTextarea = styled.textarea`
 const InputTitle = styled.label`
   position: absolute;
   top: -20px;
+  left: 0;
   font-size: ${theme.font16};
   font-weight: 300;
   font-family: Work Sans;
@@ -63,6 +64,7 @@ const InputTitle = styled.label`
 const InputError = styled.label`
   position: absolute;
   bottom: -20px;
+  left: 0;
   font-size: ${theme.font14};
   font-weight: 300;
   font-family: Work Sans;
