@@ -26,7 +26,7 @@ function Form() {
         type: 'email_error',
         payload: 'Geçersiz mail girdiniz.',
       });
-    if (state[property].name === '') {
+    if (state[property].value === '') {
       return dispatch({ type: `${property}_error`, payload: 'Gerekli' });
     }
     return dispatch({ type: `${property}_error`, payload: '' });
