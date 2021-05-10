@@ -54,7 +54,7 @@ const useForm = () => {
       case 'message_error':
         return {
           ...state,
-          messagge: { ...state.message, error: action.payload },
+          message: { ...state.message, error: action.payload },
         };
       default:
         return state;
