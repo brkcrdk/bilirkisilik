@@ -75,7 +75,7 @@ function Form() {
       <CustomTextarea
         label="Mesajınız"
         placeholder="Mesajınızı giriniz.."
-        value={state.message}
+        value={state.message.value}
         onChange={(e) => handleInputChange(e.target.value, 'message')}
         onBlur={() => handleBlurValidate('message')}
         error={state.message.error}
