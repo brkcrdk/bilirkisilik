@@ -21,19 +21,16 @@ function Form() {
   };
 
   const handleBlurValidate = (property) => {
-    if (property === 'name') {
-      if (state.name.value === '')
-        return dispatch({ type: 'name_error', payload: 'Gerekli' });
-      return dispatch({ type: 'name_error', payload: '' });
+    if (property === 'email' && !state.email.value.match(/\S+@\S+\.\S+/gi))
+      return dispatch({
+        type: 'email_error',
+        payload: 'Geçersiz mail girdiniz.',
+      });
+    if (state[property].name === '') {
+      return dispatch({ type: `${property}_error`, payload: 'Gerekli' });
     }
-    if (property === 'phone') {
-      if (state.phone.value === '')
-        return dispatch({ type: 'phone_error', payload: 'Gerekli' });
-      return dispatch({ type: 'phone_error', payload: '' });
-    }
+    return dispatch({ type: `${property}_error`, payload: '' });
   };
-
-  console.log(state);
 
   return (
     <StyledForm title="İletişim Formu">
@@ -49,8 +46,11 @@ function Form() {
         <Input
           label="Email"
           placeholder="Email adresinizi giriniz.."
-          value={state.email}
+          value={state.email.value}
           onChange={(e) => handleInputChange(e.target.value, 'email')}
+          onBlur={() => handleBlurValidate('email')}
+          error={state.email.error}
+          type="email"
         />
         <Input
           label="Telefon Numaranız"
@@ -68,6 +68,8 @@ function Form() {
           placeholder="Kısa açıklama yazınız "
           value={state.description}
           onChange={(e) => handleInputChange(e.target.value, 'description')}
+          onBlur={() => handleBlurValidate('description')}
+          error={state.description.error}
         />
       </Content>
       <CustomTextarea
@@ -75,6 +77,8 @@ function Form() {
         placeholder="Mesajınızı giriniz.."
         value={state.message}
         onChange={(e) => handleInputChange(e.target.value, 'message')}
+        onBlur={() => handleBlurValidate('message')}
+        error={state.message.error}
       />
       <ToastContainer />
     </StyledForm>
