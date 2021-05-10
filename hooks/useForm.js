@@ -29,15 +29,27 @@ const useForm = () => {
       case 'name_error':
         return { ...state, name: { ...state.name, error: action.payload } };
       case 'email':
-        return { ...state, email: action.payload };
+        return { ...state, email: { ...state.email, value: action.payload } };
+      case 'email_error':
+        return { ...state, email: { ...state.email, error: action.payload } };
       case 'phone':
         return { ...state, phone: { ...state.phone, value: action.payload } };
       case 'phone_error':
         return { ...state, phone: { ...state.phone, error: action.payload } };
       case 'description':
-        return { ...state, description: action.payload };
+        return {
+          ...state,
+          phone: { ...state.description, value: action.payload },
+        };
+      case 'description_error':
+        return {
+          ...state,
+          phone: { ...state.description, error: action.payload },
+        };
       case 'message':
-        return { ...state, message: action.payload };
+        return { ...state, phone: { ...state.message, value: action.payload } };
+      case 'message_error':
+        return { ...state, phone: { ...state.message, error: action.payload } };
       default:
         return state;
     }
