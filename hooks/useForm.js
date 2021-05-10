@@ -39,17 +39,23 @@ const useForm = () => {
       case 'description':
         return {
           ...state,
-          phone: { ...state.description, value: action.payload },
+          description: { ...state.description, value: action.payload },
         };
       case 'description_error':
         return {
           ...state,
-          phone: { ...state.description, error: action.payload },
+          description: { ...state.description, error: action.payload },
         };
       case 'message':
-        return { ...state, phone: { ...state.message, value: action.payload } };
+        return {
+          ...state,
+          message: { ...state.message, value: action.payload },
+        };
       case 'message_error':
-        return { ...state, phone: { ...state.message, error: action.payload } };
+        return {
+          ...state,
+          messagge: { ...state.message, error: action.payload },
+        };
       default:
         return state;
     }
