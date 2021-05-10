@@ -12,7 +12,7 @@ function Input({ label = 'Test..', error, placeholder = 'Test', ...props }) {
 
 export default Input;
 
-const StyledInput = styled.form`
+const StyledInput = styled.div`
   position: relative;
 `;
 
