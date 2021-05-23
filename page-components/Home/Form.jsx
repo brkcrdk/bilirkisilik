@@ -10,7 +10,7 @@ function Form() {
   const { dispatch, state } = useForm();
 
   const handleSend = async () => {
-    await fetch('/api/email', {
+    fetch('/api/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
