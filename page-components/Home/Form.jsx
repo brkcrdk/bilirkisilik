@@ -93,7 +93,18 @@ function Form() {
         onBlur={() => handleBlurValidate('message')}
         error={state.message.error}
       />
-      <SendButton alt="Mesaj Gönder." title="Mesaj Gönder" onClick={handleSend}>
+      <SendButton
+        alt="Mesaj Gönder."
+        title="Mesaj Gönder"
+        disabled={
+          !state.email.value ||
+          !state.name.value ||
+          !state.phone.value ||
+          !state.description.value ||
+          !state.message.value
+        }
+        onClick={handleSend}
+      >
         Gönder
       </SendButton>
       <ToastContainer />
@@ -134,4 +145,9 @@ const SendButton = styled.button`
   color: ${color.backgroundColor};
   border-radius: ${theme.borderRadius};
   max-width: 200px;
+  pointer-events: all;
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
 `;
