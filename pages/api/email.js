@@ -1,13 +1,14 @@
 const { SocketLabsClient } = require('@socketlabs/email');
 
-const serverId = 39325;
-const injectionApiKey = 'k2YAg9b8ERo36ZqDj75H';
-
-const client = new SocketLabsClient(serverId, injectionApiKey);
-
 export default async function email(request, response) {
   const { name, email, subject, phone, message } = request.body;
 
+  // serverId number olmak zorunda ama env dosyasından id string olarak geliyor
+  const serverId = parseInt(process.env.EMAIL_SERVER_ID);
+  const injectionApiKey = process.env.EMAIL_SERVER_KEY;
+
+  const client = new SocketLabsClient(serverId, injectionApiKey);
+  console.log(process.env);
   const mailMessage = {
     to: 'info@kriminalincelemeleri.com',
     from: email,
