@@ -14,16 +14,19 @@ const message = {
   messageType: 'basic',
 };
 
-export default async function email() {
-  return client.send(message).then(
-    (res) => {
-      //Handle successful API call
-      console.log(res);
-      return res.status(200).json({ message: 'Mesajınız iletildi' });
-    },
-    (err) => {
-      //Handle error making API call
-      console.log(err);
-    }
-  );
+export default async function email(request, response) {
+  console.log(request);
+  const { message, email } = request.body;
+
+  // return client.send(message).then(
+  //   (e) => {
+  //     //Handle successful API call
+  //     console.log(e);
+  //     return response.status(200).json({ message: 'Mesajınız iletildi' });
+  //   },
+  //   (err) => {
+  //     //Handle error making API call
+  //     console.log(err);
+  //   }
+  // );
 }
