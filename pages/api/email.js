@@ -16,7 +16,7 @@ export default async function email(request, response) {
     htmlBody: `<html>
       <ul>
         <li>Ad Soyad: ${name}</li>
-        <li>Telefon Numarası: ${phone}</li>
+        <li>Telefon Numarası: <a href='tel:${phone}'>${phone}</a></li>
         <li>Email: ${email}</li>
       </ul>
       <h3>Mesaj:</h3>
@@ -26,13 +26,10 @@ export default async function email(request, response) {
   };
 
   return client.send(mailMessage).then(
-    (e) => {
-      //Handle successful API call
-      console.log(e);
+    () => {
       return response.status(200).json({ message: 'Mesajınız iletildi' });
     },
     (err) => {
-      //Handle error making API call
       console.log(err);
     }
   );
