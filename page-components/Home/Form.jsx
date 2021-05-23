@@ -9,23 +9,6 @@ import { useForm } from 'hooks';
 function Form() {
   const { dispatch, state } = useForm();
 
-  const handleSend = async () => {
-    fetch('/api/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: state.name.value,
-        email: state.email.value,
-        subject: state.description.value,
-        phone: state.phone.value,
-        message: state.message.value,
-      }),
-    });
-    return toast('Mesajınız iletildi!', { type: 'success' });
-  };
-
   const handleInputChange = (value, property) => {
     if (value !== '') {
       dispatch({ type: `${property}_error`, payload: '' });
@@ -43,6 +26,33 @@ function Form() {
       return dispatch({ type: `${property}_error`, payload: 'Gerekli' });
     }
     return dispatch({ type: `${property}_error`, payload: '' });
+  };
+
+  const handleSend = async () => {
+    fetch('/api/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: state.name.value,
+        email: state.email.value,
+        subject: state.description.value,
+        phone: state.phone.value,
+        message: state.message.value,
+      }),
+    });
+    clearInputs();
+    return toast('Mesajınız iletildi!', { type: 'success' });
+  };
+
+  const clearInputs = () => {
+    const properties = ['name', 'email', 'phone', 'message', 'description'];
+    // dispatch()
+    return properties.forEach((property) => {
+      dispatch({ type: property, payload: '' });
+      return dispatch({ type: `${property}_error`, payload: '' });
+    });
   };
 
   return (
