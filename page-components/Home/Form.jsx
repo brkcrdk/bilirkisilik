@@ -67,14 +67,14 @@ function Form() {
         />
         <Input
           label="Telefon Numaranız"
-          placeholder="Telefon numaranızı giriniz.."
+          placeholder="Örn: 05554443322"
           value={state.phone.value}
           onChange={(e) =>
             handleInputChange(e.target.value.replace(/[^0-9]/g, ''), 'phone')
           }
           onBlur={() => handleBlurValidate('phone')}
           error={state.phone.error}
-          maxLength="10"
+          maxLength="11"
         />
         <Input
           label="Kısa Açıklama"
