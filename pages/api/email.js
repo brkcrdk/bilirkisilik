@@ -8,7 +8,7 @@ export default async function email(request, response) {
   const injectionApiKey = process.env.EMAIL_SERVER_KEY;
 
   const client = new SocketLabsClient(serverId, injectionApiKey);
-  console.log(process.env);
+
   const mailMessage = {
     to: 'info@kriminalincelemeleri.com',
     from: email,
