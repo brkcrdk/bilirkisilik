@@ -10,7 +10,13 @@ function Form() {
   const { dispatch, state } = useForm();
 
   const handleSend = async () => {
-    fetch('/api/email', { method: 'POST' });
+    await fetch('/api/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: 'Test', email: 'burak' }),
+    });
     return toast('Mesajınız iletildi!', { type: 'success' });
   };
 
