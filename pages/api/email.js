@@ -10,7 +10,7 @@ export default async function email(request, response) {
 
   const mailMessage = {
     to: 'info@kriminalincelemeleri.com',
-    from: 'brkcrdk@gmail.com',
+    from: email,
     subject: subject,
     textBody: `${message}`,
     htmlBody: `<html>
