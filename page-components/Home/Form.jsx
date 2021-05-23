@@ -9,8 +9,8 @@ import { useForm } from 'hooks';
 function Form() {
   const { dispatch, state } = useForm();
 
-  const handleSend = () => {
-    fetch('/api/send', { method: 'POST' });
+  const handleSend = async () => {
+    fetch('/api/email', { method: 'POST' });
     return toast('Mesajınız iletildi!', { type: 'success' });
   };
 
@@ -81,7 +81,7 @@ function Form() {
         onBlur={() => handleBlurValidate('message')}
         error={state.message.error}
       />
-      <SendButton alt="Mesaj Gönder." title="Mesaj Gönder">
+      <SendButton alt="Mesaj Gönder." title="Mesaj Gönder" onClick={handleSend}>
         Gönder
       </SendButton>
       <ToastContainer />
