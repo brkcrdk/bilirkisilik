@@ -19,6 +19,7 @@ export default async function email() {
     (res) => {
       //Handle successful API call
       console.log(res);
+      return res.status(200).json({ message: 'Mesajınız iletildi' });
     },
     (err) => {
       //Handle error making API call
