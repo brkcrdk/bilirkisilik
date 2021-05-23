@@ -15,7 +15,13 @@ function Form() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message: 'Test', email: 'burak' }),
+      body: JSON.stringify({
+        name: state.name.value,
+        email: state.email.value,
+        subject: state.description.value,
+        phone: state.phone.value,
+        message: state.message.value,
+      }),
     });
     return toast('Mesajınız iletildi!', { type: 'success' });
   };
