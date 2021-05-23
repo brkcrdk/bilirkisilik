@@ -19,7 +19,7 @@ export default async function email(request, response) {
         <li>Telefon Numarası: ${phone}</li>
         <li>Email: ${email}</li>
       </ul>
-      <h5>Mesaj:</h5>
+      <h3>Mesaj:</h3>
       <p>${message}</p>
     </html>`,
     messageType: 'basic',
