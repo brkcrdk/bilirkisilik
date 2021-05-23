@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.13",
-    "@socketlabs/email": "^1.2.1",
     "framer-motion": "^4.0.3",
     "google-map-react": "^2.1.9",
     "graphql": "^15.5.0",
@@ -24,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/eslint-parser": "^7.13.8",
+    "@socketlabs/email": "^1.2.1",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
