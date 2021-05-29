@@ -18,8 +18,9 @@ const ServicesCard = ({ title, description, route, background }) => {
     },
     hovered: {
       height: '55%',
-      borderTopLeftRadius: theme.borderRadius,
-      borderTopRightRadius: theme.borderRadius,
+      borderRadius: theme.borderRadius,
+      // borderTopLeftRadius: theme.borderRadius,
+      // borderTopRightRadius: theme.borderRadius,
     },
   };
 
@@ -82,9 +83,9 @@ const StyledServicesCard = styled.article`
 
 const Content = styled(motion.header)`
   background: ${color.backgroundColor};
-  width: 100%;
+  width: calc(100% + 1px);
   position: absolute;
-  left: 0;
+  left: -0.5px;
   bottom: 0;
   padding: 12px;
   transition: ${theme.transition};
