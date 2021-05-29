@@ -5,7 +5,7 @@ const WorkWithUsCard = ({ title, description, icon }) => (
   <StyledWorkWithUsCard>
     <Icon src={icon} alt={title} title={title} />
     <Content>
-      <h3>{title}</h3>
+      {title && <h3>{title}</h3>}
       <p>{description}</p>
     </Content>
   </StyledWorkWithUsCard>
@@ -15,24 +15,26 @@ export default WorkWithUsCard;
 const StyledWorkWithUsCard = styled.article`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 const Icon = styled.img`
-  width: 64px;
-  height: 64px;
+  width: 54px;
+  height: 54px;
   margin-right: 24px;
   object-fit: contain;
   @media ${device.tablet} {
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 40px;
     margin-right: 20px;
   }
   @media ${device.phone} {
-    width: 48px;
-    height: 48px;
+    display: none;
+    width: 36px;
+    height: 36px;
     margin-right: 12px;
   }
 `;
-const Content = styled.header`
+const Content = styled.article`
   font-family: Work Sans;
   h3 {
     margin-bottom: 12px;
