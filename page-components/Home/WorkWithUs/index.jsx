@@ -25,15 +25,11 @@ export default WorkWithUs;
 
 const CardContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px 24px;
-  @media ${device.laptop} {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  row-gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
   @media ${device.phone} {
-    padding: 0 12px;
     row-gap: 24px;
-    grid-template-columns: 1fr;
+    padding: 0 12px;
   }
 `;
